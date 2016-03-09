@@ -33,6 +33,23 @@
 
 
 
+;;ispell aspell auto correct
+;;aspell better work
+(setenv "DICTIONARY" "en_GB")
+;;(add-to-list 'exec-path "~/.emacs.d/Aspell/bin/")
+;;(add-to-list 'exec-path "C:\\Program Files (x86)\\Aspell\\bin")
+;;(add-to-list 'exec-path "C:\\Users\\saahil claypool\\AppData\\Roaming\\.emacs.d\\Aspell\\bin")
+(add-to-list 'exec-path "~\\.emacs.d\\Aspell\\bin")
+(setq ispell-program-name "aspell")
+(require 'ispell) ;; turn on 
+(setq ispell-personal-dictionary "~\\.emacs.d\\Aspell\\dict")
+
+
+
+
+
+
+
 ;;CEDET
 (add-to-list 'semantic-default-submodes 'global-semantic-decoration-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-idle-local-symbol-highlight-mode)
