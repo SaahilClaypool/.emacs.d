@@ -121,10 +121,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
- '(send-mail-function (quote sendmail-send-it)))
+ '(send-mail-function (quote sendmail-send-it))
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Luxi Mono" :foundry "b&h" :slant normal :weight normal :height 120 :width normal)))))
+ '(default ((t (:family "MS Reference Sans Serif" :foundry "outline" :slant normal :weight normal :height 120 :width normal)))))
