@@ -1,7 +1,11 @@
-;; gui changes
+;; temp changes:
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+
+
+(set-default-font "Source Code Pro" nil t)
+(set-face-attribute 'default nil :height 100)
 
 ;; turn off those stupid emacs droppings
 (setq make-backup-files nil)
