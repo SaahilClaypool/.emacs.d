@@ -2,10 +2,11 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (setq inhibit-startup-message t) 
-
-
 (set-face-attribute 'default nil :height 100)
-
+;; indentation guide
+(require 'indent-guide)
+(indent-guide-global-mode)
+(set-face-background 'indent-guide-face "white")
 
 ;; turn off those stupid emacs droppings
 (setq make-backup-files nil)
