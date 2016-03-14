@@ -52,6 +52,12 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js?\\'" . web-mode))
 
+
+;; ESS MODE STATS
+ (setq ess-eval-visibly nil) ; ESS will not print the evaluated commands, also speeds up the evaluation 
+ (setq ess-ask-for-ess-directory nil) ;if you don't want to be prompted each time you start an interactive R session
+
+
 ;;ispell aspell auto correct
 ;;aspell better work
 (setenv "DICTIONARY" "en_GB")
