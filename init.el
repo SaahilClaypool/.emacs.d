@@ -30,8 +30,14 @@
        "~/.emacs.d/ac-comphist.dat")) ;; setup for ac cedet
 (ac-config-default);; default
 ;; autocomplete
-
 (global-auto-complete-mode t)
+
+;; highligh parens 
+(setq show-paren-delay 0)
+(show-paren-mode 1)
+
+;;Smooth scrolling 
+(setq scroll-conservatively 10000)
 
 
 
