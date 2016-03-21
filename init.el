@@ -33,10 +33,6 @@
 
 (global-auto-complete-mode t)
 
-;; indentation guide
-(require 'indent-guide)
-(indent-guide-global-mode)
-
 
 
 
