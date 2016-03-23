@@ -1,0 +1,2 @@
+#caps control  put this in .bashrc to remap caps to control
+setxkbmap -option ctrl:nocaps       # Make Caps Lock a Control key
