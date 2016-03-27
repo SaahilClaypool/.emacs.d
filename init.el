@@ -136,7 +136,8 @@
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 
-
+(require 'ace-window)
+(define-key global-map (kbd "M-p") 'ace-window)
 
 
 
