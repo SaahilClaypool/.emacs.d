@@ -3,7 +3,7 @@
 (scroll-bar-mode -1)
 (setq inhibit-startup-message t) 
 (set-face-attribute 'default nil :height 100)
-
+(blink-cursor-mode -1)
 
 ;; turn off those stupid emacs droppings
 (setq make-backup-files nil)
