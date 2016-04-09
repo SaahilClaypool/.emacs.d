@@ -77,29 +77,6 @@
 
 
 
-;;CEDET
-(add-to-list 'semantic-default-submodes 'global-semantic-decoration-mode)
-(add-to-list 'semantic-default-submodes 'global-semantic-idle-local-symbol-highlight-mode)
-(add-to-list 'semantic-default-submodes 'global-semantic-idle-scheduler-mode)
-(add-to-list 'semantic-default-submodes 'global-semantic-idle-completions-mode)
-
-(require 'semantic/ia)
-(require 'semantic/bovine/gcc) ; or depending on you compiler
-; (require 'semantic/bovine/clang)
-;; hooks
-;; customisation of modes
-(defun smclaypool/cedet-hook ()
-  (add-to-list 'ac-sources 'ac-source-semantic)
-  ) ; defun smclaypool/cedet-hook ()
-
-;; working with langauge tags
-;; if you want to enable support for gnu global
-(when (= 1 1)
-  (semanticdb-enable-gnu-global-databases 'c-mode)
-  (semanticdb-enable-gnu-global-databases 'c++-mode))
-
-
-
 
 ;; Save without asking
 (global-set-key "\C-xs" 'save-buffer)
