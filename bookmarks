@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("init"
+(("OneDrive"
+ (filename . "c:/Users/Saahil/OneDrive/")
+ (front-context-string . ".849C9593-D756-4")
+ (rear-context-string . "  0 03-27 18:37 ")
+ (position . 226))
+("init"
  (filename . "~/.emacs.d/init.el")
  (front-context-string . ";; gui changes\n(")
  (rear-context-string)

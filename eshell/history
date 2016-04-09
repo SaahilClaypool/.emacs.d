@@ -1,0 +1,7 @@
+ls
+git add init.el 
+git commit -m "remove cedet"
+git push
+git config --global user.name="saahilclaypool"
+git config
+git push

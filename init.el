@@ -8,6 +8,10 @@
 ;; turn off those stupid emacs droppings
 (setq make-backup-files nil)
 
+;; add recent files list
+(recentf-mode 1)
+(global-set-key (kbd "M-r") 'recentf-open-files)
+
 ;; Melpa
 ;;add melpa
 (require 'package) ;; You might already have this line
@@ -35,6 +39,7 @@
 ;; highligh parens 
 (setq show-paren-delay 0)
 (show-paren-mode 1)
+(electric-pair-mode 1)
 
 ;;Smooth scrolling 
 (setq scroll-conservatively 10000)
@@ -110,7 +115,7 @@
 ;; ace jump mode
 ;;(add-to-list 'load-path "~/.emacs.d/")
 (require 'ace-jump-mode)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(define-key global-map (kbd "M-j") 'ace-jump-mode)
 
 (require 'ace-window)
 (define-key global-map (kbd "M-p") 'ace-window)
