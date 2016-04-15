@@ -5,3 +5,15 @@ git push
 git config --global user.name="saahilclaypool"
 git config
 git push
+ssh ccc@wpi.edu
+ssh
+ls
+emacs -nw FASTA.py 
+cd ..
+ls
+grep
+grep *.py
+grep py
+cat 
+ls
+cat BB110X/dukes.py 

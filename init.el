@@ -138,3 +138,6 @@
 (add-to-list 'default-frame-alist '(font . "Lucida Console"))
 (set-face-attribute 'default t :font "Lucida Console" )
 (set-face-attribute 'default (selected-frame) :height 115)
+
+;; theme
+(load-theme 'manoj-dark)
