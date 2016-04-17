@@ -1,4 +1,6 @@
-((("load-file" .
+((("monokai" .
+   [0 0 0 0 1 0 0])
+  ("load-file" .
    [0 0 0 0 0 0 0 0 1])
   ("manoj-dark" .
    [0 0 0 0 0 2 0 0 0 0])
@@ -47,7 +49,7 @@
   ("append" .
    [3 0 0 0 0 0])
   ("is" .
-   [3 0])
+   [4 0])
   ("sunspot" .
    [1 0 0 1 0 0 0])
   ("sunspot.month" .
@@ -69,7 +71,7 @@
   ("autocomplete" .
    [0 0 0 0 0 1 0 0 0 0 0 0])
   ("require" .
-   [3 0 0 0 0 0 0])
+   [3 0 0 0 0 0 1])
   ("choose" .
    [1 0 0 0 0 0])
   ("factorial" .

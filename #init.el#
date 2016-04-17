@@ -140,5 +140,4 @@
 (set-face-attribute 'default (selected-frame) :height 115)
 
 ;; theme
-(load-theme 'monokai t)
 
