@@ -32,6 +32,7 @@
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x b") 'helm-mini)
 (setq helm-buffers-fuzzy-matching t
       helm-recentf-fuzzy-match    t)
@@ -71,11 +72,10 @@
 ;; highligh parens 
 (setq show-paren-delay 0)
 (show-paren-mode 1)
-(electric-pair-mode 1)
+(autopair-global-mode 1)
 
 ;;Smooth scrolling 
 (setq scroll-conservatively 10000)
-
 
 
 
@@ -142,12 +142,23 @@
 (global-set-key (kbd "C-c <down>")  'windmove-down)
 
 
+;; lisp eval
+;; Lisp specific defuns
 
+(defun eval-and-replace ()
+  "Replace the preceding sexp with its value."
+  (interactive)
+  (backward-kill-sexp)
+  (condition-case nil
+      (prin1 (eval (read (current-kill 0)))
+             (current-buffer))
+    (error (message "Invalid expression")
+           (insert (current-kill 0)))))
 
-;; ace jump mode
-;;(add-to-list 'load-path "~/.emacs.d/")
-(require 'ace-jump-mode)
-(define-key global-map (kbd "M-j") 'ace-jump-mode)
+(global-set-key (kbd "C-c e") 'eval-and-replace)
+;; avy jump 
+(require 'avy)
+(define-key global-map (kbd "M-j") 'avy-goto-word-or-subword-1)
 
 (require 'ace-window)
 (define-key global-map (kbd "M-p") 'ace-window)
