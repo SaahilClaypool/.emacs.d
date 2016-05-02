@@ -10,7 +10,7 @@
 
 ;; add recent files list
 (recentf-mode 1)
-(global-set-key (kbd "M-r") 'recentf-open-files)
+(global-set-key (kbd "M-r") 'query-replace)
 
 ;; Melpa
 ;;add melpa
@@ -161,7 +161,7 @@
 (define-key global-map (kbd "M-j") 'avy-goto-word-or-subword-1)
 
 (require 'ace-window)
-(define-key global-map (kbd "M-p") 'ace-window)
+(define-key global-map (kbd "C-x p") 'ace-window)
 
 ;; 2 ^ n
 (defun pwr2 (n)
@@ -184,6 +184,14 @@
 
 (defun date()
   (current-time-string))
+(defun npr (n r)
+  (/ (fantorial n) (fantorial (- n r))))
+(defun ncr (n r)
+  (/ (factorial n) (factorial r) (factorial (- n r))))
+
+
+
+
 
 
 
