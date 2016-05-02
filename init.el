@@ -143,7 +143,7 @@
 
 
 ;; lisp eval
-;; Lisp specific defuns
+;; Lisp specific defuns TODO
 
 (defun eval-and-replace ()
   "Replace the preceding sexp with its value."
@@ -162,6 +162,16 @@
 
 (require 'ace-window)
 (define-key global-map (kbd "M-p") 'ace-window)
+
+;;
+(defun pwr2 (n)
+  (if (<= 1 n)
+      (* 2 (pwr2 (- n 1)))
+    1))
+
+
+
+
 
 
 
