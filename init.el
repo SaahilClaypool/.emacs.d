@@ -163,11 +163,23 @@
 (require 'ace-window)
 (define-key global-map (kbd "M-p") 'ace-window)
 
-;;
+;; 2 ^ n
 (defun pwr2 (n)
   (if (<= 1 n)
       (* 2 (pwr2 (- n 1)))
     1))
+
+;; factorial n 
+(defun factorial (n)
+  (if(> n 1)
+      (* n (factorial (- n 1)))
+    1))
+;; a ^ n
+(defun pwr (a n)
+  (if (<= 1 n)
+      (* a (pwr a (- n 1)))
+    1)
+  )
 
 
 
