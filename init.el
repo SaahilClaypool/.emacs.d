@@ -180,11 +180,10 @@
       (* a (pwr a (- n 1)))
     1)
   )
+;; print current date
 
-
-
-
-
+(defun date()
+  (current-time-string))
 
 
 
