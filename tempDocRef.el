@@ -16,9 +16,10 @@
 
 
 
-
+(setq max-lisp-eval-depth 500000)
+(setq max-specpdl-size 500000)
 (setq funcSymbol "_func_") ;; any unique symbol works
-(setq referenceDir "c:/Users/saahil claypool/OneDrive/Code/EmacsPackage/reference") ;; where should the documentation be stored? 
+;;(setq referenceDir "c:/Users/saahil claypool/OneDrive/Code/EmacsPackage/reference") ;; where should the documentation be stored? 
 (if (not (file-exists-p referenceDir)) ;; setup directory if it is not setup 
     (make-directory referenceDir))
 
@@ -219,15 +220,17 @@
   ;;(concat (concat "\C-r return " (make-string (window-body-width)  ?-) "\C-a") )
    [?\C-p ?\C-r return ?- ?- ?- ?- return ?\C-a]
   )
-
+(defun quit-function ()
+   "\C-x1\C-xk\C-m")
 
 (defun paste-function ()
-  [?\C-s return ?F ?u ?n ?c ?t ?i ?o ?n ?: return ?\C-e ?\C-b ?\C-  ?\C-\M-b ?\C-\M-b ?\M-w ?\C-x ?k return ?\C-x ?o ?\C-y ?\C-x ?1])
+  "\C-s\C-mFunction:\C-m\C-s\C-m)\C-m\C-@\C-[\C-b\C-[\C-b\C-[w\C-xo\C-x1\C-y")
+;;  "\C-s\C-mFunction:\C-m\C-s\C-m;\C-m\C-b\C-@\C-[\C-b\C-[\C-b\C-[w\C-xk\C-m\C-xo\C-y\C-x1")
+;;  "\C-s\C-mFunction:\C-m\C-e\C-[\C-b\C-@\C-[\C-b\C-[w\C-xk\C-m\C-xo\C-y\C-x1")
+   
+
+;;  [?\C-s return ?F ?u ?n ?c ?t ?i ?o ?n ?: return ?\C-e ?\C-b ?\C-  ?\C-\M-b ?\C-\M-b ?\M-w ?\C-x ?k return ?\C-x ?o ?\C-y ?\C-x ?1])
  ;; old [?\C-s ?f ?u ?n ?\C-e ?\C-b ?\C-  ?\C-\M-b ?\C-\M-b ?\M-w ?\C-x ?o ?\C-y ?\C-x ?1])
-
-
- 
-
 
 
 
@@ -241,10 +244,14 @@
                 )
             (define-key map (kbd "n") (next-function))
             (define-key map (kbd "p") (prev-function))
-            (define-key map (kbd "<return>") (paste-function))
+            (define-key map (kbd "i") (paste-function))
+            (define-key map (kbd "q") (quit-function))
             map
             )
+    
   )
+   
+
 ;;(filter-strings "flag 1" lines)
 ;;(filter-strings "test" (list "this is a test" "this is another test"))
 ;;(filter-class "test" (list "this is a test" "this is another test"))
@@ -257,7 +264,15 @@
 ;; function
 ;; description
 (defun parse-single-file (fileName outputFile projName)
+  
   "given file name and output file puts the reference information in that file"
+  (progn
+    (with-temp-buffer
+      (insert "parse-SINGLE-files\n")
+      (insert fileName)
+      (append-to-buffer "output" nil nil)
+      )
+
   (let*
       (
        (lines (read-lines fileName))
@@ -273,7 +288,7 @@
     ;;    functions
     nil
     )
-  )
+  ))
 ;; takes in list of (function . desc)
 (defun output-functions (fileName functions projName)
   "takes in file name and list of functions. Outputs them as symbol separated list"
@@ -288,8 +303,10 @@
         (insert (nth 0 (car functions)))
         (insert "\n")
         (insert (join-list-string (nth 1 (car functions))))
+        (output-functions fileName (cdr functions) projName)
         )
     )
+  nil
   )
 
 
@@ -365,12 +382,11 @@
         (message "Must Enter Project Name")
       (if (not (= (length root) 0 ))
           (setup-helper root (concat referenceDir "/" name) name)
-        (setup-helper "." (concat referenceDir "/" name) name)
+        (setup-helper default-directory (concat referenceDir "/" name) name)
         )
       )
     )
   )
-
 
 
 ;; need to go and make a for every file in directory function
@@ -386,18 +402,37 @@
     (parse-dirs fileNames outputFile dir projName)
     )
   )
+(defun my-filter (condp lst)
+  (delq nil
+        (mapcar (lambda (x) (and (funcall condp x) x)) lst)))
+(my-filter (lambda (x) (string= x "a"))(list "a" "b" "c"))
+
 
 (defun parse-dirs (lof outputFile dir projName)
+  (progn
+    (with-temp-buffer
+      (insert "parse-directory-files\n")
+      (if lof
+          (insert (car lof)))
+      (append-to-buffer "output" nil nil)
+      )
+
   (if lof
       (let* (
              (firstName (car lof))
              )
-        (if (and (not (or (string= firstName ".") (string= firstName "..")))
-                 (nth 0 (file-attributes (concat dir "/" firstName))))
+        (if (and
+             (not(string= (substring firstName 0 1) "."))
+             (not (or (string= firstName ".") (string= firstName "..")))
+             (nth 0 (file-attributes (concat dir "/" firstName))))
             (let* (
                    (subDir (concat dir "/" firstName))
-                   (subLof (directory-files subDir))
+                   (subLof (my-filter
+                            (lambda (x) (not (string= "." (substring x 0 1))))
+                            (directory-files subDir)))
                    )
+              
+                
               (parse-list-file subLof outputFile subDir projName)
               (parse-dirs subLof outputFile subDir projName)
               (parse-dirs  (cdr lof) outputFile dir projName)
@@ -408,24 +443,43 @@
     nil
     )
   )
-(defun parse-list-file (lof outputFile dir projName)
-  (if lof
+  )
 
+
+(defun parse-list-file (lof outputFile dir projName)
+  (progn
+    (with-temp-buffer
+      (insert "parse-list-files\n")
+      (if lof
+          (insert (car lof)))
+      (append-to-buffer "output" nil nil)
+      )
+
+    
+  (if lof
       (let* (
              (curFile (concat dir "/" (car lof)))
              )
-        (if (or (string-suffix-p ".cpp" curFile t)
-                (string-suffix-p ".c" curFile t)
-                (string-suffix-p ".hpp" curFile t)
-                (string-suffix-p ".h" curFile t)
-               )
-            (parse-single-file curFile outputFile projName)
+        (if (and
+             (not
+              (nth 0 (file-attributes curFile)))
+             (or (string-match ".cpp" curFile )
+                 (string-match ".c" curFile )
+                 (string-match ".hpp" curFile )
+                 (string-match ".h" curFile )
+                 )
+             )
+            
+            (progn
+              (parse-single-file curFile outputFile projName)
+              (parse-list-file (cdr lof) outputFile dir projName)
+              )
           (parse-list-file (cdr lof) outputFile dir projName)
-            )
+          )
         )
     nil
     )
-  
+  )
   )
 ;; TEST CODE
 ;;(docref-lookup-docs "test.txt")

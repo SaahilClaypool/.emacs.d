@@ -325,14 +325,50 @@
             (parse-strings (nthcdr count los)
                            (cons (list function desc) listPair))
             )
-        (parse-strings (cdr los) listPair)
+        (if (string-match "/**"
+                          (car los))
+            (let* (
+                   (pair )
+                   (count )
+                   (desc )
+                   )
+              (parse-strings (nthcdr count los)
+                             (cons (list function desc) listPair))
+              )
+          (parse-strings (cdr los) listPair)
+            )
         )
     listPair
 
     )
   )
-
-
+;; parse block comment
+(defun parse-block-comment (los listDesc lineCount)
+  "parse block doxy comment and get the next function it refers to"
+  (if los
+      (let* (
+             (curLine (car los))
+             )
+        (if (not (string-match "*/"
+                               curLine))
+            (parse-block-comment (cdr los)
+                           (append   listDesc (list curLine))
+                           (+ 1 lineCount))
+          ;; else, return the next nonEmpty line as a list with the description
+          (let*(
+                (non-empt-ret (next-non-empty (cdr los) 0))
+                (empty-count (nth 1 non-empt-ret))
+                (non-empty-str (nth 0 non-empt-ret))
+              )
+            (list non-empty-str listDesc (+ 1 empty-count lineCount))
+            )
+          
+          
+          )
+        )
+    nil
+    )
+  )
 ;; keep adding to list of Desc, when last line is not ///, go until non empty line
 ;; return cons (function description lineCount) 
 (defun parse-comment (los listDesc lineCount)
