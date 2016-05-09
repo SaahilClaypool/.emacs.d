@@ -2,6 +2,14 @@
 ;; "Mon May  9 14:30:51 2016"
 
 
+;;(global-font-lock-mode 1)
+
+;;(setq referenceDir "~/.emacs.d/reference")
+;;(load "~/.emacs.d/docRef.el")
+;;(global-set-key (kbd "C-c d d") (lambda ()(interactive)(docref-lookup-docs)))
+;;(global-set-key (kbd "C-c d s") (lambda ()(interactive)(docref-setup-project)))
+
+
 
 ;; SETUP
 
@@ -177,17 +185,17 @@
       (progn
         (if (not (= 0 (length (car aList))))
             (let* (
-                   (width (window-body-width))
+                   (width (- (window-body-width) 1))
                    (line (split-string (car aList) "\n"))
                    )
               (pop line)
               (insert-char 45 width )
-              (insert "Project:         ")
+              (insert "\nProject:         ")
               (insert (pop line))
               (insert "\nFile:            ")              
               (insert (pop line))
               (insert "\n\nFunction:        ")
-              (insert (pop line))
+	      (setf line (nthcdr (insert-function line nil 0) line))
               (insert "\n\n")
               (insert (join-list-string line))
 
@@ -199,13 +207,34 @@
   nil
   )
 
-
+(defun insert-function (loline open count) 
+  (if loline
+      (let* (
+	     (cur (pop loline))
+	     )
+	(if (and (or (string-match "(" cur)
+		     open)
+		 (not (string-match ")"
+				    cur)))
+	    (progn
+	      (insert cur)
+	      (insert "\n")
+	      (insert-function loline t (+ 1 count))
+	      )
+	  (progn
+	    (insert cur)
+	    (+ 1 count))
+	)
+	)
+    count
+    )
+  )
 (defun pretty-print-compact (aList)
   (if aList
       (progn
         (if (not (= 0 (length (car aList))))
             (let* (
-                   (width (window-body-width))
+                   (width (- (window-body-width) 1))
                    (line (split-string (car aList) "\n"))
                    )
               (pop line)
@@ -213,7 +242,7 @@
               (pop line) ;; remove project
               (pop line) ;; remove file
               (insert "\nFunction:        ")
-              (insert (pop line))
+              (setf line (nthcdr (insert-function line nil 0) line))
               (insert "\n")
               ;;(insert (join-list-string line)) remove comment
 
@@ -253,7 +282,7 @@
           (pretty-print-compact filterFunction)
         (pretty-print filterFunction)
         )
-      (insert-char 45 (window-body-width) )
+      (insert-char 45 (- (window-body-width) 1) )
       (beginning-of-buffer)
       (docRef-mode 1)
       )
@@ -266,7 +295,7 @@
       (pretty-print-compact last-query)
     (pretty-print last-query)
     )
-  (insert-char 45 (window-body-width) )
+  (insert-char 45 (- (window-body-width)1) )
   (beginning-of-buffer)
   )
 
@@ -295,7 +324,7 @@
 
 
 (defun compact-function-toggle ()
-   "\C-[:(setq compact (not compact\C-m\C-[:(re-print\C-m")
+     "\C-[:(setq compact (not compact))\C-m\C-[:(re-print)\C-m")
 
 
 
@@ -499,14 +528,28 @@
     (if los
         (if (= (length (car los)) 0);; if str len is 0
             (next-non-empty (cdr los) (+ 1 count)) ;; return the next non empty
-          (list (car los) count);; else reutrn this
+          (get-multi-line-function los
+				   count
+				   nil
+				   (string-match "(" (car los)));; else reutrn this
           )
       nil
       )
     )
-
-
-
+(defun get-multi-line-function (los count curFunction openPren) 
+  "return (list function count"
+  (if los 
+      (if (and openPren
+	       (not (string-match ")" (car los))))
+	  (get-multi-line-function (cdr los)
+				   (+ count 1)
+				   (append curFunction (list (car los)))
+				   openPren)
+	(list (join-list-string (append curFunction (list (car los)))) (+ 1 count))
+	)
+    (list curFunction count)
+    )
+  )
 (defun docref-setup-project()
   (let*(
         (root (read-string "Enter Path of Project Root (default current directory): "))
@@ -615,20 +658,3 @@
     )
   )
   )
-;; TEST CODE
-;;(docref-lookup-docs "test.txt")
-;;(parse-strings (list "///com" "/// com2" "/// com3" "" "function (a b c)"
-;;                     "///com" "/// com2" "/// com3" "" "function (a b c)" "" "") nil)
-;;(parse-comment (list "///com" "/// com2" "/// com3" "" "function (a b c)") (list) 0)
-;;(parse-single-file "testHeader.h" "output.txt")
-;;(read-lines "testHeader.h")
-;;(output-functions "testHeader.h"(parse-single-file "testHeader.h"))
-;;(docref-setup-project)
-;;(setup-helper "." "output.txt")
-;;(docref-lookup-docs)
-
-
-
-;;(parse-single-file "testHeader.h" "./testRef")
-
-

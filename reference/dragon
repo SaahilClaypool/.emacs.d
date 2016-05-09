@@ -1,0 +1,2615 @@
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Box.h
+};
+
+  bool operator==(const Box &other) const; ///< Compare boxes.
+  bool operator!=(const Box &other) const; ///< Compare boxes.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Box.h
+  float getVertical() const;
+
+  /// Get vertical size of box.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Box.h
+  void setVertical(float new_vertical);
+
+  /// Set vertical size of box.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Box.h
+  float getHorizontal() const;
+
+  /// Get horizontal size of box.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Box.h
+  void setHorizontal(float new_horizontal);
+
+  /// Set horizontal size of box.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Box.h
+  Vector getCorner() const;
+
+  /// Get upper left corner of box.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Box.h
+  void setCorner(Vector new_corner);
+
+  /// Set upper left corner of box.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Box.h
+  Box();
+
+  /// Create box with (0,0) for corner, and 0 for horiz and vert.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Box.h
+ public:
+
+  Vector corner;           ///< Upper left corner of box.
+  float horizontal;	   ///< Horizontal dimension.
+  float vertical;	   ///< Vertical dimension.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Box.h
+#ifndef __BOX_H__
+
+///
+/// A 2-d bounding box
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Circle.h
+};
+
+  void setCenter(Vector new_center); ///< Set center.
+  Vector getCenter() const;          ///< Get center.
+  void setRadius(float new_radius);    ///< Set radius.
+  float getRadius() const;             ///< Get radius.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Circle.h
+  Circle();
+
+  /// Default circle segment is at (0,0) with radius 0.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Circle.h
+  Circle(Vector init_center, float init_radius);
+
+  /// Create circle at center with radius r.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Circle.h
+ public:
+
+  Vector center;        ///< Circle middle.
+  float radius;           ///< Circle raduis.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Circle.h
+#ifndef __CIRCLE_H__
+
+///
+/// A 2d circle
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Clock.h
+  long int split() const;
+
+  /// Return time elapsed since delta() was called, -1 if error.
+  /// Units are microseconds.
+  /// Return -1 if error.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Clock.h
+  long int delta();
+
+  /// Return time elapsed since delta() was called, -1 if error.
+  /// Units are microseconds.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Clock.h
+ public:
+
+  long int previous_time;  /// Previous time delta() called (in microseconds).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Clock.h
+#ifndef __CLOCK_H__
+
+///
+/// The clock, for timing
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Color.h
+const Color COLOR_DEFAULT = WHITE ;
+
+/// If color not specified, will use this.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Color.h
+enum Color {
+
+/// Colors Dragonfly recognizes.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Color.h
+#ifndef __COLOR_H__
+
+///
+/// Colors for Dragonfly
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Config.h
+  void setConfig(std::string config);
+
+  /// Set attributes.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Config.h
+  std::string match(std::string find) const;
+
+  /// Match key:value pair in global configuration, returning value.
+  /// Return empty string if no match.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Config.h
+  std::string getConfig() const;
+
+  /// Get attributes.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Config.h
+ public:
+
+  Config();			 ///< Private since a singleton.
+  Config (Config const&);	 ///< Don't allow copy.
+  void operator=(Config const&); ///< Don't allow assignment.
+  std::string config;		 ///< Aggregate string from config file.
+  int window_horizontal_pixels;  ///< Horizontal pixels in window.
+  int window_vertical_pixels;    ///< Vertical pixels in window.
+  int window_horizontal_chars;   ///< Horizontal ASCII spaces in window.
+  int window_vertical_chars;     ///< Vertical ASCII spaces in window.
+  int window_style;		 ///< Style of window titlebar.
+  enum Color window_background_color; ///< Window background color.
+  int frame_time;		 ///< Target time for 1 game loop (in mlsecs).
+  float font_scale;		 ///< Font scale multiplier.
+  std::string window_title;	 ///< Title of window.
+  bool show_mouse;               ///< True if should show mouse cursor.
+  bool headless;                 ///< True if run without graphics or input.
+  std::string font_file;	 ///< Filename for graphics fonts.
+  std::string logfile;		 ///< Filename for dragonfly log.
+  int random_seed;		 ///< Seed for random number generation.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Event.h
+  std::string getType() const;
+
+  /// Get event type.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Event.h
+  void setType(std::string new_type);  
+
+  /// Set event type.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Event.h
+  virtual ~Event();
+
+  /// Destructor.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Event.h
+ public:
+
+  std::string event_type;      ///< Holds event type.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Event.h
+#ifndef __EVENT_H__
+
+///
+/// The base event
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventCollision.h
+  Vector getPosition() const;
+
+  /// Return position of collision.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventCollision.h
+  void setPosition(Vector new_pos);
+
+  /// Set position of collision.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventCollision.h
+  Object *getObject2() const;
+
+  /// Return object that was collided with.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventCollision.h
+  void setObject2(Object *p_new_o2); 
+
+  /// Set object that was collided with.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventCollision.h
+  Object *getObject1() const;
+
+  /// Return object that caused collision.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventCollision.h
+  void setObject1(Object *p_new_o1); 
+
+  /// Set object that caused collision.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventCollision.h
+  EventCollision(Object *p_o1, Object *p_o2, Vector p);
+
+  /// Create collision event between o1 and o2 at position p.
+  /// Object o1 "caused" collision by moving into object o2.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventCollision.h
+ public:
+
+  Vector pos;          ///< Where collision occurred.
+  Object *p_obj1;        ///< Object moving, causing collision.
+  Object *p_obj2;        ///< Object being collided with.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventCollision.h
+#ifndef __EVENT_COLLISION_H__
+
+///
+/// A "collision" event
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventKeyboard.h
+  EventKeyboardAction getKeyboardAction() const;
+
+  /// Get keyboard event action.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventKeyboard.h
+  void setKeyboardAction(EventKeyboardAction new_action);
+
+  /// Set keyboard event action.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventKeyboard.h
+  Keyboard::Key getKey() const;
+
+  /// Get key from event.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventKeyboard.h
+  void setKey(Keyboard::Key new_key);
+
+  /// Set key in event.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventKeyboard.h
+ public:
+
+  Keyboard::Key key_val;	          ///< Key value.
+  EventKeyboardAction keyboard_action;    ///< Key action.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventKeyboard.h
+namespace Keyboard {
+
+/// Keyboard namespace.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventKeyboard.h
+};
+
+  KEY_PRESSED,			  ///< Was down
+  KEY_RELEASED,			  ///< Was released
+  KEY_DOWN,			  ///< Is down
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventKeyboard.h
+enum EventKeyboardAction {
+
+/// Types of keyboard actions Dragonfly recognizes.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventKeyboard.h
+#ifndef __EVENT_KEYBOARD_H__
+
+///
+/// A "keyboard" event
+/// 
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventMouse.h
+  Vector getMousePosition() const;
+
+  /// Get mouse event's position.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventMouse.h
+  void setMousePosition(Vector new_mouse_xy);
+
+  /// Set mouse event's position.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventMouse.h
+  Mouse::EventMouseButton getMouseButton() const;
+
+  /// Get mouse event's button.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventMouse.h
+  void setMouseButton(Mouse::EventMouseButton new_mouse_button);
+
+  /// Set mouse event's button.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventMouse.h
+  EventMouseAction getMouseAction() const;
+
+  /// Get mouse event's action.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventMouse.h
+  void setMouseAction(EventMouseAction new_mouse_action);
+
+  /// Set mouse event's action.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventMouse.h
+ public:
+
+  EventMouseAction mouse_action;         ///< Mouse action.
+  Mouse::EventMouseButton mouse_button;  ///< Mouse button.
+  Vector mouse_xy;		         ///< Mouse (x,y) coordinates.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventMouse.h
+namespace Mouse {
+
+/// Set of mouse buttons recognized by Dragonfly.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventMouse.h
+enum EventMouseAction {
+
+/// Set of mouse actions recognized by Dragonfly.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventMouse.h
+#ifndef __EVENT_MOUSE_H__
+
+///
+/// A "mouse" event
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventOut.h
+#ifndef __EVENT_OUT_H__
+
+///
+/// An "out of bounds" event
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventStep.h
+  int getStepCount() const;
+
+  /// Get step count.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventStep.h
+  void setStepCount(int new_step_count);
+
+  /// Set step count.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventStep.h
+  EventStep(int init_step_count);
+
+  /// Constructor with initial step count.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventStep.h
+  EventStep();
+
+  /// Default constructor.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventStep.h
+  
+
+  int step_count;  /// Iteration number of game loop.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventStep.h
+#ifndef __EVENT_STEP_H__
+
+///
+/// A "step" event, generated once per game loop.
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventView.h
+  bool getDelta() const;
+
+  /// Get delta.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventView.h
+  void setDelta(bool new_delta);
+
+  /// Set delta to new delta.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventView.h
+  int getValue() const;
+
+  /// Get value.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventView.h
+  void setValue(int new_value);
+
+  /// Set value to new value.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventView.h
+  std::string getTag() const;
+
+  /// Get tag.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventView.h
+  void setTag(std::string new_tag);
+
+  /// Set tag to new tag.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventView.h
+  EventView(std::string new_tag, int new_value, bool new_delta);
+
+  /// Create view event with tag, value and delta as indicated.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventView.h
+ public:
+
+  std::string tag;     ///< Tag to associate.
+  int value;	       ///< Value for view.
+  bool delta;	       ///< True if change in value, else replace value
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//EventView.h
+#ifndef __EVENT_VIEW_H__
+
+///
+/// A "view" event
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Frame.h
+  std::string getString() const;
+
+  /// Get frame characters (stored as string).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Frame.h
+  void setString(std::string new_frame_str);
+
+  /// Set frame characters (stored as string).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Frame.h
+  int getHeight() const;
+
+  /// Get height of frame.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Frame.h
+  void setHeight(int new_height);
+
+  /// Set height of frame.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Frame.h
+  int getWidth() const;
+
+  /// Get width of frame.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Frame.h
+  void setWidth(int new_width);
+
+  /// Set width of frame.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Frame.h
+  Frame(int new_width, int new_height, std::string frame_str);
+
+  /// Create frame of indicated width and height with string.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Frame.h
+ public:
+
+  int width;             ///< Width of frame
+  int height;            ///< Height of frame
+  std::string frame_str; ///< All frame characters stored as string.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Frame.h
+#ifndef __FRAME_H__
+
+///
+/// A sprite frame
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Fraps.h
+  void setLogFrameRate(bool new_do_frame_rate);
+
+  /// Set whether log frame rate or not.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Fraps.h
+  void setRecord(bool new_record);
+
+  /// Set whether record or not.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Fraps.h
+  int eventHandler(const Event *p_e);
+
+  /// Handle event each step.
+  /// Handle keyboard events:
+  /// - f9 to show/hide
+  /// - f11 to toggle logging frame rate
+  /// - f12 to toggle recording
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Fraps.h
+  Fraps(bool do_record=false);
+
+  /// defaults: TOP_RIGHT, green, don't record, don't log frame rate.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Fraps.h
+ public:
+
+  bool do_record;         ///< True if recording.
+  bool do_frame_rate;	  ///< True if logging frame rate.
+  Clock clock;            ///< For computing frame rate.
+  FILE *p_screen;	  ///< Output file handle.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Fraps.h
+#ifndef __FRAPS_H__
+
+///
+/// Fraps (FRAmes Per Second) recorder
+/// 
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GameManager.h
+  int getStepCount() const;
+
+  /// Return game loop step count.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GameManager.h
+  int getFrameTime() const;
+
+  /// Return frame time.  
+  /// Frame time is target time for each game loop, in milliseconds.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GameManager.h
+  bool getGameOver() const;
+
+  /// Get game over status.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GameManager.h
+  void setGameOver(bool game_over=true);
+
+  /// Set game over status to indicated value.
+  /// If true (default), will stop game loop.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GameManager.h
+  void run();
+
+  /// Run game loop.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GameManager.h
+  void shutDown();
+
+  /// Shut down GameManager services.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GameManager.h
+  bool isValid(std::string event_name) const;
+
+  /// Game manager only accepts step events.
+  /// Return false if other event.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GameManager.h
+  int startUp();
+
+  /// Startup all GameManager services.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GameManager.h
+  static GameManager &getInstance();
+
+  /// Get the singleton instance of the GameManager.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GameManager.h
+  
+
+  GameManager();                      ///< Private since a singleton.
+  GameManager (GameManager const&);   ///< Don't allow copy.
+  void operator=(GameManager const&); ///< Don't allow assignment.
+  bool game_over;           ///< True -> game loop should stop.
+  int frame_time;           ///< Target time per game loop, in millisec.
+  int step_count;           ///< Count of game loop iterations.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GameManager.h
+const int FRAME_TIME_DEFAULT = 33;
+
+/// Default frame time (game loop time) in milliseconds (33 ms == 30 f/s).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GameManager.h
+const std::string CONFIG_FILENAME = "df-config.txt";
+
+/// Dragonfly cofiguration file.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GameManager.h
+namespace df {
+
+#define DF_VERSION 4.2		/// Dragonfly version
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GameManager.h
+#ifndef __GAME_MANAGER_H__
+
+///
+/// The game manager
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+  sf::RenderWindow *getWindow() const;
+
+  /// Return pointer to SFML drawing window.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+  int swapBuffers();
+
+  /// Render current window buffer.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+  bool setBackgroundColor(Color new_color);
+
+  /// Set window's background color.
+  /// Return true if ok, else false.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+  int getVerticalPixels() const;
+
+  /// Return window's vertical maximum (in pixels).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+  int getHorizontalPixels() const;
+
+  /// Return window's horizontal maximum (in pixels).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+  int getVertical() const;
+
+  /// Return window's vertical maximum (in characters).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+  int getHorizontal() const;
+
+  /// Return window's horizontal maximum (in characters).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+  int drawString(Vector world_pos, std::string str, Justification just, 
+                 Color color) const;
+
+  /// Draw string at window location (x,y) with color.
+  /// Justified left, center or right.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+  int drawFrame(Vector world_pos, Frame frame, bool centered, 
+                Color color, char transparent=0) const;
+
+  /// Draw single sprite frame at window location (x,y) with color.
+  /// If centered true, then center frame at (x,y).
+  /// Don't draw transparent characters (0 means none).
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+  int drawCh(Vector world_pos, char ch, Color color) const;
+
+  /// Draw character at window location (x,y) with color.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+  void shutDown();
+
+  /// Close graphics window.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+  int startUp();
+
+  /// Open graphics window ready for text-based display.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+  static GraphicsManager &getInstance();
+
+  /// Get the one and only instance of the GraphicsManager.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+  sf::Text *p_text;
+
+  GraphicsManager();                        ///< Private since a singleton.
+  GraphicsManager (GraphicsManager const&); ///< Don't allow copy.
+  void operator=(GraphicsManager const&);   ///< Don't allow assignment.
+  sf::Font font;		///< Font used for ASCII graphics.
+  sf::RenderWindow *p_window;	///< Pointer to SFML window.
+  int window_horizontal_pixels;	///< Horizontal pixels in window.
+  int window_vertical_pixels;   ///< Vertical pixels in window.
+  int window_horizontal_chars;  ///< Horizontal ASCII spaces in window.
+  int window_vertical_chars;    ///< Vertical ASCII spaces in window.
+  sf::RectangleShape *p_rectangle;   ///< Backing rectangle for under text.
+  sf::Color window_background_color; ///< Background color of window.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+Vector pixelsToSpaces(Vector pixels);
+
+/// Convert window pixels (x,y) to ASCII spaces (x,y).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+Vector spacesToPixels(Vector spaces);
+
+/// Convert ASCII spaces (x,y) to window pixels (x,y).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+float charWidth(void);
+
+/// Compute character width, based on window size and font.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+float charHeight(void);
+
+/// Compute character height, based on window size and font.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+const int WINDOW_HORIZONTAL_PIXELS_DEFAULT = 1024;
+
+/// Defaults for SFML window.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+enum Justification {
+
+/// String justifications.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//GraphicsManager.h
+#ifndef __GRAPHICS_MANAGER_H__
+
+///
+/// The SFML graphics manager
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//InputManager.h
+  void getInput();
+
+  /// Get input from the keyboard and mouse.
+  /// Pass event along to all interested Objects.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//InputManager.h
+  void shutDown();
+
+  /// Revert back to normal window mode.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//InputManager.h
+  int startUp();
+
+  /// Get window ready to capture input.  
+  /// Return 0 if ok, else return -1;
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//InputManager.h
+  bool isValid(std::string event_type) const;
+
+  /// Input manager only accepts keyboard and mouse events.
+  /// Return false if not one of them.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//InputManager.h
+ public:
+
+  InputManager();                      ///< Private since a singleton.
+  InputManager (InputManager const&);  ///< Don't allow copy.
+  void operator=(InputManager const&); ///< Don't allow assignment.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//InputManager.h
+#ifndef __INPUT_MANAGER_H__
+
+///
+/// The SFML input manager
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Line.h
+};
+
+  void setP1(Vector new_p1);  ///< Set first endpoint.
+  Vector getP1() const;       ///< Get first endpoint.
+  void setP2(Vector new_p2);  ///< Set second endpoint.
+  Vector getP2() const;       ///< Get second endpoint.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Line.h
+  Line();
+
+  /// Default line segment is at (0,0).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Line.h
+  Line(Vector init_p1, Vector init_p2);
+
+  /// Create line segment from p1 to p2.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Line.h
+ public:
+
+  Vector p1;            ///< First endpoint.
+  Vector p2;            ///< Second endpoint.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Line.h
+#ifndef __LINE_H__
+
+///
+/// A line segment
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//LogManager.h
+  void setLogStepCount(bool log_step_count=true);
+
+  /// Set prepend step count to log messages.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//LogManager.h
+  void setLogTimeString(bool log_time_string=true);
+
+  /// Set prepend time string to log messages.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//LogManager.h
+  void setFlush(bool do_flush=true);
+
+  /// Set flush of logfile after each write.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//LogManager.h
+  int getLogLevel() const;
+
+  /// Get logging level.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//LogManager.h
+  void setLogLevel(int log_level);
+
+  /// Set logging level.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//LogManager.h
+  int writeLog(int log_level, const char *fmt, ...) const;
+
+  /// Write to logfile.
+  /// Only write if indicated log level >= LogManager log level.
+  /// Supports printf() formatting of strings.
+  /// Return number of bytes written (excluding prepends), -1 if error.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//LogManager.h
+  int writeLog(const char *fmt, ...) const;
+
+  /// Write to logfile.
+  /// Supports printf() formatting of strings.
+  /// Return number of bytes written (excluding prepends), -1 if error.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//LogManager.h
+  void shutDown();
+
+  /// Shut down LogManager (close logfile).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//LogManager.h
+  int startUp();
+
+  /// Start up LogManager (open logfile "dragonfly.log").
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//LogManager.h
+  static LogManager &getInstance();
+
+  /// Get the one and only instance of the LogManager.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//LogManager.h
+ public:
+
+  LogManager();                      ///< Private since a singleton.
+  LogManager (LogManager const&);    ///< Don't allow copy.
+  void operator=(LogManager const&); ///< Don't allow assignment.
+  bool do_flush;                ///< True if flush to disk after each write.
+  FILE *p_f;                    ///< Pointer to logfile struct.
+  int log_level;                ///< Logging level.
+  bool log_time_string;		///< True if prepend time.
+  bool log_step_count;		///< True if prepend step count.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//LogManager.h
+#ifndef __LOG_MANAGER_H__
+
+///
+/// The log manager
+/// 
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Manager.h
+  int unregisterInterest(Object *p_o, std::string event_type);
+
+  /// Indicate no more interest in event. 
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Manager.h
+  int registerInterest(Object *p_o, std::string event_type);
+
+  /// Indicate interest in event.
+  /// Return 0 if ok, else -1.
+  /// (Note, doesn't check to see if Object is already registered.)
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Manager.h
+  int onEvent(const Event *p_event) const;
+
+  /// Send event to all interested Objects.
+  /// Return count of number of events sent.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Manager.h
+  bool isStarted() const;
+
+  /// Return status of is_started (true when startUp() was successful).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Manager.h
+  virtual void shutDown();
+
+  /// Shutdown Manager.  
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Manager.h
+  virtual int startUp();
+
+  /// Startup Manager. 
+  /// Return 0 if ok, else negative number.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Manager.h
+  std::string getType() const;
+
+  /// Get type identifier of Manager.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Manager.h
+  void setType(std::string type);
+
+  /// Set type identifier of Manager.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Manager.h
+  virtual bool isValid(std::string event_type) const;
+
+  /// If handled, return true else false.
+  /// (Base Manager always returns false.)
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Manager.h
+ 
+
+  std::string type;			 ///< Manager type identifier.
+  int event_count;                       ///< Number of events.
+  std::string event_name[MAX_EVENTS];	 ///< List of events.
+  ObjectList obj_list[MAX_EVENTS];       ///< Objects interested in event.
+  bool is_started;                       ///< True if startUp() succeeded
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Manager.h
+class Manager {
+
+const int MAX_EVENTS = 100;	      ///< Max number of different events.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Manager.h
+#ifndef __MANAGER_H__
+
+///
+/// The base manager
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Music.h
+  sf::Music *getMusic();
+
+  /// Return pointer to SFML music.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Music.h
+  void pause();
+
+  /// Pause music.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Music.h
+  void stop();
+
+  /// Stop music.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Music.h
+  void play(bool loop=true);
+
+  /// Play music.
+  /// If loop is true, repeat play when done.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Music.h
+  std::string getLabel() const;
+
+  /// Get label associated with music.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Music.h
+  void setLabel(std::string new_label);
+
+  /// Set label associated with music.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Music.h
+  int loadMusic(std::string filename);
+
+  /// Associate music buffer with file.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Music.h
+ public:
+
+  sf::Music music;	        ///< The music.
+  std::string label;	        ///< Text label to identify music.
+  Music (Music const&);         ///< SFML doesn't allow music copy.
+  void operator=(Music const&); ///< SFML doesn't allow music assignment.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Music.h
+#ifndef __MUSIC_H__
+
+///
+/// The music
+/// 
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  Shape getShape() const;
+
+  /// Get drawing shape.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  void setShape(Shape new_shape);
+
+  /// Set drawing shape.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  virtual bool isModified() const;
+
+  /// Return true if any attribute modified since last serialize.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  virtual bool isModified(enum ObjectAttribute attribute) const;
+
+  /// Return true if attribute modified since last serialize.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  virtual int deserialize(std::string s);
+
+  /// Deserialize string to become Object attributes.
+  /// Return 0 if no errors, else -1.  
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  virtual std::string serialize(bool all=false);
+
+  /// Serialize Object attributes to single string.
+  /// e.g., "id:110,is_active:true, ...
+  /// Only modified attributes are serialized (unless all is true).
+  /// Clear modified[] array.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  void setSpriteSlowdown(int new_sprite_slowdown);
+
+  /// Slows down sprite animations.
+  /// Slowdown value in multiples of GameManager frame time.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  int getSpriteIndex() const;
+
+  /// Return index of current Sprite frame to be displayed.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  void setSpriteIndex(int new_sprite_index);
+
+  /// Set index of current Sprite frame to be displayed.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  char getTransparency() const;
+
+  /// Get Sprite transparency character (0 means none).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  void setTransparency(char transparent=' ');
+
+  /// Set Sprite transparency character (0 means none).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  bool isCentered() const;
+
+  /// Indicates if Sprite is centered at Object position (pos).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  void setCentered(bool centered=true);
+
+  /// Set Sprite to be centered at Object position (pos).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  Sprite *getSprite() const;
+
+  /// Return pointer to Sprite associated with this Object.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  void setSprite(Sprite *p_new_sprite, bool set_box=true);
+
+  /// Set Object Sprite to new one.
+  /// If set_box is true, set bounding box to size of Sprite.
+  /// Set sprite index to 0 (first frame).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  std::string getSpriteName() const;
+
+  /// Get Sprite name (in ResourceManager) for Object.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  void setSpriteName(std::string new_name);
+
+  /// Set Sprite name (in ResourceManager) for Object.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  virtual void draw();
+
+  /// Draw single Sprite Frame.
+  /// Drawing accounts for centering & slowdown, and advances Sprite Frame.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  int unregisterInterest(std::string event_type);
+
+  /// Unregister for interest in event.  
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  int registerInterest(std::string event_type);
+
+  /// Register for interest in event.  
+  /// Keeps track of manager and event.  
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  Box getBox() const;
+
+  /// Get bounding box of Object.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  void setBox(Box new_box);
+
+  /// Set bounding box of Object.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  bool isActive() const;
+
+  /// Return activeness of Object.  Objects not active are not acted upon
+  /// by engine.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  int setActive(bool active=true);
+
+  /// Set activeness of Object.  Objects not active are not acted upon
+  /// by engine.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  bool isVisible() const;
+
+  /// Return visibility of Object.  Objects not visible are not drawn.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  int setVisible(bool visible=true);
+
+  /// Set visibility of Object.  Objects not visible are not drawn.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  Vector predictPosition();
+
+  /// Predict Object position based on velocity.
+  /// Return (possibly new) position.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  Vector getVelocity() const;
+
+  /// Get velocity of Object.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  void setVelocity(Vector new_velocity);
+
+  /// Set velocity of Object.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  int getAltitude() const;
+
+  /// Return altitude of Object.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  int setAltitude(int new_altitude);
+
+  /// Set altitude of Object, with checks for range [0, MAX_ALTITUDE].
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  bool getNoSoft() const;
+
+  /// Get "no soft" setting of Object (true - cannot move onto SOFT Objects).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  void setNoSoft(bool new_no_soft=true);
+
+  /// Set "no soft" setting of Object (true - cannot move onto SOFT Objects).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  Solidness getSolidness() const;
+
+  /// Return solidness of Object.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  int setSolidness(Solidness new_solid);
+
+  /// Set solidness of Object, with checks for consistency.  
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  bool isSolid() const;    
+
+  /// Return True if Object is HARD or SOFT, else false.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  virtual int eventHandler(const Event *p_event);
+
+  /// Handle event (default is to ignore everything).
+  /// Return 0 if ignored, else 1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  Vector getPosition() const;
+
+  /// Get position of Object.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  void setPosition(Vector new_pos);
+
+  /// Set position of Object.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  std::string getType() const;
+
+  /// Get type identifier of Object.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  void setType(std::string new_type);
+
+  /// Set type identifier of Object.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  int getId() const;
+
+  /// Get Object id.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  void setId(int new_id);
+
+  /// Set Object id.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  virtual ~Object();
+
+  /// Destroy Object. 
+  /// Unregister for any interested events.
+  /// Remove from game world (WorldManager).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  Object();
+
+  /// Construct Object. 
+  /// Set default parameters and add to game world (WorldManager).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+  Shape shape;
+
+  int id;		      ///< Unique Object identifier.
+  std::string type;	      ///< User-defined identification.
+  bool is_active;             ///< If false, Object not acted upon.
+  bool is_visible;            ///< If true, Object gets drawn.
+  Box box;                    ///< Box for sprite boundary & collisions.
+  Vector pos;                 ///< Position in game world.
+  Vector velocity;	      ///< Velocity vector.
+  std::string sprite_name;    ///< Sprite name in ResourceManager.
+  Sprite *p_sprite;           ///< Sprite associated with Object.
+  bool sprite_center;         ///< True if sprite centered on position.
+  char sprite_transparency;   ///< Sprite transparent character (0 if none).
+  int sprite_index;           ///< Current index frame for sprite.
+  int sprite_slowdown;        ///< Slowdown rate (1 = no slowdown, 0 = stop).
+  int sprite_slowdown_count;  ///< Slowdown counter.
+  int altitude;               ///< 0 to MAX_ALTITUDE (higher drawn on top).
+  Solidness solidness;        ///< Solidness state of Object.
+  bool no_soft;               ///< True if won't move on SOFT Objects.
+  int event_count;            ///< Number of events of interest.
+  std::string event_name[MAX_OBJ_EVENTS]; ///< Names of events interested in.
+  bool modified[ATTR_COUNT];  ///< Mod. attrib. since last serialize().
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+enum ObjectAttribute {
+
+/// Categories of attributes that indicate modification.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+const int ATTR_COUNT = 12;
+
+/// Count of number of modified attribute categories.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+};
+
+  SOFT,       ///< Object causes collision, but doesn't impede.
+  SPECTRAL,   ///< Object doesn't cause collisions.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+enum Solidness {
+
+/// Types of solidness of Object.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+const int MAX_OBJ_EVENTS = 100;
+
+/// Max number of events Object can be interested in.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+namespace df {
+
+#include "Box.h"              ///< Objects have a bounding box.
+#include "Event.h"            ///< Objects can handle events.
+#include "Shape.h"	      ///< Objects can have simple drawing shapes.
+#include "Sprite.h"           ///< Objects (often) have sprites.
+#include "Vector.h"           ///< Objects need a float location.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Object.h
+#ifndef __OBJECT_H__
+
+///
+/// The base game world object
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectList.h
+  ObjectList operator+(ObjectList);
+
+  /// Add two lists, second appended to first.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectList.h
+  bool isFull() const;
+
+  /// Return true if list is full, else false.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectList.h
+  bool isEmpty() const;
+
+  /// Return true if list is empty, else false.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectList.h
+  int getCount() const;
+
+  /// Return count of number of objects in list.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectList.h
+  void clear();
+
+  /// Clear list (setting count to 0).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectList.h
+  int remove(Object *p_o);
+
+  /// Remove object pointer from list,
+  /// Return 0 if found, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectList.h
+  int insert(Object *p_o);
+
+  /// Insert object pointer in list.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectList.h
+  ObjectList &operator=(const ObjectList &rhs);
+
+  /// Assignment operator (does deep copy).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectList.h
+  ObjectList(const ObjectList &other);
+
+  /// Copy contructor (does deep copy).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectList.h
+ public:
+
+  int count;                  ///< Count of objects in list.
+  int max_count;              ///< Maximum objects in list (variable).
+  Object **p_item;            ///< Array of pointers to objects.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectList.h
+#ifndef __OBJECT_LIST_H__
+
+///
+/// A list of Objects
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectListIterator.h
+  void setList(const ObjectList *p_list);
+
+  /// Set to new List.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectListIterator.h
+  ObjectListIterator &operator=(const ObjectListIterator &rhs);
+
+  /// Assignment operator.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectListIterator.h
+  Object *currentObject() const;     
+
+  /// Return pointer to current item in list, NULL if done/empty.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectListIterator.h
+  bool isDone() const;
+
+  /// Return true if at end of list.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectListIterator.h
+  void next();
+
+  /// Set iterator to next item in list.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectListIterator.h
+  void first();
+
+  /// Set iterator to first item in list.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectListIterator.h
+ public:
+
+  ObjectListIterator();	///< Iterator must be given list when created.
+  int index;			///< Index into list.
+  const ObjectList *p_list;	///< List iterating over.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ObjectListIterator.h
+#ifndef __OBJECT_LIST_ITERATOR_H__
+
+///
+/// An iterator for ObjectLists
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Particle.h
+#ifndef __PARTICLE_H__
+
+///
+/// A 2d, SFML particle
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Pause.h
+ public:
+
+  int pause_key;		///< Pause key.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Pause.h
+#ifndef __PAUSE_H__
+
+///
+/// Pause
+/// 
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ResourceManager.h
+  Music *getMusic(std::string label);
+
+  /// Find Music with indicated label.
+  /// Return pointer to it if found, else NULL.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ResourceManager.h
+  int unloadMusic(std::string label);
+
+  /// Remove label for Music with indicated label.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ResourceManager.h
+  int loadMusic(std::string filename, std::string label);
+
+  /// Associate file with Music.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ResourceManager.h
+  Sound *getSound(std::string label);
+
+  /// Find Sound with indicated label.
+  /// Return pointer to it if found, else NULL.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ResourceManager.h
+  int unloadSound(std::string label);
+
+  /// Remove Sound with indicated label.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ResourceManager.h
+  int loadSound(std::string filename, std::string label);
+
+  /// Load sound from file.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ResourceManager.h
+  Sprite *getSprite(std::string label) const;
+
+  /// Find Sprite with indicated label.
+  /// Return pointer to it if found, else NULL.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ResourceManager.h
+  int unloadSprite(std::string label);
+
+  /// Unload Sprite with indicated label.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ResourceManager.h
+  int loadSprite(std::string filename, std::string label);
+
+  /// Load Sprite from file.
+  /// Assign indicated label to Sprite.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ResourceManager.h
+  void shutDown();
+
+  /// Shut down manager, freeing up any allocated Sprites, Music and Sounds.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ResourceManager.h
+  int startUp();
+
+  /// Get ResourceManager ready to manage resources.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ResourceManager.h
+ public:
+
+  ResourceManager (ResourceManager const&); ///< Don't allow copy.
+  void operator=(ResourceManager const&);   ///< Don't allow assignment.
+  ResourceManager();		 ///< Private since a singleton.
+  Sprite *p_sprite[MAX_SPRITES]; ///< Array of (pointers to) Sprites.
+  int sprite_count;	        ///< Count of number of loaded sprites.
+  Sound sound[MAX_SOUNDS];	///< Array of sound buffers.
+  int sound_count;	        ///< Count of number of loaded sounds.
+  Music music[MAX_MUSICS];	///< Array of music buffers.
+  int music_count;	        ///< Count of number of loaded musics.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ResourceManager.h
+#ifndef __RESOURCE_MANAGER_H__
+
+///
+/// The resource manager
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//SceneGraph.h
+  int updateActive(Object *p_o, bool new_active);
+
+  /// Re-position Object in SceneGraph to new activeness.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//SceneGraph.h
+  int updateVisible(Object *p_vo, bool new_visible);
+
+  /// Re-position Object in SceneGraph to new visibility.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//SceneGraph.h
+  int updateSolidness(Object *p_o, Solidness new_solidness);
+
+  /// Re-position Object in SceneGraph to new solidness.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//SceneGraph.h
+  int updateAltitude(Object *p_o, int new_alt);
+
+  /// Re-position Object in SceneGraph to new altitude.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//SceneGraph.h
+  ObjectList inactiveObjects() const;
+
+  /// Return all inactive Objects. Empty list if none.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//SceneGraph.h
+  ObjectList visibleObjects(int altitude) const;
+
+  /// Return all active, visible Objects at altitude. Empty list if none.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//SceneGraph.h
+  ObjectList solidObjects() const;
+
+  /// Return all active, solid Objects. Empty list if none.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//SceneGraph.h
+  ObjectList activeObjects() const;
+
+  /// Return all active Objects. Empty list if none.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//SceneGraph.h
+  int removeObject(Object *p_o);
+
+  /// Remove Object from SceneGraph.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//SceneGraph.h
+  int insertObject(Object *p_o);
+
+  /// Insert Object into SceneGraph.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//SceneGraph.h
+  
+
+  ObjectList active_objects;   ///< All active Objects.
+  ObjectList solid_objects;    ///< Solid Objects.
+  ObjectList visible_objects[MAX_ALTITUDE+1]; ///< Visible Objects.
+  ObjectList inactive_objects; ///< All inactive Objects.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//SceneGraph.h
+#ifndef __SCENE_GRAPH_H__
+
+///
+/// A scene graph
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Shape.h
+  void draw(Vector world_pos);
+
+  /// Shapes know how to draw themselves at given world position.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Shape.h
+  Shape();
+
+  /// Default is circle, white, size 1 cell.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Shape.h
+ public:
+
+  Color color;		  ///< Shape color.
+  unsigned char r,g,b;	  ///< RGB colors used if color is CUSTOM.
+  ShapeType type;	  ///< Type of shape.
+  float size;		  ///< Shape radius size (in pixels).
+  unsigned char opacity;  ///< Range (transparent) 0 to 255 (opaque).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Shape.h
+#ifndef __SHAPE_H__
+
+///
+/// A single-space, 2d shape for drawing.
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sound.h
+  sf::Sound getSound() const;
+
+  /// Return SFML sound.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sound.h
+  void pause();
+
+  /// Pause sound.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sound.h
+  void stop();
+
+  /// Stop sound.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sound.h
+  void play(bool loop=false);
+
+  /// Play sound.
+  /// If loop is true, repeat play when done.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sound.h
+  std::string getLabel() const;
+
+  /// Get label associated with sound.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sound.h
+  void setLabel(std::string new_label);
+
+  /// Set label associated with sound.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sound.h
+  int loadSound(std::string filename);
+
+  /// Load sound buffer from file.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sound.h
+ public:
+
+  sf::Sound sound;	        ///< SFML sound.
+  sf::SoundBuffer sound_buffer; ///< SFML sound buffer associated with sound.
+  std::string label;	        ///< Text label to identify sound.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sound.h
+#ifndef __SOUND_H__
+
+///
+/// The sound
+/// 
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Splash.h
+ public:
+
+  int countdown;  /// Countdown to event actions.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Splash.h
+#ifndef __SPLASH_H__
+
+///
+/// Text for splash screen
+/// 
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//SplashDragonfly.h
+ public:
+
+  Vector end_position;  /// Ending position of Object.
+  int countdown;          /// Countdown to event actions.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//SplashDragonfly.h
+#ifndef __SPLASH_DRAGONFLY_H__
+
+///
+/// Dragonfly for splash screen
+/// 
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sprite.h
+  std::string getLabel() const;
+
+  /// Get label associated with sprite.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sprite.h
+  void setLabel(std::string new_label);
+
+  /// Set label associated with sprite.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sprite.h
+  Frame getFrame(int frame_number) const;
+
+  /// Get next sprite frame indicated by number.
+  /// Return empty frame if out of range [0, frame_count].
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sprite.h
+  int addFrame(Frame new_frame);
+
+  /// Add frame to sprite.
+  /// Return -1 if frame array full, else 0.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sprite.h
+  int getFrameCount() const;
+
+  /// Get total count of frames in sprite.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sprite.h
+  Color getColor() const;
+
+  /// Get sprite color.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sprite.h
+  void setColor(Color new_color);
+
+  /// Set sprite color.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sprite.h
+  int getHeight() const;
+
+  /// Get height of sprite.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sprite.h
+  void setHeight(int new_height);
+
+  /// Set height of sprite.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sprite.h
+  int getWidth() const;
+
+  /// Get width of sprite.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sprite.h
+  void setWidth(int new_width);
+
+  /// Set width of sprite.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sprite.h
+  Sprite(int max_frames);  
+
+  /// Create sprite with indicated maximum number of frames.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sprite.h
+ public:
+
+  int width;            ///< Sprite width.
+  int height;           ///< Sprite height.
+  int max_frame_count;  ///< Maximum number of frames sprite can have.
+  int frame_count;      ///< Actual number of frames sprite has.
+  Color color;	        ///< Optional color for entire sprite.
+  Frame *frame;         ///< Array of frames.
+  std::string label;	///< Text label to identify sprite.
+  Sprite();             ///< Sprite constructor always has one arg.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Sprite.h
+#ifndef __SPRITE_H__
+
+///
+/// The sprite
+/// 
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//State.h
+  virtual void Exit(Object *p_obj);
+
+  /// Invoked when state exited.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//State.h
+  virtual void Execute(Object *p_obj)=0;
+
+  /// Invoked every game loop step.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//State.h
+  virtual void Enter(Object *p_obj);
+
+  /// Invoked when state first entered.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//State.h
+  std::string getType() const;
+
+  /// Get name of state.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//State.h
+  void setType(std::string new_type);
+
+  /// Set name of state.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//State.h
+ public:
+
+  std::string state_type;      /// Name of state.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//State.h
+#ifndef STATE_H
+
+///
+/// State.h
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//StateMachine.h
+  void revertToPrevious();
+
+  /// Revert to previous state.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//StateMachine.h
+  void changeState(State *p_new_state);
+
+  /// Change current state.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//StateMachine.h
+  void Update();
+
+  /// Update state machine (calling Execute() for current state).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//StateMachine.h
+  State *getGlobalState() const;
+
+  /// Get global state.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//StateMachine.h
+  void setGlobalState(State *p_new_state);
+
+  /// Set global state.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//StateMachine.h
+  State *getPreviousState() const;
+
+  /// Get previous state.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//StateMachine.h
+  void setPreviousState(State *p_new_state);
+
+  /// Set previous state.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//StateMachine.h
+  State *getState() const;
+
+  /// Get current state.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//StateMachine.h
+  void setState(State *p_new_state);
+
+  /// Set current state.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//StateMachine.h
+  Object *getOwner() const;
+
+  /// Get owner of state machine.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//StateMachine.h
+  void setOwner(Object *p_new_owner);
+
+  /// Set owner of state machine.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//StateMachine.h
+ public:
+
+  Object *p_owner;         /// Owner of this state machine.
+  State *p_state;          /// Current state.
+  State *p_previous_state; /// Previous state.
+  State *p_global_state;   /// Global state (reachable from any state).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//StateMachine.h
+#ifndef STATEMACHINE_H
+
+///
+/// A finite state machine.
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Vector.h
+};
+
+  float getX() const;		    ///< Get horizontal component.
+  void setX(float new_x);	    ///< Set horizontal component.
+  float getY()const;		    ///< Get vertical component.
+  void setY(float new_y);	    ///< Set vertical component.
+  void setXY(float new_x, float new_y); ///< Set horizizontal & vertical.
+  void normalize();		///< Normalize vector.
+  void scale(float s);		///< Scale vector.
+  float getMagnitude() const;	///< Return magnitude.
+  bool operator==(const Vector &other) const;  ///< Compare Vector.
+  bool operator!=(const Vector &other) const;  ///< Compare Vector.
+  Vector &operator+=(const Vector &other);     ///< Add other Vector to this one.
+  Vector operator+(const Vector &other) const; ///< Add Vector.
+  Vector operator-(const Vector &other) const; ///< Subtract Vector.
+  bool operator!() const;		       ///< Test if (0,0).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Vector.h
+  Vector();
+
+  /// Default is (0,0).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Vector.h
+  Vector(float init_x, float init_y);
+
+  /// Create Vector with (x,y).  
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Vector.h
+ public:
+
+  float x; 			///< Horizontal component.
+  float y; 			///< Vertical component.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//Vector.h
+#ifndef __DF_VECTOR_H__
+
+///
+/// A 2d (x,y) vector
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  virtual bool isModified() const;
+
+  /// Return true if any attribute modified since last serialize.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  virtual bool isModified(enum ViewObjectAttribute attribute) const;
+
+  /// Return true if attribute modified since last serialize.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  virtual int deserialize(std::string s);
+
+  /// Deserialize string to become Object attributes.
+  /// Rerturn 0 if no errors, else -1.  
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  virtual std::string serialize(bool all = false);
+
+  /// Serialize ViewObject attributes to a single string.
+  /// Only modified attributes (unless all is true).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  std::string getViewString() const;
+
+  /// Get view display string.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  void setViewString(std::string new_view_string);
+
+  /// Set view display string.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  Color getColor() const;
+
+  /// Get view color.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  void setColor(Color new_color);
+
+  /// Set view color.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  bool getBorder() const;
+
+  /// Get view border (true = display border).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  void setBorder(bool new_border);
+
+  /// Set view border (true = display border).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  int getValue() const;
+
+  /// Get view value.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  void setValue(int new_value);
+
+  /// Set view value.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  ViewObjectLocation getLocation() const;
+
+  /// Get general location of ViewObject on screen.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  void setLocation(ViewObjectLocation new_location);
+
+  /// Set general location of ViewObject on screen.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  virtual int eventHandler(const Event *p_e);
+
+  /// Handle "view" event if tag matches view_string (others ignored).
+  /// Return 0 if ignored, else 1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  virtual void draw();
+
+  /// Draw view string and value.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+  ViewObject();
+
+  /// Object settings: SPECTRAL, max altitude.
+  /// ViewObject defaults: border, top_center, default color.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+ public:
+
+  std::string view_string;   ///< Label for value (e.g., "Points").
+  int value;                 ///< Value displayed (e.g., points).
+  bool border;               ///< True if border around display.
+  Color color;               ///< Color for text.
+  ViewObjectLocation location; ///< Location of ViewObject.
+  bool vmodified[VATTR_COUNT]; ///< Mod. attrib. since serialize().
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+enum ViewObjectLocation {
+
+/// General location of ViewObject on screen.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+enum ViewObjectAttribute {
+
+/// Categories of view object attributes that indicate modification.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+const int VATTR_COUNT = 5;
+
+/// Count of number of view object modified attribute categories.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//ViewObject.h
+#ifndef __VIEW_OBJECT_H__
+
+///
+/// The view object
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  SceneGraph &getSceneGraph() const;
+
+  /// Return reference to SceneGraph.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  void setViewPosition(Vector view_pos);
+
+  /// Set view to center screen on position view_pos.
+  /// View edge will not go beyond world boundary.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  int setViewFollowing(Object *p_new_view_following);
+
+  /// Set view to center screen on Object.
+  /// Set to NULL to stop following.
+  /// If Object not legit, return -1 else return 0.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  void setView(Box new_view);
+
+  /// Set player view of game world.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  Box getView() const;
+
+  /// Get player view of game world.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  void setBoundary(Box new_boundary);
+
+  /// Set game world boundary.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  Box getBoundary() const;
+
+  /// Get game world boundary.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  ObjectList objectsInCircle(Circle circle) const;
+
+  /// Return a list of all Objects in circle.
+  /// Does include bounding boxes. Return empty list if none found.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  ObjectList objectsOnLine(Line line) const;
+
+  /// Return a list of all Objects on line from point1 to point2.
+  /// Does include bounding boxes. Return empty list if none found.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  ObjectList objectsInBox(Box box) const;
+
+  /// Return list of all Objects in Box.
+  /// Does include bounding boxes. Return empty list if none found.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  ObjectList objectsAtPosition(Vector where) const;
+
+  /// Return list of all Objects at position 'where'.  
+  /// Does include bounding boxes. Return empty list if none found.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  Object *objectWithId(int id) const;
+
+  /// Return Object with indicated id.
+  /// NULL if Object is not found.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  ObjectList isCollision(const Object *p_o, Vector where) const;
+
+  /// Return list of Objects collided with at position 'where'.
+  /// Collisions only with solid Objects.
+  /// Does not consider if p_o is solid or not.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  int moveObject(Object *p_o, Vector where);
+
+  /// Move Object. 
+  /// If collision with solid, send collision events.
+  /// If no collision with solid, move ok else don't move Object.
+  /// If Object is Spectral, move ok.
+  /// If move ok, adjust screen if following this Object.
+  /// Return 0 if move ok, else -1 if collision with solid.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  void draw();
+
+  /// Draw all Objects in view.
+  /// Draw bottom up, from 0 to MAX_ALTITUDE.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  void update();
+
+  /// Update world.
+  /// Update positions of Objects based on their velocities.
+  /// Lastly, delete Objects marked for deletion.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  int markForDelete(Object *p_o);
+
+  /// Indicate Object is to be deleted at end of current game loop.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  ObjectList getAllObjects(bool inactive=false) const;
+
+  /// Return list of all Objects in world.
+  /// If inactive is true, include inactive Objects.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  int removeObject(Object *p_o);
+
+  /// Remove Object from world.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  int insertObject(Object *p_o);
+
+  /// Add Object to world.
+  /// Return 0 if ok, else -1.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  bool isValid(std::string event_type) const;
+
+  /// Accept all user-defined events (returns true).
+  /// Return false for other engine events.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  void shutDown();
+
+  /// Shutdown game world (delete all game world Objects).
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+  int startUp();
+
+  /// Startup game world (initialize everything to empty).
+  /// Return 0.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+ public:
+
+  WorldManager();               ///< Private since a singleton.
+  WorldManager (WorldManager const&);  ///< Don't allow copy.
+  void operator=(WorldManager const&); ///< Don't allow assignment.
+  SceneGraph scene_graph;       ///< Storage for all Objects, game and view.
+  ObjectList deletions;         ///< List of all Objects to delete.
+  Object *p_view_following;     ///< Object view is following.
+  Box boundary;                 ///< World boundary.
+  Box view;                     ///< Player view of game world.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//WorldManager.h
+#ifndef __WORLD_MANAGER_H__
+
+///
+/// The game world manager
+///
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//utility.h
+sf::Color colorToSFML(Color color);
+
+/// Return SFML color based on DF color.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//utility.h
+void colorToRGB(Color color, unsigned char &r, unsigned char &g, 
+		 unsigned char &b);
+
+/// Set RGB color based on DF color.
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//utility.h
+void addParticles(ParticleType type, Vector position, float scale, Color color = CUSTOM);
+
+/// Add particles of specific type.
+///  type - type of particle
+///  position - location 
+///  scale - scale size 
+///  color - dragonfly color to use
+_func_
+dragon
+~/OneDrive/Code/EmacsPackage/Dragonfly/dragonfly//utility.h
+void addParticles(int count, int count_spread,
+		  Vector position, float position_spread, 
+		  Vector direction, float direction_spread,
+		  float size, float size_spread, 
+		  float speed, float speed_spread,
+		  int age, int age_spread,
+		  unsigned char opacity, char opacity_spread,
+		  unsigned char r, unsigned char g, unsigned char b,
+		  unsigned char color_spread);
+
+/// Add particles.  Each paramter has average and spread.
+///  count - number to add
+///  position - location 
+///  direction - direction to move [(0,0) for random]
+///  size - size (pixels)
+///  speed - speed (spaces/tick)
+///  age - age (ticks)
+///  opacity - how "see through" [0-255, 0 is transparent]
+///  r, g, b - color in RGB values
