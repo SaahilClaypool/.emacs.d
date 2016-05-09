@@ -1,0 +1,10 @@
+_func_
+symb
+~/code/test/symbolsTest//comments.py
+def custom(y):
+### custom symbol function
+_func_
+symb
+~/code/test/symbolsTest//comments.py
+def defaultFunction(y):
+#/// using the defualt blocks this should add to the list

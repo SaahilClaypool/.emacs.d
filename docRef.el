@@ -1,30 +1,93 @@
 ;; saahil claypool
-;; "Wed May  4 12:13:26 2016"
-;; package to create a reference window for mainly java
-;; How it works: take javadoc code and store in .emacs
-;; hot key top open up reference code --> pops open reference window
-;; any key pressed in reference window will act as fuzzy search, filtering for the function
-;; functions will dispay like this:
-;; returnType Function (int a , int b , int c);
-;; hitting return over that function will expand the function to give an overview of the use of that function
-;; hitting return again will insert that function and the paramters at the point of the cursor
-
-
-;; test code:
-;;(docref-setup-project)
-;;(docref-lookup-docs)
+;; "Mon May  9 14:30:51 2016"
 
 
 
-(setq max-lisp-eval-depth 500000)
-(setq max-specpdl-size 500000)
+;; SETUP
+
+;; misc
+(setq max-lisp-eval-depth 100000);; overkill for large files
+(setq max-specpdl-size 100000)
 (setq funcSymbol "_func_") ;; any unique symbol works
-;;(setq referenceDir "c:/Users/saahil claypool/OneDrive/Code/EmacsPackage/reference") ;; where should the documentation be stored? 
+
+;; location
 (if (not (file-exists-p referenceDir)) ;; setup directory if it is not setup 
     (make-directory referenceDir))
+;; comment characters
+(setq blockCommentStart (list "/\\*\\*")) ;; list of possbile block comment starters
+(setq blockCommentEnd (list "\\*/")) ;; list of possible block comment enders
+(setq singleComments (list "///")) ;; list of possible single comments
 
 
-;; Switch to other window
+;; last query (starts nil)
+(setq last-query nil) ;; store last query for re printing
+(setq compact nil) ;; print expanded by default
+
+(defun add-single-comment (str)
+  "Note: must exit regex symbols. /** become /\\*\\*"
+  (setq singleComments (append singleComments (list str))
+        ) 
+  )
+(defun add-block-comment-start (str)
+  "Note: must exit regex symbols. /** become /\\*\\*"
+  (setq blockCommentStart (append blockCommentStart (list str))
+        ) 
+  )
+(defun add-block-comment-end (str)
+  (setq blockCommentEnd (append blockCommentEnd (list str))
+        )
+  )
+
+(defun string-match-any (str los)
+  (if los
+      (or (string-match (car los)
+                        str
+                        )
+          (string-match-any str (cdr los)))
+    nil))
+
+
+
+;; takes string file name
+(defun docref-lookup-docs ()
+  (let* (
+         (functions (docref-lookup-all-files))
+         )
+    (new-window-print functions)
+    
+      )
+  )
+
+(defun docref-get-all-functions (lof)
+  (if lof
+      (let*
+          (
+           (cur (car lof))
+           )
+        (if (not (or (string= "." cur)
+                     (string= ".." cur)))
+            (append (read-functions-from-file (concat referenceDir "/" cur))
+                    (docref-get-all-functions (cdr lof)))
+           (docref-get-all-functions (cdr lof))
+        )
+        )
+    nil)
+  )
+(defun docref-lookup-all-files()
+  (let*
+      (
+       (allFiles (directory-files referenceDir))
+       (allFunctions (docref-get-all-functions allFiles))
+       )
+    allFunctions
+    )
+  )
+
+
+
+
+
+
 (defun get-string-from-file (filePath)
   "Return filePath's file content."
   (with-temp-buffer
@@ -41,7 +104,7 @@
     (insert-file-contents filePath)
     (split-string (buffer-string) "\n")))
 
-;;(setq lines (read-functions-from-file "test.txt"))
+
 
 ;; returns a list of strings that contain this matching string. 
 (defun filter-strings (q strs)
@@ -56,13 +119,7 @@
        )
     nil)
   )
-;; like fileter strings but only looks at the first line of each function
-;; old
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (car ;; check if the first line contains the string          ;;
-;;                          (cdr(split-string (car strs) "\n")) ;;
-;;                          )                                   ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (defun filter-class (q strs)
     (if strs
       (if
@@ -134,13 +191,42 @@
               (insert "\n\n")
               (insert (join-list-string line))
 
-                         )
+              )
           nil
           )
         (pretty-print (cdr aList)))
-        )
-    nil
+    )
+  nil
   )
+
+
+(defun pretty-print-compact (aList)
+  (if aList
+      (progn
+        (if (not (= 0 (length (car aList))))
+            (let* (
+                   (width (window-body-width))
+                   (line (split-string (car aList) "\n"))
+                   )
+              (pop line)
+              (insert-char 45 width )
+              (pop line) ;; remove project
+              (pop line) ;; remove file
+              (insert "\nFunction:        ")
+              (insert (pop line))
+              (insert "\n")
+              ;;(insert (join-list-string line)) remove comment
+
+              )
+          nil
+          )
+        (pretty-print-compact (cdr aList)))
+    )
+  nil
+  )
+  
+
+
 ;; takes a list of strings, puts them in the other window
 (defun new-window-print (aLos)
   (progn
@@ -160,9 +246,13 @@
                             filterClass))
 
            )
+      (setq last-query filterFunction)
       (switch-to-buffer-other-window "docBuffer")
       (erase-buffer)
-      (pretty-print filterFunction)
+      (if compact
+          (pretty-print-compact filterFunction)
+        (pretty-print filterFunction)
+        )
       (insert-char 45 (window-body-width) )
       (beginning-of-buffer)
       (docRef-mode 1)
@@ -170,44 +260,17 @@
     )
   )
 
-;; (new-window-print lines)
-;; (window-full-width-p)
-;; takes string file name
-(defun docref-lookup-docs ()
-  (let* (
-         (functions (docref-lookup-all-files))
-         )
-    (new-window-print functions)
-    
-      )
-  )
-
-(defun docref-get-all-functions (lof)
-  (if lof
-      (let*
-          (
-           (cur (car lof))
-           )
-        (if (not (or (string= "." cur)
-                     (string= ".." cur)))
-            (append (read-functions-from-file (concat referenceDir "/" cur))
-                    (docref-get-all-functions (cdr lof)))
-           (docref-get-all-functions (cdr lof))
-        )
-        )
-    nil)
-  )
-(defun docref-lookup-all-files()
-  (let*
-      (
-       (allFiles (directory-files referenceDir))
-       (allFunctions (docref-get-all-functions allFiles))
-       )
-    allFunctions
+(defun re-print()
+  (erase-buffer)
+  (if compact
+      (pretty-print-compact last-query)
+    (pretty-print last-query)
     )
+  (insert-char 45 (window-body-width) )
+  (beginning-of-buffer)
   )
-(directory-files referenceDir)
 
+  
 
 (defun next-function ()
   ;;(concat (concat "\C-s return " (make-string (window-body-width) ?-) "\C-s\C-a") )
@@ -231,6 +294,9 @@
      "\C-[shlFunction:\C-mhi-yellow\C-m")
 
 
+(defun compact-function-toggle ()
+   "\C-[:(setq compact (not compact\C-m\C-[:(re-print\C-m")
+
 
 
 
@@ -240,18 +306,16 @@
   "navigate the doc buffer"
   :lighter " docRef"
   :keymap (let (
-                (map (make-sparse-keymap))
+                (map (make-keymap))
                 )
             (define-key map (kbd "n") (next-function))
             (define-key map (kbd "p") (prev-function))
             (define-key map (kbd "i") (paste-function))
             (define-key map (kbd "q") (quit-function))
             (define-key map (kbd "h") (highlight-function))
+            (define-key map (kbd "c") (compact-function-toggle))
             map
-            )
-
-
-    
+            ) 
   )
    
 
@@ -317,8 +381,10 @@
 (defun parse-strings (los listPair)
   ;; if doxy comment, return list of (function description))
   (if los
-      (if (string-match "///"
-                        (car los))
+      (if (string-match-any (car los)
+                            singleComments
+                            )
+                        
           (let* (
                  (pair (parse-comment los nil 0))
                  (count (nth 2 pair))
@@ -328,8 +394,9 @@
             (parse-strings (nthcdr count los)
                            (cons (list function desc) listPair))
             )
-        (if (string-match "/\\*\\*"
-                          (car los))
+        (if (string-match-any (car los)
+                              blockCommentStart
+                              )
             (let* (
                    (pair (parse-block-comment los nil 0))
                    (count (nth 2 pair))
@@ -367,8 +434,10 @@
       (let* (
              (curLine (car los))
              )
-        (if (not (string-match "\\*/"
-                               curLine))
+        (if (not (string-match-any  curLine
+                                    blockCommentEnd
+                                    )
+                 )
             (progn
               (with-temp-buffer
                 (insert (format "NOT THE END current line: %s current description: %s\n\n\n" curLine listDesc ))
@@ -404,8 +473,8 @@
       (let* (
              (curLine (car los))
              )
-        (if (string-match "///"
-                          curLine)
+        (if (string-match-any curLine
+                              singleComments)
             (parse-comment (cdr los)
                            (append   listDesc (list curLine))
                            (+ 1 lineCount))
