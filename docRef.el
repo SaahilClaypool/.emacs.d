@@ -166,6 +166,7 @@
       (insert-char 45 (window-body-width) )
       (beginning-of-buffer)
       (docRef-mode 1)
+      (hi-lock-line-face "Function:" "hi-yellow")
       )
     )
   )
@@ -225,13 +226,10 @@
 
 (defun paste-function ()
   "\C-s\C-mFunction:\C-m\C-s\C-m)\C-m\C-@\C-[\C-b\C-[\C-b\C-[w\C-xo\C-x1\C-y")
-;;  "\C-s\C-mFunction:\C-m\C-s\C-m;\C-m\C-b\C-@\C-[\C-b\C-[\C-b\C-[w\C-xk\C-m\C-xo\C-y\C-x1")
-;;  "\C-s\C-mFunction:\C-m\C-e\C-[\C-b\C-@\C-[\C-b\C-[w\C-xk\C-m\C-xo\C-y\C-x1")
-   
 
-;;  [?\C-s return ?F ?u ?n ?c ?t ?i ?o ?n ?: return ?\C-e ?\C-b ?\C-  ?\C-\M-b ?\C-\M-b ?\M-w ?\C-x ?k return ?\C-x ?o ?\C-y ?\C-x ?1])
- ;; old [?\C-s ?f ?u ?n ?\C-e ?\C-b ?\C-  ?\C-\M-b ?\C-\M-b ?\M-w ?\C-x ?o ?\C-y ?\C-x ?1])
 
+
+  
 
 
 ;; old
