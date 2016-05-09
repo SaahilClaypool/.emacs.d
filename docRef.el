@@ -325,18 +325,25 @@
             (parse-strings (nthcdr count los)
                            (cons (list function desc) listPair))
             )
-        (if (string-match "/**"
+        (if (string-match "/\\*\\*"
                           (car los))
             (let* (
-                   (pair )
-                   (count )
-                   (desc )
+                   (pair (parse-block-comment los nil 0))
+                   (count (nth 2 pair))
+                   (function (nth 0 pair))
+                   (desc (nth 1 pair))
                    )
-              (parse-strings (nthcdr count los)
-                             (cons (list function desc) listPair))
+              (progn
+                (with-temp-buffer
+                  (insert (format "after the entire parse %s\n"
+                                  desc))
+                  (append-to-buffer "output" nil nil))
+                (parse-strings (nthcdr count los)
+                               (cons (list function desc) listPair)))
+
               )
           (parse-strings (cdr los) listPair)
-            )
+          )
         )
     listPair
 
@@ -345,22 +352,39 @@
 ;; parse block comment
 (defun parse-block-comment (los listDesc lineCount)
   "parse block doxy comment and get the next function it refers to"
+  (progn
+    (with-temp-buffer
+      (insert "parse block comment\n")
+      (insert (format"desciption: %s\n" listDesc))
+      (insert (format"current: %s\n" (if los (append   listDesc (list (car los))) "nil")))
+
+      (append-to-buffer "output" nil nil)
+      )
   (if los
       (let* (
              (curLine (car los))
              )
-        (if (not (string-match "*/"
+        (if (not (string-match "\\*/"
                                curLine))
-            (parse-block-comment (cdr los)
-                           (append   listDesc (list curLine))
-                           (+ 1 lineCount))
+            (progn
+              (with-temp-buffer
+                (insert (format "NOT THE END current line: %s current description: %s\n\n\n" curLine listDesc ))
+                (append-to-buffer "output" nil nil))
+              (parse-block-comment (cdr los)
+                           (append  listDesc (list curLine))
+                           (+ 1 lineCount)))
           ;; else, return the next nonEmpty line as a list with the description
           (let*(
                 (non-empt-ret (next-non-empty (cdr los) 0))
                 (empty-count (nth 1 non-empt-ret))
                 (non-empty-str (nth 0 non-empt-ret))
-              )
-            (list non-empty-str listDesc (+ 1 empty-count lineCount))
+                )
+            (progn
+              (with-temp-buffer
+                (insert (format "THE END \n non empt %s count %d \n\n\n\n" non-empty-str empty-count ))
+                (append-to-buffer "output" nil nil))
+              (list non-empty-str (append listDesc (list curLine)) (+ 2 empty-count lineCount)))
+
             )
           
           
@@ -368,7 +392,8 @@
         )
     nil
     )
-  )
+  ))
+
 ;; keep adding to list of Desc, when last line is not ///, go until non empty line
 ;; return cons (function description lineCount) 
 (defun parse-comment (los listDesc lineCount)
@@ -407,6 +432,7 @@
       nil
       )
     )
+
 
 
 (defun docref-setup-project()
