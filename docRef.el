@@ -166,7 +166,6 @@
       (insert-char 45 (window-body-width) )
       (beginning-of-buffer)
       (docRef-mode 1)
-      (hi-lock-line-face "Function:" "hi-yellow")
       )
     )
   )
@@ -228,8 +227,11 @@
   "\C-s\C-mFunction:\C-m\C-s\C-m)\C-m\C-@\C-[\C-b\C-[\C-b\C-[w\C-xo\C-x1\C-y")
 
 
+(defun highlight-function()
+     "\C-[shlFunction:\C-mhi-yellow\C-m")
 
-  
+
+
 
 
 ;; old
@@ -244,8 +246,11 @@
             (define-key map (kbd "p") (prev-function))
             (define-key map (kbd "i") (paste-function))
             (define-key map (kbd "q") (quit-function))
+            (define-key map (kbd "h") (highlight-function))
             map
             )
+
+
     
   )
    
