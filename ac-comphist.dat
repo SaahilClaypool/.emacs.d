@@ -1,588 +1,590 @@
-((("switch-to-buffer" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("compact-function-toggle" .
-   [0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0])
-  ("re-print" .
-   [1 0 0 0 0 2 0 0])
-  ("pretty-print" .
-   [0 0 0 0 0 0 0 0 0 0 0 1])
-  ("pretty-print-compact" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
-  ("compact" .
-   [15 0 0 0 0 0 0])
-  ("last-query" .
-   [0 0 0 0 0 0 0 1 0 0])
-  ("highlight-function" .
-   [2 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
-  ("append-to-buffer" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("format" .
-   [1 0 0 0 0 0])
-  ("quit" .
-   [1 0 0 0])
-  ("font-lock-add-keywords" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
-  ("kill-ring-save" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("backward-sexp" .
-   [0 0 0 0 0 0 0 0 0 0 0 1 0])
-  ("backup" .
-   [0 0 0 0 0 1])
-  ("push-mark" .
-   [0 0 0 0 1 0 0 0 0])
-  ("set-mark-command" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("move-end-of-line" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("backward-page" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("end-of-line" .
-   [0 0 0 1 0 0 0 0 0 0 0])
-  ("search" .
-   [1 0 0 0 0 0])
-  ("docRef" .
-   [0 0 0 0 1 0])
-  ("make-directory" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 2])
-  ("setup-project" .
-   [0 0 0 0 0 0 0 0 1 0 0 0 0])
-  ("docref-lookup-all-files" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
-  ("allFunctions" .
-   [0 0 0 0 0 0 1 0 0 0 0 0])
-  ("new-window-print" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("allFiles" .
-   [0 0 0 0 0 1 0 0])
-  ("docref-get-all-functions" .
-   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 1])
-  ("read-functions-from-file" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("lofile" .
-   [1 0 0 0 0 0])
-  ("functionList" .
-   [1 0 0 0 0 0 0 0 0 0 0 0])
-  ("docref-lookup-list-file" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("directory-files-and-attributes" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("directory-file" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("referenceDir" .
-   [2 0 0 1 0 2 1 0 0 0 0 1])
-  ("name" .
-   [9 0 0 0])
-  ("setup-helper" .
-   [3 0 0 0 0 0 0 0 0 0 0 0])
-  ("read-string" .
-   [3 0 0 0 0 0 0 0 0 0 0])
-  ("debug-on-error" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 1 0])
-  ("firstName" .
-   [4 0 0 0 0 0 0 1 0])
-  ("file-attributes" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
-  ("docRef-run" .
-   [1 0 0 0 0 0 0 0 1 0])
-  ("write-region" .
-   [2 0 0 0 0 0 0 0 0 0 0 0])
-  ("testHeader.h" .
-   [1 0 0 0 0 0 0 0 0 0 0 0])
-  ("progn" .
-   [5 0 0 0 0])
-  ("output-functions" .
-   [1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1])
-  ("setq" .
-   [12 0 0 0])
-  ("funcSymbol" .
-   [2 0 0 0 0 1 0 0 0 0])
-  ("functions" .
-   [13 0 0 0 0 0 0 0 0])
-  ("listPair" .
-   [3 0 0 0 0 0 1 0])
-  ("nthcdr" .
-   [0 0 0 1 0 0])
-  ("parse-strings" .
-   [2 0 0 0 0 0 0 0 0 2 0 0 0])
-  ("desc" .
-   [4 0 0 0])
-  ("let" .
-   [4 0 0])
-  ("empty-count" .
-   [0 0 0 0 0 0 0 0 0 1 0])
-  ("non-empty-str" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0])
-  ("non-empt-ret" .
-   [0 0 0 0 0 0 0 0 1 0 0 0])
-  ("next-non-empty-return" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
-  ("nth" .
-   [14 0 0])
-  ("count" .
-   [7 0 0 0 0])
-  ("lineCount" .
-   [1 0 0 0 0 2 0 0 0])
-  ("n" .
-   [4])
-  ("next-non-empty" .
-   [1 0 0 0 0 0 0 0 0 1 3 0 0 1])
-  ("cons" .
-   [3 0 0 0])
-  ("parse-comment" .
-   [1 0 0 0 0 0 0 0 0 1 0 0 3])
-  ("curLine" .
-   [3 0 0 0 0 1 0])
-  ("c" .
-   [7])
-  ("string-match" .
-   [9 0 0 0 0 0 0 0 0 0 1 1])
-  ("listDesc" .
-   [3 0 0 0 0 0 0 2])
-  ("fileName" .
-   [5 0 0 0 0 1 1 1])
-  ("read-lines" .
-   [6 0 0 0 0 0 0 0 0 0])
-  ("paste-function" .
-   [0 0 0 0 0 1 0 1 0 0 0 0 0 0])
-  ("prev-function" .
-   [0 0 0 0 0 0 0 0 1 0 0 0 0])
-  ("previous" .
-   [0 0 0 0 0 1 0 0])
-  ("define-key-after" .
-   [0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0])
-  ("kbd" .
-   [5 0 0])
-  ("define-key" .
-   [2 0 0 0 0 0 0 1 0 1])
-  ("make-sparse-keymap" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
-  (":keymap" .
-   [1 0 0 0 0 0 0])
-  (":lighter" .
-   [1 0 0 0 0 0 0 0])
-  ("define-minor-mode" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
-  ("make-string" .
-   [4 0 0 0 0 0 0 0 0 0 0])
-  ("string" .
-   [1 0 0 0 0 0])
-  ("next-function" .
-   [4 0 0 0 0 0 0 0 1 0 0 0 0])
-  ("beginning-of-buffer" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
-  ("goto" .
-   [0 0 0 1])
-  ("length" .
-   [8 0 0 0 0 0])
-  ("filterFunction" .
-   [2 0 0 0 0 0 0 1 1 0 0 0 0 0])
-  ("filterClass" .
-   [0 0 0 0 0 0 0 0 0 2 0])
-  ("aLos" .
-   [2 0 0 0])
-  ("filter-class" .
-   [0 0 0 0 0 0 0 0 0 1 0 0])
-  ("not" .
-   [12 0 0])
-  ("function" .
-   [6 0 0 0 0 0 0 0])
-  ("class" .
-   [4 0 0 0 0])
-  ("list" .
-   [12 0 0 0])
-  ("nil" .
-   [22 0 0])
-  ("cdr" .
-   [12 0 0])
-  ("join-list-string" .
-   [0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 1])
-  ("los" .
-   [23 0 0])
-  ("car" .
-   [14 0 0])
-  ("concat" .
-   [7 0 0 0 0 1])
-  ("split-string" .
-   [3 0 0 0 0 0 0 0 0 0 0 0])
-  ("pop" .
-   [5 0 0])
-  ("line" .
-   [8 0 0 0])
-  ("other-window" .
-   [1 0 0 0 0 0 0 0 0 0 0 1])
-  ("p" .
-   [3])
-  ("date" .
-   [2 0 0 0])
-  ("names" .
-   [2 0 0 0 0])
-  ("printSolution" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("cost" .
-   [3 0 0 0])
-  ("prin" .
-   [2 0 0 0])
-  ("pair" .
-   [8 0 0 0])
-  ("usedRows" .
-   [2 0 0 0 0 0 0 0])
-  ("usedCols" .
-   [6 0 0 0 0 0 0 0])
-  ("solution" .
-   [6 0 0 0 0 0 0 0])
-  ("colZero" .
-   [7 0 0 0 0 0 0])
-  ("numZero" .
-   [4 0 0 0 0 0 0])
-  ("row" .
-   [1 0 0])
-  ("col" .
-   [1 0 0])
-  ("findOptimal" .
-   [0 0 0 0 0 0 1 0 0 0 0])
-  ("header" .
-   [1 0 0 0 0 0])
-  ("sqrList" .
-   [1 0 0 0 0 0 0])
-  ("map" .
-   [6 0 1])
-  ("alist" .
-   [2 0 0 0 0])
-  ("genFib" .
-   [2 0 0 0 0 0])
-  ("e" .
-   [2])
-  ("sqr" .
-   [5 0 0])
-  ("defun" .
-   [21 0 0 0 0])
-  ("s" .
-   [3])
-  ("def" .
-   [1 0 0])
-  ("loopTime" .
-   [0 0 0 0 0 1 0 0])
-  ("recTime" .
-   [0 0 0 0 1 0 0])
-  ("loopVal" .
-   [0 0 0 0 0 0 1])
-  ("number" .
-   [2 0 0 0 0 0])
-  ("pick" .
-   [3 0 0 0])
-  ("menu" .
-   [6 0 0 0])
-  ("x" .
-   [1])
-  ("fib" .
-   [9 0 0])
-  ("recFib" .
-   [0 0 0 0 1 1])
-  ("mytime" .
-   [5 0 0 0 0 0])
-  ("loop" .
-   [1 0 0 0])
-  ("color" .
-   [2 0 0 0 0])
-  ("ylabel" .
-   [1 0 0 0 0 0])
-  ("xlabel" .
-   [1 0 0 0 0 0])
-  ("loc" .
+((("blockCommentEnd" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("str" .
    [2 0 0])
-  ("legend" .
-   [2 0 0 0 0 0])
-  ("import" .
-   [0 0 0 0 0 1])
-  ("cool" .
-   [1 0 0 0])
-  ("and" .
-   [5 0 0])
-  ("eval" .
-   [1 0 0 0])
-  ("all" .
-   [1 0 0])
-  ("mysleep" .
-   [0 0 0 1 1 0 0])
-  ("lines" .
-   [8 0 0 0 0])
-  ("height" .
-   [1 0 0 0 0 0])
-  ("girth" .
-   [1 0 0 0 0])
-  ("lm" .
-   [4 0])
-  ("cor.test" .
-   [2 0 0 0 0 0 0 0])
-  ("cor" .
-   [3 0 0])
-  ("trees" .
-   [9 0 0 0 0])
-  ("precip" .
-   [1 0 0 0 0 0])
-  ("treering" .
-   [1 0 0 0 0 0 0 0])
-  ("sleeploss" .
+  ("blockCommentStart" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1])
+  ("singleComments" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 1])
+  ("highlight" .
    [0 0 0 0 0 1 0 0 0])
-  ("npk" .
-   [1 0 0])
-  ("plot" .
-   [17 0 0 0])
-  ("sleep" .
-   [3 0 0 0 0])
-  ("data" .
-   [8 0 0 0])
-  ("html" .
-   [0 0 1 0])
-  ("setInterval" .
+  ("hi-lock-mode" .
+   [0 0 0 0 0 0 0 0 0 0 1 0])
+  ("hi-lock-face-buffer" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("parse-block-comment" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1])
+  ("c-mode" .
+   [0 0 0 0 1 0])
+  ("default-directory" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0])
+  ("interactive" .
    [1 0 0 0 0 0 0 0 0 0 0])
-  ("shape" .
-   [0 0 0 0 1])
-  ("auto-complete" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("auto-co" .
-   [0 0 0 0 0 0 1])
-  ("add-to-list" .
-   [0 0 0 0 0 0 0 0 0 0 1])
-  ("add-to-" .
-   [0 0 0 0 0 0 1])
-  ("add" .
-   [1 0 0])
-  ("print" .
-   [4 0 0 0 0])
-  ("saahil" .
-   [7 0 1 0 0 0])
-  ("like" .
-   [2 0 0 0])
-  ("hello" .
-   [0 0 0 0 1])
-  ("strong" .
-   [2 0 0 0 0 1])
-  ("String" .
-   [0 0 0 1 0 0])
-  ("removed" .
-   [1 0 0 0 0 0 0])
-  ("printTable" .
-   [1 0 0 0 0 0 0 0 0 0])
-  ("factorial" .
-   [6 0 0 0 0 0 0 0 0])
-  ("choose" .
+  ("lambda" .
+   [2 0 0 0 0 0])
+  ("docref-setup-project" .
+   [0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0])
+  ("docref-lookup-docs" .
+   [0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 1 0])
+  ("filterProj" .
+   [0 0 0 0 0 0 0 0 1 1])
+  ("filter-project" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("project" .
+   [3 0 0 0 0 0 0])
+  ("read" .
+   [1 0 0 0])
+  ("strs" .
+   [1 0 0 0])
+  ("output" .
    [1 0 0 0 0 0])
-  ("require" .
-   [3 0 0 0 0 0 2])
-  ("autocomplete" .
-   [0 0 0 0 0 1 0 0 0 0 0 0])
-  ("saas" .
-   [0 0 1 0])
-  ("sasa" .
-   [0 0 0 1])
-  ("saass" .
+  ("projName" .
+   [13 0 0 1 0 0 1 0])
+  ("cd" .
+   [2 0])
+  ("parse-dirs" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("subDir" .
+   [1 0 0 0 0 0])
+  ("message" .
+   [3 0 0 0 0 0 0])
+  ("directory" .
+   [1 0 0 0 0 0 0 0 0])
+  ("string-suffix-p" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("string=" .
+   [4 0 0 0 0 0 0])
+  ("equal" .
    [0 0 1 0 0])
-  ("file" .
-   [4 0 0 0])
-  ("read.csv" .
-   [0 0 0 0 0 0 0 1])
-  ("summary" .
-   [1 0 0 0 0 0 2])
-  ("correlation" .
-   [0 0 0 0 0 1 0 0 0 0 0])
-  ("sunspot.month" .
-   [1 0 0 0 0 0 0 0 0 1 0 0 0])
-  ("sunspot" .
-   [1 0 0 1 0 0 0])
-  ("is" .
-   [4 0])
-  ("append" .
-   [13 0 0 0 0 0])
-  ("start" .
-   [10 0 0 0 0])
-  ("rat" .
-   [4 0 0])
-  ("otherBounces" .
-   [1 0 0 0 0 1 1 0 0 0 0 0])
-  ("ratio" .
-   [3 0 0 0 0])
-  ("bounces" .
-   [2 0 0 0 0 0 0])
-  ("emacs-faq" .
-   [0 0 0 0 0 1 0 0 0])
-  ("bubbleSort" .
-   [0 0 0 0 1 0 0 0 0 0])
-  ("fibo" .
-   [5 0 0 0])
-  ("fiboTime" .
-   [2 0 0 0 0 0 0 0])
-  ("val" .
-   [3 0 0])
-  ("plt" .
-   [15 0 0])
-  ("show" .
-   [4 0 0 0])
-  ("scatter" .
-   [1 0 0 0 0 0 0])
-  ("testing" .
-   [1 0 0 0 0 0 0])
-  ("darkblue" .
-   [0 0 0 0 0 0 0 1])
-  ("div" .
-   [3 0 0])
-  ("right" .
+  ("lof" .
+   [10 0 0])
+  ("directory-files" .
+   [7 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("t" .
+   [2])
+  ("fileNames" .
+   [1 0 0 0 0 0 0 0 0])
+  ("setup-proj" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("run-prolog" .
+   [0 0 0 0 0 0 1 0 0 0])
+  ("parse-list-file" .
+   [3 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("dir" .
+   [7 0 0])
+  ("outputFile" .
+   [7 0 0 0 0 0 0 0 1 1])
+  ("or" .
+   [5 0])
+  ("curFile" .
+   [6 0 0 0 0 0 0])
+  ("substring" .
+   [3 0 0 0 0 0 0 0 1])
+  ("root" .
+   [7 0 0 0])
+  ("list-directory" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 1])
+  ("/" .
+   [5])
+  ("buffer-string" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("insert-file-contents" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("with-temp-buffer" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 2 2 0 1])
+  ("with" .
+   [2 0 0 0])
+  ("filePath" .
+   [1 0 0 0 0 0 0 1])
+  ("parse-single-file" .
+   [1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 3])
+  ("function-paste-function" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0])
+  ("next" .
+   [1 0 0 0])
+  ("width" .
+   [1 0 0 0 0])
+  ("insert-char" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("i" .
+   [1])
+  ("let*" .
+   [14 0 0 3])
+  ("window-body-width" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0])
+  ("selected-frame" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("set-frame-width" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("get-buffer" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("get" .
+   [1 0 0])
+  ("set-frame-size" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("frame-width" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("erase-buffer" .
+   [0 0 0 0 0 0 0 0 1 0 0 0])
+  ("insert" .
+   [28 0 0 0 0 0])
+  ("claypool" .
+   [1 0 0 0 0 0 0 0])
+  ("myFun" .
+   [1 0 0 0 0])
+  ("cond" .
+   [1 0 0 0])
+  ("<=" .
+   [1 0])
+  ("pwr" .
+   [2 0 0])
+  ("if" .
+   [24 1])
+  ("pwr2" .
+   [3 0 0 0])
+  ("monokai" .
+   [0 0 0 0 1 0 0])
+  ("load-file" .
+   [0 0 0 0 0 0 0 0 1])
+  ("manoj-dark" .
+   [0 0 0 0 0 2 0 0 0 0])
+  ("load-theme" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("load" .
+   [1 0 0 0])
+  ("aside" .
    [1 0 0 0 1])
   ("id" .
    [5 0])
-  ("aside" .
+  ("right" .
    [1 0 0 0 1])
-  ("load" .
-   [1 0 0 0])
-  ("load-theme" .
-   [1 0 0 0 0 0 0 0 0 0])
-  ("manoj-dark" .
-   [0 0 0 0 0 2 0 0 0 0])
-  ("load-file" .
-   [0 0 0 0 0 0 0 0 1])
-  ("monokai" .
-   [0 0 0 0 1 0 0])
-  ("pwr2" .
-   [3 0 0 0])
-  ("if" .
-   [24 1])
-  ("pwr" .
-   [2 0 0])
-  ("<=" .
-   [1 0])
-  ("cond" .
-   [1 0 0 0])
-  ("myFun" .
-   [1 0 0 0 0])
-  ("claypool" .
-   [1 0 0 0 0 0 0 0])
-  ("insert" .
-   [28 0 0 0 0 0])
-  ("erase-buffer" .
-   [0 0 0 0 0 0 0 0 1 0 0 0])
-  ("frame-width" .
-   [0 0 0 0 0 0 0 0 0 0 1])
-  ("set-frame-size" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("get" .
-   [1 0 0])
-  ("get-buffer" .
-   [0 0 0 0 0 0 0 0 0 1])
-  ("set-frame-width" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("selected-frame" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0 0])
-  ("window-body-width" .
-   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0])
-  ("let*" .
-   [14 0 0 3])
-  ("i" .
-   [1])
-  ("insert-char" .
-   [0 0 0 0 0 0 0 0 0 0 1])
-  ("width" .
-   [1 0 0 0 0])
-  ("next" .
-   [1 0 0 0])
-  ("function-paste-function" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0])
-  ("parse-single-file" .
-   [1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 3])
-  ("filePath" .
-   [1 0 0 0 0 0 0 1])
-  ("with" .
-   [2 0 0 0])
-  ("with-temp-buffer" .
-   [0 0 0 0 0 0 0 0 0 0 0 1 2 2 0 1])
-  ("insert-file-contents" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("buffer-string" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("/" .
-   [5])
-  ("list-directory" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0 1])
-  ("root" .
-   [7 0 0 0])
-  ("substring" .
-   [3 0 0 0 0 0 0 0 1])
-  ("curFile" .
-   [6 0 0 0 0 0 0])
-  ("or" .
-   [5 0])
-  ("outputFile" .
-   [7 0 0 0 0 0 0 0 1 1])
-  ("dir" .
-   [7 0 0])
-  ("parse-list-file" .
-   [3 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("run-prolog" .
-   [0 0 0 0 0 0 1 0 0 0])
-  ("setup-proj" .
-   [0 0 0 0 0 0 0 0 0 1])
-  ("fileNames" .
-   [1 0 0 0 0 0 0 0 0])
-  ("t" .
-   [2])
-  ("directory-files" .
-   [7 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("lof" .
-   [10 0 0])
-  ("equal" .
-   [0 0 1 0 0])
-  ("string=" .
-   [4 0 0 0 0 0 0])
-  ("string-suffix-p" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("directory" .
-   [1 0 0 0 0 0 0 0 0])
-  ("message" .
-   [3 0 0 0 0 0 0])
-  ("subDir" .
-   [1 0 0 0 0 0])
-  ("parse-dirs" .
-   [0 0 0 0 0 0 0 0 0 1])
-  ("cd" .
-   [2 0])
-  ("projName" .
-   [13 0 0 1 0 0 1 0])
-  ("output" .
-   [1 0 0 0 0 0])
-  ("strs" .
-   [1 0 0 0])
-  ("read" .
-   [1 0 0 0])
-  ("project" .
-   [3 0 0 0 0 0 0])
-  ("filter-project" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("filterProj" .
-   [0 0 0 0 0 0 0 0 1 1])
-  ("docref-lookup-docs" .
-   [0 0 0 0 0 0 0 0 0 1 0 2 0 0 0 0 1 0])
-  ("docref-setup-project" .
-   [0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0])
-  ("lambda" .
-   [2 0 0 0 0 0])
-  ("interactive" .
-   [1 0 0 0 0 0 0 0 0 0 0])
-  ("default-directory" .
-   [0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0])
-  ("c-mode" .
-   [0 0 0 0 1 0])
-  ("parse-block-comment" .
-   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1])
-  ("hi-lock-face-buffer" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
-  ("hi-lock-mode" .
-   [0 0 0 0 0 0 0 0 0 0 1 0])
-  ("highlight" .
+  ("div" .
+   [3 0 0])
+  ("darkblue" .
+   [0 0 0 0 0 0 0 1])
+  ("testing" .
+   [1 0 0 0 0 0 0])
+  ("scatter" .
+   [1 0 0 0 0 0 0])
+  ("show" .
+   [4 0 0 0])
+  ("plt" .
+   [15 0 0])
+  ("val" .
+   [3 0 0])
+  ("fiboTime" .
+   [2 0 0 0 0 0 0 0])
+  ("fibo" .
+   [5 0 0 0])
+  ("bubbleSort" .
+   [0 0 0 0 1 0 0 0 0 0])
+  ("emacs-faq" .
    [0 0 0 0 0 1 0 0 0])
-  ("singleComments" .
-   [0 0 0 0 0 0 1 0 0 0 0 0 0 1])
-  ("blockCommentStart" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1])
-  ("str" .
+  ("bounces" .
+   [2 0 0 0 0 0 0])
+  ("ratio" .
+   [3 0 0 0 0])
+  ("otherBounces" .
+   [1 0 0 0 0 1 1 0 0 0 0 0])
+  ("rat" .
+   [4 0 0])
+  ("start" .
+   [10 0 0 0 0])
+  ("append" .
+   [13 0 0 0 0 0])
+  ("is" .
+   [4 0])
+  ("sunspot" .
+   [1 0 0 1 0 0 0])
+  ("sunspot.month" .
+   [1 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("correlation" .
+   [0 0 0 0 0 1 0 0 0 0 0])
+  ("summary" .
+   [1 0 0 0 0 0 2])
+  ("read.csv" .
+   [0 0 0 0 0 0 0 1])
+  ("file" .
+   [4 0 0 0])
+  ("saass" .
+   [0 0 1 0 0])
+  ("sasa" .
+   [0 0 0 1])
+  ("saas" .
+   [0 0 1 0])
+  ("autocomplete" .
+   [0 0 0 0 0 1 0 0 0 0 0 0])
+  ("require" .
+   [3 0 0 0 0 0 2])
+  ("choose" .
+   [1 0 0 0 0 0])
+  ("factorial" .
+   [6 0 0 0 0 0 0 0 0])
+  ("printTable" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("removed" .
+   [1 0 0 0 0 0 0])
+  ("String" .
+   [0 0 0 1 0 0])
+  ("strong" .
+   [2 0 0 0 0 1])
+  ("hello" .
+   [0 0 0 0 1])
+  ("like" .
+   [2 0 0 0])
+  ("saahil" .
+   [7 0 1 0 0 0])
+  ("print" .
+   [4 0 0 0 0])
+  ("add" .
+   [1 0 0])
+  ("add-to-" .
+   [0 0 0 0 0 0 1])
+  ("add-to-list" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("auto-co" .
+   [0 0 0 0 0 0 1])
+  ("auto-complete" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("shape" .
+   [0 0 0 0 1])
+  ("setInterval" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("html" .
+   [0 0 1 0])
+  ("data" .
+   [8 0 0 0])
+  ("sleep" .
+   [3 0 0 0 0])
+  ("plot" .
+   [17 0 0 0])
+  ("npk" .
+   [1 0 0])
+  ("sleeploss" .
+   [0 0 0 0 0 1 0 0 0])
+  ("treering" .
+   [1 0 0 0 0 0 0 0])
+  ("precip" .
+   [1 0 0 0 0 0])
+  ("trees" .
+   [9 0 0 0 0])
+  ("cor" .
+   [3 0 0])
+  ("cor.test" .
+   [2 0 0 0 0 0 0 0])
+  ("lm" .
+   [4 0])
+  ("girth" .
+   [1 0 0 0 0])
+  ("height" .
+   [1 0 0 0 0 0])
+  ("lines" .
+   [8 0 0 0 0])
+  ("mysleep" .
+   [0 0 0 1 1 0 0])
+  ("all" .
+   [1 0 0])
+  ("eval" .
+   [1 0 0 0])
+  ("and" .
+   [5 0 0])
+  ("cool" .
+   [1 0 0 0])
+  ("import" .
+   [0 0 0 0 0 1])
+  ("legend" .
+   [2 0 0 0 0 0])
+  ("loc" .
    [2 0 0])
-  ("blockCommentEnd" .
-   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])))
+  ("xlabel" .
+   [1 0 0 0 0 0])
+  ("ylabel" .
+   [1 0 0 0 0 0])
+  ("color" .
+   [2 0 0 0 0])
+  ("loop" .
+   [1 0 0 0])
+  ("mytime" .
+   [5 0 0 0 0 0])
+  ("recFib" .
+   [0 0 0 0 1 1])
+  ("fib" .
+   [9 0 0])
+  ("x" .
+   [1])
+  ("menu" .
+   [6 0 0 0])
+  ("pick" .
+   [3 0 0 0])
+  ("number" .
+   [2 0 0 0 0 0])
+  ("loopVal" .
+   [0 0 0 0 0 0 1])
+  ("recTime" .
+   [0 0 0 0 1 0 0])
+  ("loopTime" .
+   [0 0 0 0 0 1 0 0])
+  ("def" .
+   [1 0 0])
+  ("s" .
+   [3])
+  ("defun" .
+   [21 0 0 0 0])
+  ("sqr" .
+   [5 0 0])
+  ("e" .
+   [2])
+  ("genFib" .
+   [2 0 0 0 0 0])
+  ("alist" .
+   [2 0 0 0 0])
+  ("map" .
+   [6 0 1])
+  ("sqrList" .
+   [1 0 0 0 0 0 0])
+  ("header" .
+   [1 0 0 0 0 0])
+  ("findOptimal" .
+   [0 0 0 0 0 0 1 0 0 0 0])
+  ("col" .
+   [1 0 0])
+  ("row" .
+   [1 0 0])
+  ("numZero" .
+   [4 0 0 0 0 0 0])
+  ("colZero" .
+   [7 0 0 0 0 0 0])
+  ("solution" .
+   [6 0 0 0 0 0 0 0])
+  ("usedCols" .
+   [6 0 0 0 0 0 0 0])
+  ("usedRows" .
+   [2 0 0 0 0 0 0 0])
+  ("pair" .
+   [8 0 0 0])
+  ("prin" .
+   [2 0 0 0])
+  ("cost" .
+   [3 0 0 0])
+  ("printSolution" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("names" .
+   [2 0 0 0 0])
+  ("date" .
+   [2 0 0 0])
+  ("p" .
+   [3])
+  ("other-window" .
+   [1 0 0 0 0 0 0 0 0 0 0 1])
+  ("line" .
+   [8 0 0 0])
+  ("pop" .
+   [5 0 0])
+  ("split-string" .
+   [3 0 0 0 0 0 0 0 0 0 0 0])
+  ("concat" .
+   [7 0 0 0 0 1])
+  ("car" .
+   [14 0 0])
+  ("los" .
+   [23 0 0])
+  ("join-list-string" .
+   [0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 1])
+  ("cdr" .
+   [12 0 0])
+  ("nil" .
+   [22 0 0])
+  ("list" .
+   [15 0 0 0])
+  ("class" .
+   [4 0 0 0 0])
+  ("function" .
+   [6 0 0 0 0 0 0 0])
+  ("not" .
+   [12 0 0])
+  ("filter-class" .
+   [0 0 0 0 0 0 0 0 0 1 0 0])
+  ("aLos" .
+   [2 0 0 0])
+  ("filterClass" .
+   [0 0 0 0 0 0 0 0 0 2 0])
+  ("filterFunction" .
+   [2 0 0 0 0 0 0 1 1 0 0 0 0 0])
+  ("length" .
+   [8 0 0 0 0 0])
+  ("goto" .
+   [0 0 0 1])
+  ("beginning-of-buffer" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("next-function" .
+   [4 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("string" .
+   [1 0 0 0 0 0])
+  ("make-string" .
+   [4 0 0 0 0 0 0 0 0 0 0])
+  ("define-minor-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  (":lighter" .
+   [1 0 0 0 0 0 0 0])
+  (":keymap" .
+   [1 0 0 0 0 0 0])
+  ("make-sparse-keymap" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("define-key" .
+   [2 0 0 0 0 0 0 1 0 1])
+  ("kbd" .
+   [5 0 0])
+  ("define-key-after" .
+   [0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0])
+  ("previous" .
+   [0 0 0 0 0 1 0 0])
+  ("prev-function" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("paste-function" .
+   [0 0 0 0 0 1 0 1 0 0 0 0 0 0])
+  ("read-lines" .
+   [6 0 0 0 0 0 0 0 0 0])
+  ("fileName" .
+   [5 0 0 0 0 1 1 1])
+  ("listDesc" .
+   [5 0 0 0 0 0 0 3])
+  ("string-match" .
+   [9 0 0 0 0 0 0 0 0 0 1 1])
+  ("c" .
+   [7])
+  ("curLine" .
+   [3 0 0 0 0 1 0])
+  ("parse-comment" .
+   [1 0 0 0 0 0 0 0 0 1 0 0 3])
+  ("cons" .
+   [3 0 0 0])
+  ("next-non-empty" .
+   [1 0 0 0 0 0 0 0 0 1 3 0 0 1])
+  ("n" .
+   [4])
+  ("lineCount" .
+   [2 0 0 0 0 2 0 1 0])
+  ("count" .
+   [8 0 0 0 0])
+  ("nth" .
+   [14 0 0])
+  ("next-non-empty-return" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("non-empt-ret" .
+   [0 0 0 0 0 0 0 0 1 0 0 0])
+  ("non-empty-str" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("empty-count" .
+   [0 0 0 0 0 0 0 0 0 1 0])
+  ("let" .
+   [4 0 0])
+  ("desc" .
+   [4 0 0 0])
+  ("parse-strings" .
+   [2 0 0 0 0 0 0 0 0 2 0 0 0])
+  ("nthcdr" .
+   [0 0 0 1 0 0])
+  ("listPair" .
+   [3 0 0 0 0 0 1 0])
+  ("functions" .
+   [13 0 0 0 0 0 0 0 0])
+  ("funcSymbol" .
+   [2 0 0 0 0 1 0 0 0 0])
+  ("setq" .
+   [12 0 0 0])
+  ("output-functions" .
+   [1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1])
+  ("progn" .
+   [5 0 0 0 0])
+  ("testHeader.h" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("write-region" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("docRef-run" .
+   [1 0 0 0 0 0 0 0 1 0])
+  ("file-attributes" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("firstName" .
+   [4 0 0 0 0 0 0 1 0])
+  ("debug-on-error" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+  ("read-string" .
+   [3 0 0 0 0 0 0 0 0 0 0])
+  ("setup-helper" .
+   [3 0 0 0 0 0 0 0 0 0 0 0])
+  ("name" .
+   [9 0 0 0])
+  ("referenceDir" .
+   [2 0 0 1 0 2 1 0 0 0 0 1])
+  ("directory-file" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("directory-files-and-attributes" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("docref-lookup-list-file" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("functionList" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("lofile" .
+   [1 0 0 0 0 0])
+  ("read-functions-from-file" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("docref-get-all-functions" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 1])
+  ("allFiles" .
+   [0 0 0 0 0 1 0 0])
+  ("new-window-print" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("allFunctions" .
+   [0 0 0 0 0 0 1 0 0 0 0 0])
+  ("docref-lookup-all-files" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("setup-project" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("make-directory" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("docRef" .
+   [0 0 0 0 1 0])
+  ("search" .
+   [1 0 0 0 0 0])
+  ("end-of-line" .
+   [0 0 0 1 0 0 0 0 0 0 0])
+  ("backward-page" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("move-end-of-line" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("set-mark-command" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("push-mark" .
+   [0 0 0 0 1 0 0 0 0])
+  ("backup" .
+   [0 0 0 0 0 1])
+  ("backward-sexp" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0])
+  ("kill-ring-save" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("font-lock-add-keywords" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("quit" .
+   [1 0 0 0])
+  ("format" .
+   [1 0 0 0 0 0])
+  ("append-to-buffer" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("highlight-function" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("last-query" .
+   [0 0 0 0 0 0 0 1 0 0])
+  ("compact" .
+   [15 0 0 0 0 0 0])
+  ("pretty-print-compact" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("pretty-print" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("re-print" .
+   [1 0 0 0 0 2 0 0])
+  ("compact-function-toggle" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0])
+  ("switch-to-buffer" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("empty" .
+   [1 0 0 0 0])))

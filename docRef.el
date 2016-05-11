@@ -1,6 +1,7 @@
 ;; saahil claypool
-;; "Mon May  9 14:30:51 2016"
+;; "Wed May 11 11:17:56 2016"
 
+;; VERSION: 1.0 Last single file update
 
 ;;(global-font-lock-mode 1)
 
@@ -173,7 +174,7 @@
   (if los
       (concat (car los) "\n"
               (join-list-string (cdr los)))
-    nil
+    ""
     )
   )
 
@@ -491,7 +492,7 @@
           
           )
         )
-    nil
+    (list "" listDesc lineCount)
     )
   ))
 
@@ -519,7 +520,7 @@
           
           )
         )
-    nil
+    (list "" listDesc lineCount)
     )
   )
 
@@ -533,7 +534,7 @@
 				   nil
 				   (string-match "(" (car los)));; else reutrn this
           )
-      nil
+      (list "" count)
       )
     )
 (defun get-multi-line-function (los count curFunction openPren) 
