@@ -116,7 +116,8 @@
                                  (files-in filterProj)
                                  )
                       ) ;; list of classes matching
-         (filterFunction (doxyRef-get-all-functions filterClass 0)) ;; list of formatted functions
+         (filterFunction (filter-function function
+                                          (doxyRef-get-all-functions filterClass 0))) ;; list of formatted functions
          ;; probably: doxyRef-get-all-functions (list of file  filter-class)
          )
     
@@ -124,29 +125,15 @@
     (setq last-function function)
     (setq last-project project)
     (setq last-class class)
-    
+    (setq last-query nil)
     (new-window-print filterFunction);; need to get the list of string to print 
     
       )
   )
 
-(my-filter (lambda (a-class) (string-match "Circle" a-class ))
-           (files-in
-            (my-filter (lambda (proj) (string-match "sfml" proj ))
-                       (directory-files referenceDir))
-           )
-           )
 
 
 
-(doxyRef-get-all-functions
- (files-in (list
-
-            "sfml"
-
-           )
-          )
- 0)
 
 (defun files-in (lodir)
   (if lodir
@@ -361,6 +348,7 @@
 ;; takes a list of strings, puts them in the other window
 (defun new-window-print (aLos)
   (progn
+    (setq last-query aLos)
     (switch-to-buffer-other-window "docBuffer")
     (erase-buffer)
     (if compact
@@ -448,11 +436,11 @@
   
   "given file name and output file puts the reference information in that file"
   (progn
-    (with-temp-buffer
-      (insert "parse-SINGLE-files\n")
-      (insert fileName)
-      (append-to-buffer "output" nil nil)
-      )
+    ;; (with-temp-buffer
+    ;;   (insert "parse-SINGLE-files\n")
+    ;;   (insert fileName)
+    ;;   (append-to-buffer "output" nil nil)
+    ;;   )
 
   (let*
       (
@@ -518,10 +506,10 @@
                    (desc (nth 1 pair))
                    )
               (progn
-                (with-temp-buffer
-                  (insert (format "after the entire parse %s\n"
-                                  desc))
-                  (append-to-buffer "output" nil nil))
+                ;; (with-temp-buffer
+                ;;   (insert (format "after the entire parse %s\n"
+                ;;                   desc))
+                ;;   (append-to-buffer "output" nil nil))
                 (parse-strings (nthcdr count los)
                                (cons (list function desc) listPair)))
 
@@ -537,13 +525,13 @@
 (defun parse-block-comment (los listDesc lineCount)
   "parse block doxy comment and get the next function it refers to"
   (progn
-    (with-temp-buffer
-      (insert "parse block comment\n")
-      (insert (format"desciption: %s\n" listDesc))
-      (insert (format"current: %s\n" (if los (append   listDesc (list (car los))) "nil")))
+    ;; (with-temp-buffer
+    ;;   (insert "parse block comment\n")
+    ;;   (insert (format"desciption: %s\n" listDesc))
+    ;;   (insert (format"current: %s\n" (if los (append   listDesc (list (car los))) "nil")))
 
-      (append-to-buffer "output" nil nil)
-      )
+    ;;   (append-to-buffer "output" nil nil)
+    ;;   )
   (if los
       (let* (
              (curLine (car los))
@@ -553,9 +541,9 @@
                                     )
                  )
             (progn
-              (with-temp-buffer
-                (insert (format "NOT THE END current line: %s current description: %s\n\n\n" curLine listDesc ))
-                (append-to-buffer "output" nil nil))
+              ;; (with-temp-buffer
+              ;;   (insert (format "NOT THE END current line: %s current description: %s\n\n\n" curLine listDesc ))
+              ;;   (append-to-buffer "output" nil nil))
               (parse-block-comment (cdr los)
                            (append  listDesc (list curLine))
                            (+ 1 lineCount)))

@@ -1,0 +1,42 @@
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//javax/sql/RowSetEvent.java
+  static final long serialVersionUID = -1875450876546332005L;
+
+  /**
+   * Private serial version unique ID to ensure serialization
+   * compatibility.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//javax/sql/RowSetEvent.java
+  public RowSetEvent(RowSet source)
+
+  /**
+   * Constructs a <code>RowSetEvent</code> object initialized with the
+   * given <code>RowSet</code> object.
+   *
+   * @param source the <code>RowSet</code> object whose data has changed or
+   *        whose cursor has moved
+   * @throws IllegalArgumentException if <code>source</code> is null.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//javax/sql/RowSetEvent.java
+public class RowSetEvent extends java.util.EventObject {
+
+/**
+ * An <code>Event</code> object generated when an event occurs to a
+ * <code>RowSet</code> object.  A <code>RowSetEvent</code> object is
+ * generated when a single row in a rowset is changed, the whole rowset
+ * is changed, or the rowset cursor moves.
+ * <P>
+ * When an event occurs on a <code>RowSet</code> object, one of the
+ * <code>RowSetListener</code> methods will be sent to all registered
+ * listeners to notify them of the event.  An <code>Event</code> object
+ * is supplied to the <code>RowSetListener</code> method so that the
+ * listener can use it to find out which <code>RowSet</code> object is
+ * the source of the event.
+ *
+ * @since 1.4
+ */

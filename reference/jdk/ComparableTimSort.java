@@ -1,0 +1,349 @@
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    private Object[]  ensureCapacity(int minCapacity) {
+
+    /**
+     * Ensures that the external array tmp has at least the specified
+     * number of elements, increasing its size if necessary.  The size
+     * increases exponentially to ensure amortized linear time complexity.
+     *
+     * @param minCapacity the minimum required capacity of the tmp array
+     * @return tmp, whether or not it grew
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    @SuppressWarnings({"unchecked", "rawtypes"})
+
+    /**
+     * Like mergeLo, except that this method should be called only if
+     * len1 >= len2; mergeLo should be called if len1 <= len2.  (Either method
+     * may be called if len1 == len2.)
+     *
+     * @param base1 index of first element in first run to be merged
+     * @param len1  length of first run to be merged (must be > 0)
+     * @param base2 index of first element in second run to be merged
+     *        (must be aBase + aLen)
+     * @param len2  length of second run to be merged (must be > 0)
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    @SuppressWarnings({"unchecked", "rawtypes"})
+
+    /**
+     * Merges two adjacent runs in place, in a stable fashion.  The first
+     * element of the first run must be greater than the first element of the
+     * second run (a[base1] > a[base2]), and the last element of the first run
+     * (a[base1 + len1-1]) must be greater than all elements of the second run.
+     *
+     * For performance, this method should be called only when len1 <= len2;
+     * its twin, mergeHi should be called if len1 >= len2.  (Either method
+     * may be called if len1 == len2.)
+     *
+     * @param base1 index of first element in first run to be merged
+     * @param len1  length of first run to be merged (must be > 0)
+     * @param base2 index of first element in second run to be merged
+     *        (must be aBase + aLen)
+     * @param len2  length of second run to be merged (must be > 0)
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    private static int gallopRight(Comparable<Object> key, Object[] a,
+            int base, int len, int hint) {
+
+    /**
+     * Like gallopLeft, except that if the range contains an element equal to
+     * key, gallopRight returns the index after the rightmost equal element.
+     *
+     * @param key the key whose insertion point to search for
+     * @param a the array in which to search
+     * @param base the index of the first element in the range
+     * @param len the length of the range; must be > 0
+     * @param hint the index at which to begin the search, 0 <= hint < n.
+     *     The closer hint is to the result, the faster this method will run.
+     * @return the int k,  0 <= k <= n such that a[b + k - 1] <= key < a[b + k]
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    private static int gallopLeft(Comparable<Object> key, Object[] a,
+            int base, int len, int hint) {
+
+    /**
+     * Locates the position at which to insert the specified key into the
+     * specified sorted range; if the range contains an element equal to key,
+     * returns the index of the leftmost equal element.
+     *
+     * @param key the key whose insertion point to search for
+     * @param a the array in which to search
+     * @param base the index of the first element in the range
+     * @param len the length of the range; must be > 0
+     * @param hint the index at which to begin the search, 0 <= hint < n.
+     *     The closer hint is to the result, the faster this method will run.
+     * @return the int k,  0 <= k <= n such that a[b + k - 1] < key <= a[b + k],
+     *    pretending that a[b - 1] is minus infinity and a[b + n] is infinity.
+     *    In other words, key belongs at index b + k; or in other words,
+     *    the first k elements of a should precede key, and the last n - k
+     *    should follow it.
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    @SuppressWarnings("unchecked")
+
+    /**
+     * Merges the two runs at stack indices i and i+1.  Run i must be
+     * the penultimate or antepenultimate run on the stack.  In other words,
+     * i must be equal to stackSize-2 or stackSize-3.
+     *
+     * @param i stack index of the first of the two runs to merge
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    private void mergeForceCollapse() {
+
+    /**
+     * Merges all runs on the stack until only one remains.  This method is
+     * called once, to complete the sort.
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    private void mergeCollapse() {
+
+    /**
+     * Examines the stack of runs waiting to be merged and merges adjacent runs
+     * until the stack invariants are reestablished:
+     *
+     *     1. runLen[i - 3] > runLen[i - 2] + runLen[i - 1]
+     *     2. runLen[i - 2] > runLen[i - 1]
+     *
+     * This method is called each time a new run is pushed onto the stack,
+     * so the invariants are guaranteed to hold for i < stackSize upon
+     * entry to the method.
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    private void pushRun(int runBase, int runLen) {
+
+    /**
+     * Pushes the specified run onto the pending-run stack.
+     *
+     * @param runBase index of the first element in the run
+     * @param runLen  the number of elements in the run
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    private static int minRunLength(int n) {
+
+    /**
+     * Returns the minimum acceptable run length for an array of the specified
+     * length. Natural runs shorter than this will be extended with
+     * {@link #binarySort}.
+     *
+     * Roughly speaking, the computation is:
+     *
+     *  If n < MIN_MERGE, return n (it's too small to bother with fancy stuff).
+     *  Else if n is an exact power of 2, return MIN_MERGE/2.
+     *  Else return an int k, MIN_MERGE/2 <= k <= MIN_MERGE, such that n/k
+     *   is close to, but strictly less than, an exact power of 2.
+     *
+     * For the rationale, see listsort.txt.
+     *
+     * @param n the length of the array to be sorted
+     * @return the length of the minimum run to be merged
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    private static void reverseRange(Object[] a, int lo, int hi) {
+
+    /**
+     * Reverse the specified range of the specified array.
+     *
+     * @param a the array in which a range is to be reversed
+     * @param lo the index of the first element in the range to be reversed
+     * @param hi the index after the last element in the range to be reversed
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    @SuppressWarnings({"unchecked", "rawtypes"})
+
+    /**
+     * Returns the length of the run beginning at the specified position in
+     * the specified array and reverses the run if it is descending (ensuring
+     * that the run will always be ascending when the method returns).
+     *
+     * A run is the longest ascending sequence with:
+     *
+     *    a[lo] <= a[lo + 1] <= a[lo + 2] <= ...
+     *
+     * or the longest descending sequence with:
+     *
+     *    a[lo] >  a[lo + 1] >  a[lo + 2] >  ...
+     *
+     * For its intended use in a stable mergesort, the strictness of the
+     * definition of "descending" is needed so that the call can safely
+     * reverse a descending sequence without violating stability.
+     *
+     * @param a the array in which a run is to be counted and possibly reversed
+     * @param lo index of the first element in the run
+     * @param hi index after the last element that may be contained in the run.
+              It is required that {@code lo < hi}.
+     * @return  the length of the run beginning at the specified position in
+     *          the specified array
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    @SuppressWarnings({"fallthrough", "rawtypes", "unchecked"})
+
+    /**
+     * Sorts the specified portion of the specified array using a binary
+     * insertion sort.  This is the best method for sorting small numbers
+     * of elements.  It requires O(n log n) compares, but O(n^2) data
+     * movement (worst case).
+     *
+     * If the initial part of the specified range is already sorted,
+     * this method can take advantage of it: the method assumes that the
+     * elements from index {@code lo}, inclusive, to {@code start},
+     * exclusive are already sorted.
+     *
+     * @param a the array in which a range is to be sorted
+     * @param lo the index of the first element in the range to be sorted
+     * @param hi the index after the last element in the range to be sorted
+     * @param start the index of the first element in the range that is
+     *        not already known to be sorted ({@code lo <= start <= hi})
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+        ComparableTimSort ts = new ComparableTimSort(a, work, workBase, workLen);
+
+        /**
+         * March over the array once, left to right, finding natural runs,
+         * extending short natural runs to minRun elements, and merging runs
+         * to maintain stack invariant.
+         */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    static void sort(Object[] a, int lo, int hi, Object[] work, int workBase, int workLen) {
+
+    /**
+     * Sorts the given range, using the given workspace array slice
+     * for temp storage when possible. This method is designed to be
+     * invoked from public methods (in class Arrays) after performing
+     * any necessary array bounds checks and expanding parameters into
+     * the required forms.
+     *
+     * @param a the array to be sorted
+     * @param lo the index of the first element, inclusive, to be sorted
+     * @param hi the index of the last element, exclusive, to be sorted
+     * @param work a workspace array (slice)
+     * @param workBase origin of usable space in work array
+     * @param workLen usable size of work array
+     * @since 1.8
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    private ComparableTimSort(Object[] a, Object[] work, int workBase, int workLen) {
+
+    /**
+     * Creates a TimSort instance to maintain the state of an ongoing sort.
+     *
+     * @param a the array to be sorted
+     * @param work a workspace array (slice)
+     * @param workBase origin of usable space in work array
+     * @param workLen usable size of work array
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    private int stackSize = 0;  // Number of pending runs on stack
+
+    /**
+     * A stack of pending runs yet to be merged.  Run i starts at
+     * address base[i] and extends for len[i] elements.  It's always
+     * true (so long as the indices are in bounds) that:
+     *
+     *     runBase[i] + runLen[i] == runBase[i + 1]
+     *
+     * so we could cut the storage for this, but it's a minor amount,
+     * and keeping all the info explicit simplifies the code.
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    private Object[] tmp;
+
+    /**
+     * Temp storage for merges. A workspace array may optionally be
+     * provided in constructor, and if so will be used as long as it
+     * is big enough.
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    private static final int INITIAL_TMP_STORAGE_LENGTH = 256;
+
+    /**
+     * Maximum initial size of tmp array, which is used for merging.  The array
+     * can grow to accommodate demand.
+     *
+     * Unlike Tim's original C version, we do not allocate this much storage
+     * when sorting smaller arrays.  This change was required for performance.
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    private int minGallop = MIN_GALLOP;
+
+    /**
+     * This controls when we get *into* galloping mode.  It is initialized
+     * to MIN_GALLOP.  The mergeLo and mergeHi methods nudge it higher for
+     * random data, and lower for highly structured data.
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    private static final int  MIN_GALLOP = 7;
+
+    /**
+     * When we get into galloping mode, we stay there until both runs win less
+     * often than MIN_GALLOP consecutive times.
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+    private final Object[] a;
+
+    /**
+     * The array being sorted.
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//java/util/ComparableTimSort.java
+class ComparableTimSort {
+
+/**
+ * This is a near duplicate of {@link TimSort}, modified for use with
+ * arrays of objects that implement {@link Comparable}, instead of using
+ * explicit comparators.
+ *
+ * <p>If you are using an optimizing VM, you may find that ComparableTimSort
+ * offers no performance benefit over TimSort in conjunction with a
+ * comparator that simply returns {@code ((Comparable)first).compareTo(Second)}.
+ * If this is the case, you are better off deleting ComparableTimSort to
+ * eliminate the code duplication.  (See Arrays.java for details.)
+ *
+ * @author Josh Bloch
+ */

@@ -1,0 +1,630 @@
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    protected boolean throwOnFatalError = true;
+
+    /** If we should throw exception on fatalErrors; default:true.  */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public boolean getThrowOnFatalError()
+
+    /**
+     * User-settable behavior: when to re-throw exceptions.
+     *
+     * @return if we throw an exception on fatalErrors
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void setThrowOnFatalError(boolean b)
+
+    /**
+     * User-settable behavior: when to re-throw exceptions.
+     *
+     * <p>This allows per-instance configuration of
+     * ListingErrorHandlers.  You can ask us to either throw
+     * an exception when we're called for various warning /
+     * error / fatalErrors, or simply log them and continue.</p>
+     *
+     * <p>Note that the behavior of many parsers/transformers
+     * after a fatalError is not necessarily defined, most
+     * products will probably barf if you continue.</p>
+     *
+     * @param b if we should throw an exception on fatalErrors
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    protected boolean throwOnError = true;
+
+    /** If we should throw exception on errors; default:true.  */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public boolean getThrowOnError()
+
+    /**
+     * User-settable behavior: when to re-throw exceptions.
+     *
+     * @return if we throw an exception on errors
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void setThrowOnError(boolean b)
+
+    /**
+     * User-settable behavior: when to re-throw exceptions.
+     *
+     * <p>This allows per-instance configuration of
+     * ListingErrorHandlers.  You can ask us to either throw
+     * an exception when we're called for various warning /
+     * error / fatalErrors, or simply log them and continue.</p>
+     *
+     * <p>Note that the behavior of many parsers/transformers
+     * after an error is not necessarily defined!</p>
+     *
+     * @param b if we should throw an exception on errors
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    protected boolean throwOnWarning = false;
+
+    /** If we should throw exception on warnings; default:false.  */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public boolean getThrowOnWarning()
+
+    /**
+     * User-settable behavior: when to re-throw exceptions.
+     *
+     * @return if we throw an exception on warnings
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void setThrowOnWarning(boolean b)
+
+    /**
+     * User-settable behavior: when to re-throw exceptions.
+     *
+     * <p>This allows per-instance configuration of
+     * ListingErrorHandlers.  You can ask us to either throw
+     * an exception when we're called for various warning /
+     * error / fatalErrors, or simply log them and continue.</p>
+     *
+     * @param b if we should throw an exception on warnings
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    protected static String getSourceLine(String sourceUrl, int lineNum)
+
+    /**
+     * Return the specific source line that caused the exception,
+     * if possible to load it; allow exceptions to be thrown.
+     *
+     * @author shane_curcuru@us.ibm.com
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public static void logSourceLine(PrintWriter pw, SourceLocator locator)
+
+    /**
+     * Print out the specific source line that caused the exception,
+     * if possible to load it.
+     *
+     * @param pw PrintWriter to send output to
+     * @param locator Xalan wrapper for either a JAXP or a SAX
+     * source location object
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public static void logExceptionLocation(PrintWriter pw, Throwable exception)
+
+    /**
+     * Print out location information about the exception.
+     *
+     * Cribbed from DefaultErrorHandler.printLocation()
+     * @param pw PrintWriter to send output to
+     * @param exception TransformerException or SAXParseException
+     * to log information about
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void fatalError(TransformerException exception)
+
+    /**
+     * Receive notification of a non-recoverable error.
+     *
+     * <p>The transformer must continue to try and provide normal transformation
+     * after invoking this method.  It should still be possible for the
+     * application to process the document through to the end if no other errors
+     * are encountered, but there is no guarantee that the output will be
+     * useable.</p>
+     *
+     * @param exception The error information encapsulated in a
+     *                  transformer exception.
+     *
+     * @throws javax.xml.transform.TransformerException  only if
+     * setThrowOnError is true.
+     *
+     * @see javax.xml.transform.TransformerException
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void error(TransformerException exception)
+
+    /**
+     * Receive notification of a recoverable error.
+     *
+     * <p>The transformer must continue to try and provide normal transformation
+     * after invoking this method.  It should still be possible for the
+     * application to process the document through to the end if no other errors
+     * are encountered.</p>
+     *
+     * @param exception The error information encapsulated in a
+     *                  transformer exception.
+     *
+     * @throws javax.xml.transform.TransformerException  only if
+     * setThrowOnError is true.
+     *
+     * @see javax.xml.transform.TransformerException
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void warning(TransformerException exception)
+
+    /**
+     * Receive notification of a warning.
+     *
+     * <p>{@link javax.xml.transform.Transformer} can use this method to report
+     * conditions that are not errors or fatal errors.  The default behaviour
+     * is to take no action.</p>
+     *
+     * <p>After invoking this method, the Transformer must continue with
+     * the transformation. It should still be possible for the
+     * application to process the document through to the end.</p>
+     *
+     * @param exception The warning information encapsulated in a
+     *                  transformer exception.
+     *
+     * @throws javax.xml.transform.TransformerException  only if
+     * setThrowOnWarning is true.
+     *
+     * @see javax.xml.transform.TransformerException
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void fatalError (SAXParseException exception)
+
+    /**
+     * Receive notification of a non-recoverable error.
+     *
+     * <p>This corresponds to the definition of "fatal error" in
+     * section 1.2 of the W3C XML 1.0 Recommendation.  For example, a
+     * parser would use this callback to report the violation of a
+     * well-formedness constraint.</p>
+     *
+     * <p>The application must assume that the document is unusable
+     * after the parser has invoked this method, and should continue
+     * (if at all) only for the sake of collecting addition error
+     * messages: in fact, SAX parsers are free to stop reporting any
+     * other events once this method has been invoked.</p>
+     *
+     * @param exception The error information encapsulated in a
+     *                  SAX parse exception.
+     * @exception org.xml.sax.SAXException Any SAX exception, possibly
+     * wrapping another exception; only if setThrowOnFatalError is true.
+     * @see org.xml.sax.SAXParseException
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void error (SAXParseException exception)
+
+    /**
+     * Receive notification of a recoverable error.
+     *
+     * <p>This corresponds to the definition of "error" in section 1.2
+     * of the W3C XML 1.0 Recommendation.  For example, a validating
+     * parser would use this callback to report the violation of a
+     * validity constraint.  The default behaviour is to take no
+     * action.</p>
+     *
+     * <p>The SAX parser must continue to provide normal parsing events
+     * after invoking this method: it should still be possible for the
+     * application to process the document through to the end.  If the
+     * application cannot do so, then the parser should report a fatal
+     * error even if the XML 1.0 recommendation does not require it to
+     * do so.</p>
+     *
+     * <p>Filters may use this method to report other, non-XML errors
+     * as well.</p>
+     *
+     * @param exception The error information encapsulated in a
+     *                  SAX parse exception.
+     * @exception org.xml.sax.SAXException Any SAX exception, possibly
+     * wrapping another exception; only if setThrowOnErroris true.
+     * @see org.xml.sax.SAXParseException
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void warning (SAXParseException exception)
+
+    /**
+     * Receive notification of a warning.
+     *
+     * <p>SAX parsers will use this method to report conditions that
+     * are not errors or fatal errors as defined by the XML 1.0
+     * recommendation.  The default behaviour is to take no action.</p>
+     *
+     * <p>The SAX parser must continue to provide normal parsing events
+     * after invoking this method: it should still be possible for the
+     * application to process the document through to the end.</p>
+     *
+     * <p>Filters may use this method to report other, non-XML warnings
+     * as well.</p>
+     *
+     * @param exception The warning information encapsulated in a
+     *                  SAX parse exception.
+     * @exception org.xml.sax.SAXException Any SAX exception, possibly
+     * wrapping another exception; only if setThrowOnWarning is true.
+     * @see org.xml.sax.SAXParseException
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public ListingErrorHandler()
+
+    /**
+     * Constructor ListingErrorHandler; uses System.err.
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public ListingErrorHandler(PrintWriter pw)
+
+    /**
+     * Constructor ListingErrorHandler; user-supplied PrintWriter.
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+public class ListingErrorHandler implements ErrorHandler, ErrorListener
+
+/**
+ * Sample implementation of similar SAX ErrorHandler and JAXP ErrorListener.
+ *
+ * <p>This implementation is suitable for various use cases, and
+ * provides some basic configuration API's as well to control
+ * when we re-throw errors, etc.</p>
+ *
+ * @author shane_curcuru@us.ibm.com
+ * @xsl.usage general
+ */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    protected boolean throwOnFatalError = true;
+
+    /** If we should throw exception on fatalErrors; default:true.  */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public boolean getThrowOnFatalError()
+
+    /**
+     * User-settable behavior: when to re-throw exceptions.
+     *
+     * @return if we throw an exception on fatalErrors
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void setThrowOnFatalError(boolean b)
+
+    /**
+     * User-settable behavior: when to re-throw exceptions.
+     *
+     * <p>This allows per-instance configuration of
+     * ListingErrorHandlers.  You can ask us to either throw
+     * an exception when we're called for various warning /
+     * error / fatalErrors, or simply log them and continue.</p>
+     *
+     * <p>Note that the behavior of many parsers/transformers
+     * after a fatalError is not necessarily defined, most
+     * products will probably barf if you continue.</p>
+     *
+     * @param b if we should throw an exception on fatalErrors
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    protected boolean throwOnError = true;
+
+    /** If we should throw exception on errors; default:true.  */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public boolean getThrowOnError()
+
+    /**
+     * User-settable behavior: when to re-throw exceptions.
+     *
+     * @return if we throw an exception on errors
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void setThrowOnError(boolean b)
+
+    /**
+     * User-settable behavior: when to re-throw exceptions.
+     *
+     * <p>This allows per-instance configuration of
+     * ListingErrorHandlers.  You can ask us to either throw
+     * an exception when we're called for various warning /
+     * error / fatalErrors, or simply log them and continue.</p>
+     *
+     * <p>Note that the behavior of many parsers/transformers
+     * after an error is not necessarily defined!</p>
+     *
+     * @param b if we should throw an exception on errors
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    protected boolean throwOnWarning = false;
+
+    /** If we should throw exception on warnings; default:false.  */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public boolean getThrowOnWarning()
+
+    /**
+     * User-settable behavior: when to re-throw exceptions.
+     *
+     * @return if we throw an exception on warnings
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void setThrowOnWarning(boolean b)
+
+    /**
+     * User-settable behavior: when to re-throw exceptions.
+     *
+     * <p>This allows per-instance configuration of
+     * ListingErrorHandlers.  You can ask us to either throw
+     * an exception when we're called for various warning /
+     * error / fatalErrors, or simply log them and continue.</p>
+     *
+     * @param b if we should throw an exception on warnings
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    protected static String getSourceLine(String sourceUrl, int lineNum)
+
+    /**
+     * Return the specific source line that caused the exception,
+     * if possible to load it; allow exceptions to be thrown.
+     *
+     * @author shane_curcuru@us.ibm.com
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public static void logSourceLine(PrintWriter pw, SourceLocator locator)
+
+    /**
+     * Print out the specific source line that caused the exception,
+     * if possible to load it.
+     *
+     * @param pw PrintWriter to send output to
+     * @param locator Xalan wrapper for either a JAXP or a SAX
+     * source location object
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public static void logExceptionLocation(PrintWriter pw, Throwable exception)
+
+    /**
+     * Print out location information about the exception.
+     *
+     * Cribbed from DefaultErrorHandler.printLocation()
+     * @param pw PrintWriter to send output to
+     * @param exception TransformerException or SAXParseException
+     * to log information about
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void fatalError(TransformerException exception)
+
+    /**
+     * Receive notification of a non-recoverable error.
+     *
+     * <p>The transformer must continue to try and provide normal transformation
+     * after invoking this method.  It should still be possible for the
+     * application to process the document through to the end if no other errors
+     * are encountered, but there is no guarantee that the output will be
+     * useable.</p>
+     *
+     * @param exception The error information encapsulated in a
+     *                  transformer exception.
+     *
+     * @throws javax.xml.transform.TransformerException  only if
+     * setThrowOnError is true.
+     *
+     * @see javax.xml.transform.TransformerException
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void error(TransformerException exception)
+
+    /**
+     * Receive notification of a recoverable error.
+     *
+     * <p>The transformer must continue to try and provide normal transformation
+     * after invoking this method.  It should still be possible for the
+     * application to process the document through to the end if no other errors
+     * are encountered.</p>
+     *
+     * @param exception The error information encapsulated in a
+     *                  transformer exception.
+     *
+     * @throws javax.xml.transform.TransformerException  only if
+     * setThrowOnError is true.
+     *
+     * @see javax.xml.transform.TransformerException
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void warning(TransformerException exception)
+
+    /**
+     * Receive notification of a warning.
+     *
+     * <p>{@link javax.xml.transform.Transformer} can use this method to report
+     * conditions that are not errors or fatal errors.  The default behaviour
+     * is to take no action.</p>
+     *
+     * <p>After invoking this method, the Transformer must continue with
+     * the transformation. It should still be possible for the
+     * application to process the document through to the end.</p>
+     *
+     * @param exception The warning information encapsulated in a
+     *                  transformer exception.
+     *
+     * @throws javax.xml.transform.TransformerException  only if
+     * setThrowOnWarning is true.
+     *
+     * @see javax.xml.transform.TransformerException
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void fatalError (SAXParseException exception)
+
+    /**
+     * Receive notification of a non-recoverable error.
+     *
+     * <p>This corresponds to the definition of "fatal error" in
+     * section 1.2 of the W3C XML 1.0 Recommendation.  For example, a
+     * parser would use this callback to report the violation of a
+     * well-formedness constraint.</p>
+     *
+     * <p>The application must assume that the document is unusable
+     * after the parser has invoked this method, and should continue
+     * (if at all) only for the sake of collecting addition error
+     * messages: in fact, SAX parsers are free to stop reporting any
+     * other events once this method has been invoked.</p>
+     *
+     * @param exception The error information encapsulated in a
+     *                  SAX parse exception.
+     * @exception org.xml.sax.SAXException Any SAX exception, possibly
+     * wrapping another exception; only if setThrowOnFatalError is true.
+     * @see org.xml.sax.SAXParseException
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void error (SAXParseException exception)
+
+    /**
+     * Receive notification of a recoverable error.
+     *
+     * <p>This corresponds to the definition of "error" in section 1.2
+     * of the W3C XML 1.0 Recommendation.  For example, a validating
+     * parser would use this callback to report the violation of a
+     * validity constraint.  The default behaviour is to take no
+     * action.</p>
+     *
+     * <p>The SAX parser must continue to provide normal parsing events
+     * after invoking this method: it should still be possible for the
+     * application to process the document through to the end.  If the
+     * application cannot do so, then the parser should report a fatal
+     * error even if the XML 1.0 recommendation does not require it to
+     * do so.</p>
+     *
+     * <p>Filters may use this method to report other, non-XML errors
+     * as well.</p>
+     *
+     * @param exception The error information encapsulated in a
+     *                  SAX parse exception.
+     * @exception org.xml.sax.SAXException Any SAX exception, possibly
+     * wrapping another exception; only if setThrowOnErroris true.
+     * @see org.xml.sax.SAXParseException
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public void warning (SAXParseException exception)
+
+    /**
+     * Receive notification of a warning.
+     *
+     * <p>SAX parsers will use this method to report conditions that
+     * are not errors or fatal errors as defined by the XML 1.0
+     * recommendation.  The default behaviour is to take no action.</p>
+     *
+     * <p>The SAX parser must continue to provide normal parsing events
+     * after invoking this method: it should still be possible for the
+     * application to process the document through to the end.</p>
+     *
+     * <p>Filters may use this method to report other, non-XML warnings
+     * as well.</p>
+     *
+     * @param exception The warning information encapsulated in a
+     *                  SAX parse exception.
+     * @exception org.xml.sax.SAXException Any SAX exception, possibly
+     * wrapping another exception; only if setThrowOnWarning is true.
+     * @see org.xml.sax.SAXParseException
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public ListingErrorHandler()
+
+    /**
+     * Constructor ListingErrorHandler; uses System.err.
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+    public ListingErrorHandler(PrintWriter pw)
+
+    /**
+     * Constructor ListingErrorHandler; user-supplied PrintWriter.
+     */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/ListingErrorHandler.java
+public class ListingErrorHandler implements ErrorHandler, ErrorListener
+
+/**
+ * Sample implementation of similar SAX ErrorHandler and JAXP ErrorListener.
+ *
+ * <p>This implementation is suitable for various use cases, and
+ * provides some basic configuration API's as well to control
+ * when we re-throw errors, etc.</p>
+ *
+ * @author shane_curcuru@us.ibm.com
+ * @xsl.usage general
+ */

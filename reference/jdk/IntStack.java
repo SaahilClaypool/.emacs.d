@@ -1,0 +1,436 @@
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    private void ensureCapacity(int size) {
+
+    /** Ensures capacity. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    public void print() {
+
+    /** Prints the stack. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    public void clear() {
+
+    /** Clears the stack. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    public int pop() {
+
+    /** Pops a value off of the stack. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    public int elementAt(int depth) {
+
+    /** Returns the element at the specified depth in the stack. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    public int peek() {
+
+    /** Peeks at the top of the stack. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    public void push(int value) {
+
+    /** Pushes a value onto the stack. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    public int size() {
+
+    /** Returns the size of the stack. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    private int[] fData;
+
+    /** Stack data. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    private int fDepth;
+
+    /** Stack depth. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+public final class IntStack {
+
+/**
+ * A simple integer based stack.
+ *
+ * moved to com.sun.org.apache.xerces.internal.util by neilg to support the
+ * XPathMatcher.
+ * @author  Andy Clark, IBM
+ *
+ */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public Object clone()
+
+  /**
+   * Returns clone of current IntStack
+   *
+   * @return clone of current IntStack
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public int search(int o)
+
+  /**
+   * Returns where an object is on this stack.
+   *
+   * @param   o   the desired object.
+   * @return  the distance from the top of the stack where the object is]
+   *          located; the return value <code>-1</code> indicates that the
+   *          object is not on the stack.
+   * @since   JDK1.0
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public boolean empty()
+
+  /**
+   * Tests if this stack is empty.
+   *
+   * @return  <code>true</code> if this stack is empty;
+   *          <code>false</code> otherwise.
+   * @since   JDK1.0
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public void setTop(int val)
+
+  /**
+   * Sets an object at a the top of the statck
+   *
+   *
+   * @param val object to set at the top
+   * @throws  EmptyStackException  if this stack is empty.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public int peek(int n)
+
+  /**
+   * Looks at the object at the position the stack counting down n items.
+   *
+   * @param n The number of items down, indexed from zero.
+   * @return     the object at n items down.
+   * @throws  EmptyStackException  if this stack is empty.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public final int peek()
+
+  /**
+   * Looks at the object at the top of this stack without removing it
+   * from the stack.
+   *
+   * @return     the object at the top of this stack.
+   * @throws  EmptyStackException  if this stack is empty.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public final void quickPop(int n)
+
+  /**
+   * Quickly pops a number of items from the stack.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public final int pop()
+
+  /**
+   * Removes the object at the top of this stack and returns that
+   * object as the value of this function.
+   *
+   * @return     The object at the top of this stack.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public int push(int i)
+
+  /**
+   * Pushes an item onto the top of this stack.
+   *
+   * @param   i   the int to be pushed onto this stack.
+   * @return  the <code>item</code> argument.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public IntStack (IntStack v)
+
+  /**
+   * Copy constructor for IntStack
+   *
+   * @param v IntStack to copy
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public IntStack(int blocksize)
+
+  /**
+   * Construct a IntVector, using the given block size.
+   *
+   * @param blocksize Size of block to allocate
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public IntStack()
+
+  /**
+   * Default constructor.  Note that the default
+   * block size is very small, for small lists.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+public class IntStack extends IntVector
+
+/**
+ * Implement a stack of simple integers.
+ *
+ * %OPT%
+ * This is currently based on IntVector, which permits fast acess but pays a
+ * heavy recopying penalty if/when its size is increased. If we expect deep
+ * stacks, we should consider a version based on ChunkedIntVector.
+ * @xsl.usage internal
+ */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    private void ensureCapacity(int size) {
+
+    /** Ensures capacity. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    public void print() {
+
+    /** Prints the stack. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    public void clear() {
+
+    /** Clears the stack. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    public int pop() {
+
+    /** Pops a value off of the stack. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    public int elementAt(int depth) {
+
+    /** Returns the element at the specified depth in the stack. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    public int peek() {
+
+    /** Peeks at the top of the stack. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    public void push(int value) {
+
+    /** Pushes a value onto the stack. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    public int size() {
+
+    /** Returns the size of the stack. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    private int[] fData;
+
+    /** Stack data. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+    private int fDepth;
+
+    /** Stack depth. */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xerces/internal/util/IntStack.java
+public final class IntStack {
+
+/**
+ * A simple integer based stack.
+ *
+ * moved to com.sun.org.apache.xerces.internal.util by neilg to support the
+ * XPathMatcher.
+ * @author  Andy Clark, IBM
+ *
+ */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public Object clone()
+
+  /**
+   * Returns clone of current IntStack
+   *
+   * @return clone of current IntStack
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public int search(int o)
+
+  /**
+   * Returns where an object is on this stack.
+   *
+   * @param   o   the desired object.
+   * @return  the distance from the top of the stack where the object is]
+   *          located; the return value <code>-1</code> indicates that the
+   *          object is not on the stack.
+   * @since   JDK1.0
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public boolean empty()
+
+  /**
+   * Tests if this stack is empty.
+   *
+   * @return  <code>true</code> if this stack is empty;
+   *          <code>false</code> otherwise.
+   * @since   JDK1.0
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public void setTop(int val)
+
+  /**
+   * Sets an object at a the top of the statck
+   *
+   *
+   * @param val object to set at the top
+   * @throws  EmptyStackException  if this stack is empty.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public int peek(int n)
+
+  /**
+   * Looks at the object at the position the stack counting down n items.
+   *
+   * @param n The number of items down, indexed from zero.
+   * @return     the object at n items down.
+   * @throws  EmptyStackException  if this stack is empty.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public final int peek()
+
+  /**
+   * Looks at the object at the top of this stack without removing it
+   * from the stack.
+   *
+   * @return     the object at the top of this stack.
+   * @throws  EmptyStackException  if this stack is empty.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public final void quickPop(int n)
+
+  /**
+   * Quickly pops a number of items from the stack.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public final int pop()
+
+  /**
+   * Removes the object at the top of this stack and returns that
+   * object as the value of this function.
+   *
+   * @return     The object at the top of this stack.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public int push(int i)
+
+  /**
+   * Pushes an item onto the top of this stack.
+   *
+   * @param   i   the int to be pushed onto this stack.
+   * @return  the <code>item</code> argument.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public IntStack (IntStack v)
+
+  /**
+   * Copy constructor for IntStack
+   *
+   * @param v IntStack to copy
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public IntStack(int blocksize)
+
+  /**
+   * Construct a IntVector, using the given block size.
+   *
+   * @param blocksize Size of block to allocate
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+  public IntStack()
+
+  /**
+   * Default constructor.  Note that the default
+   * block size is very small, for small lists.
+   */
+_func_
+jdk
+c:/Users/saahil claypool/Documents/JDKSource//com/sun/org/apache/xml/internal/utils/IntStack.java
+public class IntStack extends IntVector
+
+/**
+ * Implement a stack of simple integers.
+ *
+ * %OPT%
+ * This is currently based on IntVector, which permits fast acess but pays a
+ * heavy recopying penalty if/when its size is increased. If we expect deep
+ * stacks, we should consider a version based on ChunkedIntVector.
+ * @xsl.usage internal
+ */
