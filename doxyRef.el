@@ -25,6 +25,7 @@
 ;; misc
 (setq max-lisp-eval-depth 100000);; overkill for large files
 (setq max-specpdl-size 100000)
+(setq max-functions 100)
 (setq funcSymbol "_func_") ;; any unique symbol works
 
 ;; location
@@ -37,8 +38,11 @@
 
 
 ;; last query (starts nil)
-(setq last-query nil) ;; store last query for re printing
+;; store last query for re printing
 (setq compact nil) ;; print expanded by default
+(setq last-function "**")
+(setq last-class "**")
+(setq last-project "**")
 
 (defun add-single-comment (str)
   "Note: must exit regex symbols. /** become /\\*\\*"
@@ -77,7 +81,7 @@
     ;;                         (filter-class class filterProj)
     ;;                       filterProj))
     ;;        (filterFunction (if (not (= (length function) 0))
-    ;;                         (filter-function function filterClass)
+    ;;                       (filter-function function filterClass)
     ;;                         filterClass))
 
     ;;        )
@@ -85,45 +89,108 @@
 ;; takes string file name
 (defun doxyRef-lookup-docs ()
   (let* (
-         (project (read-string "Project (default last searched):   "))
-         (class (read-string "Class (default last searched:   "))
-         (function (read-string "Class (default last searched:   "))
+         (proj-string (read-string "Project (default last searched, ** for all):   "))
+         (class-string (read-string "Class (default last searched, ** for all):   "))
+         (func-string (read-string "Function (default last searched, ** for all):   "))
+
+         (project (if (= (length proj-string)0)
+                      last-project
+                    proj-string
+                    )
+                  )
+         (class (if (= (length class-string) 0)
+                    last-class
+                  class-string)
+                )
+         (function (if (= (length func-string) 0)
+                       last-function
+                     func-string)
+                   )
 
          
-         (files (doxyRef-lookup-all-files))
-         (filterProj 1);; list of projects matching 
-         (filterClass 1) ;; list of classes matching
-         (filterFunction 1) ;; list of formatted functions
+         (projects (directory-files referenceDir));; all files in the reference directory 
+         (filterProj (my-filter (lambda (proj) (string-match project proj))
+                                projects)
+                     );; list of projects matching 
+         (filterClass (my-filter (lambda (a-class) (string-match class a-class))
+                                 (files-in filterProj)
+                                 )
+                      ) ;; list of classes matching
+         (filterFunction (doxyRef-get-all-functions filterClass 0)) ;; list of formatted functions
          ;; probably: doxyRef-get-all-functions (list of file  filter-class)
          )
-    (new-window-print functions);; need to get the list of string to print 
+    
+    
+    (setq last-function function)
+    (setq last-project project)
+    (setq last-class class)
+    
+    (new-window-print filterFunction);; need to get the list of string to print 
     
       )
   )
 
-(defun doxyRef-get-all-functions (lof)
-  (if lof
-      (let*
-          (
-           (cur (car lof))
+(my-filter (lambda (a-class) (string-match "Circle" a-class ))
+           (files-in
+            (my-filter (lambda (proj) (string-match "sfml" proj ))
+                       (directory-files referenceDir))
            )
-        (if (not (or (string= "." cur)
-                     (string= ".." cur)))
-            (append (read-functions-from-file (concat referenceDir "/" cur))
-                    (doxyRef-get-all-functions (cdr lof)))
-           (doxyRef-get-all-functions (cdr lof))
+           )
+
+
+
+(doxyRef-get-all-functions
+ (files-in (list
+
+            "sfml"
+
+           )
+          )
+ 0)
+
+(defun files-in (lodir)
+  (if lodir
+      (if (not (or
+                (string= ".."
+                         (car lodir))
+                (string= "."
+                         (car lodir))))
+          
+          (append (mapcar
+                   (lambda (file)
+                     (concat (car lodir) "/" file)
+                     )
+                   (directory-files (concat referenceDir "/"(car lodir)))
+                   )
+                  (files-in (cdr lodir)))
+        
+        (files-in (cdr lodir))
         )
-        )
-    nil)
-  )
-(defun doxyRef-lookup-all-files()
-  (let*
-      (
-       (allFiles (directory-files referenceDir))
-       ;;(allFunctions (doxyRef-get-all-functions allFiles))
-       )
-    allFunctions
+    nil
     )
+  )
+
+(defun doxyRef-get-all-functions (lof count)
+  (if (< count max-functions)
+      (if lof
+          (let*
+              (
+               (cur (car lof))
+               )
+            (if (not (or (string-suffix-p "." cur)
+                         (string-suffix-p ".." cur)))
+                (let* (
+                       (functions (read-functions-from-file (concat referenceDir "/" cur)))
+                       (numberFunctions (length functions))
+                       )
+                   (append functions
+                        (doxyRef-get-all-functions (cdr lof) (+ numberFunctions count)))
+                  )
+              (doxyRef-get-all-functions (cdr lof) count)
+              )
+            )
+        nil)
+    nil)
   )
 
 
@@ -294,7 +361,6 @@
 ;; takes a list of strings, puts them in the other window
 (defun new-window-print (aLos)
   (progn
-    (setq last-query aLos)
     (switch-to-buffer-other-window "docBuffer")
     (erase-buffer)
     (if compact

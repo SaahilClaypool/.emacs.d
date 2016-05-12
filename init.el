@@ -5,9 +5,9 @@
 (blink-cursor-mode -1)
 
 (setq referenceDir "~/.emacs.d/reference")
-(load "~/.emacs.d/docRef.el")
-(global-set-key (kbd "C-c d d") (lambda ()(interactive)(docref-lookup-docs)))
-(global-set-key (kbd "C-c d s") (lambda ()(interactive)(docref-setup-project)))
+(load "~/.emacs.d/doxyRef.el")
+(global-set-key (kbd "C-c d d") (lambda ()(interactive)(doxyRef-lookup-docs)))
+(global-set-key (kbd "C-c d s") (lambda ()(interactive)(doxyRef-setup-project)))
 
 ;; turn off those stupid emacs droppings
 (setq make-backup-files nil)
