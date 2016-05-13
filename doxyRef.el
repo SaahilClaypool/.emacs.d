@@ -4,14 +4,21 @@
 ;; VERSION: 1.1 : multiple files
 
 
-;; NOTE: need to filter project (get all files from matching projects)
-;;       need to filter class (from list of project, get all file names matching the given class)
-;;       filter function just uses the given list of file (check file names)
-;;       need to put cap on matched functios (probably around 100)
+;; TODO: 
+;;       get 100 MATCHING functions (or increase the cap to 1000)
+;;       fix path 
+;;       make it only look at certain files (should be working now)
+;;       Dragonfly box does not get all contsructors ??
+
+;; FIXES:
+;;      no more macros
+;;      highlight by default (doesnt quite work)
+;;      wont miss functions
+;;            before would skip the next line after each comment
+;;      looks at only c cpp h hpp java files
 
 
 
-;;(global-font-lock-mode 1)
 
 ;;(setq referenceDir "~/.emacs.d/reference")
 ;;(load "~/.emacs.d/doxyRef.el")
@@ -25,9 +32,10 @@
 ;; misc
 (setq max-lisp-eval-depth 100000);; overkill for large files
 (setq max-specpdl-size 100000)
-(setq max-functions 100)
+(setq max-functions 1000)
 (setq funcSymbol "_func_") ;; any unique symbol works
-
+(global-hi-lock-mode 1)
+(setq configuration (current-window-configuration))
 ;; location
 (if (not (file-exists-p referenceDir)) ;; setup directory if it is not setup 
     (make-directory referenceDir))
@@ -89,9 +97,9 @@
 ;; takes string file name
 (defun doxyRef-lookup-docs ()
   (let* (
-         (proj-string (read-string "Project (default last searched, ** for all):   "))
-         (class-string (read-string "Class (default last searched, ** for all):   "))
-         (func-string (read-string "Function (default last searched, ** for all):   "))
+         (proj-string (read-string (format "Project (** for all  , default %s):   " last-project)))
+         (class-string (read-string (format"Class (** for all  , default %s):   " last-class)))
+         (func-string (read-string (format "Function (** for all  , default %s):   " last-function)))
 
          (project (if (= (length proj-string)0)
                       last-project
@@ -164,8 +172,8 @@
               (
                (cur (car lof))
                )
-            (if (not (or (string-suffix-p "." cur)
-                         (string-suffix-p ".." cur)))
+            (if (not (or (str-suffix= "." cur)
+                         (str-suffix= ".." cur)))
                 (let* (
                        (functions (read-functions-from-file (concat referenceDir "/" cur)))
                        (numberFunctions (length functions))
@@ -180,7 +188,13 @@
     nil)
   )
 
-
+(defun str-suffix= (suf str)
+  (string=
+   (substring str
+              (- 0 (length suf)))
+   suf)
+      
+  )
 
 
 
@@ -287,7 +301,7 @@
 	      (setf line (nthcdr (insert-function line nil 0) line))
               (insert "\n\n")
               (insert (join-list-string line))
-
+              
               )
           nil
           )
@@ -348,8 +362,9 @@
 ;; takes a list of strings, puts them in the other window
 (defun new-window-print (aLos)
   (progn
+    (setq configuration (current-window-configuration))
     (setq last-query aLos)
-    (switch-to-buffer-other-window "docBuffer")
+    (switch-to-buffer-other-window "doxyBuffer")
     (erase-buffer)
     (if compact
         (pretty-print-compact aLos)
@@ -358,6 +373,7 @@
     (insert-char 45 (- (window-body-width) 1) )
     (beginning-of-buffer)
     (doxyRef-mode 1)
+    (highlight-function)
     )
   )
 
@@ -370,6 +386,7 @@
     )
   (insert-char 45 (- (window-body-width)1) )
   (beginning-of-buffer)
+  (highlight-function)
   )
 
   
@@ -380,25 +397,56 @@
       )
 
    
-
+(defun next-function ()
+  (next-line)
+  (search-forward "----")
+  (move-beginning-of-line nil)
+  )
 (defun prev-function ()
   ;;(concat (concat "\C-r return " (make-string (window-body-width)  ?-) "\C-a") )
    [?\C-p ?\C-r return ?- ?- ?- ?- return ?\C-a]
+   )
+(defun prev-function ()
+  (previous-line)
+  (search-backward "----")
+  (move-beginning-of-line nil)
   )
-(defun quit-function ()
-   "\C-x1\C-xk\C-m")
+;; (defun quit-function ()
+;;    "\C-x1\C-xk\C-m")
+ (defun quit-function()
+    (kill-buffer "doxyBuffer")
+    (other-window 1)
+    (set-window-configuration configuration)
+    )
 
 (defun paste-function ()
-  "\C-s\C-mFunction:\C-m\C-s\C-m)\C-m\C-@\C-[\C-b\C-[\C-b\C-[w\C-xo\C-x1\C-y")
+  (search-forward "Function")
+  (search-forward ")")
+  (let* (
+         (close (point))
+         )
+    (backward-sexp)
+    (backward-sexp)
+    (kill-ring-save (point) close)
+    (kill-buffer "doxyBuffer")
+    (other-window 1)
+    (set-window-configuration configuration)
+    (yank)
+    )
+  )
 
-
-(defun highlight-function()
-     "\C-[shlFunction:\C-mhi-yellow\C-m")
+(defun highlight-function ()
+  "highlight all FUNCTION: "
+  (hi-lock-unface-buffer "Function:")
+  (hi-lock-line-face-buffer "Function:" "warning" )
+  )
 
 
 (defun compact-function-toggle ()
-     "\C-[:(setq compact (not compact))\C-m\C-[:(re-print)\C-m")
+  (setq compact (not compact))
+  (re-print)
 
+  )
 
 
 
@@ -410,12 +458,12 @@
   :keymap (let (
                 (map (make-keymap))
                 )
-            (define-key map (kbd "n") (next-function))
-            (define-key map (kbd "p") (prev-function))
-            (define-key map (kbd "i") (paste-function))
-            (define-key map (kbd "q") (quit-function))
-            (define-key map (kbd "h") (highlight-function))
-            (define-key map (kbd "c") (compact-function-toggle))
+            (define-key map (kbd "n") (lambda () (interactive) (next-function)))
+            (define-key map (kbd "p") (lambda () (interactive) (prev-function)))
+            (define-key map (kbd "i") (lambda () (interactive)(paste-function)))
+            (define-key map (kbd "q") (lambda () (interactive) (quit-function)))
+           ;; (define-key map (kbd "h") (lambda () (interactive) (highlight-function)))
+            (define-key map (kbd "c") (lambda () (interactive)(compact-function-toggle)))
             map
             ) 
   )
@@ -493,7 +541,7 @@
                  (function (nth 0 pair))
                  (desc (nth 1 pair))
                  )
-            (parse-strings (nthcdr count los)
+            (parse-strings (nthcdr (- count 1) los)
                            (cons (list function desc) listPair))
             )
         (if (string-match-any (car los)
@@ -510,7 +558,7 @@
                 ;;   (insert (format "after the entire parse %s\n"
                 ;;                   desc))
                 ;;   (append-to-buffer "output" nil nil))
-                (parse-strings (nthcdr count los)
+                (parse-strings (nthcdr (- count 1) los)
                                (cons (list function desc) listPair)))
 
               )
@@ -532,41 +580,43 @@
 
     ;;   (append-to-buffer "output" nil nil)
     ;;   )
-  (if los
-      (let* (
-             (curLine (car los))
-             )
-        (if (not (string-match-any  curLine
-                                    blockCommentEnd
-                                    )
-                 )
-            (progn
-              ;; (with-temp-buffer
-              ;;   (insert (format "NOT THE END current line: %s current description: %s\n\n\n" curLine listDesc ))
-              ;;   (append-to-buffer "output" nil nil))
-              (parse-block-comment (cdr los)
-                           (append  listDesc (list curLine))
-                           (+ 1 lineCount)))
-          ;; else, return the next nonEmpty line as a list with the description
-          (let*(
-                (non-empt-ret (next-non-empty (cdr los) 0))
-                (empty-count (nth 1 non-empt-ret))
-                (non-empty-str (nth 0 non-empt-ret))
-                )
-            (progn
-              (with-temp-buffer
-                (insert (format "THE END \n non empt %s count %d \n\n\n\n" non-empty-str empty-count ))
-                (append-to-buffer "output" nil nil))
-              (list non-empty-str (append listDesc (list curLine)) (+ 2 empty-count lineCount)))
+    (if los
+        (let* (
+               (curLine (car los))
+               )
+          (if (not (string-match-any  curLine
+                                      blockCommentEnd
+                                      )
+                   )
+              (progn
+                ;; (with-temp-buffer
+                ;;   (insert (format "NOT THE END current line: %s current description: %s\n\n\n" curLine listDesc ))
+                ;;   (append-to-buffer "output" nil nil))
+                (parse-block-comment (cdr los)
+                                     (append  listDesc (list curLine))
+                                     (+ 1 lineCount)))
+            ;; else, return the next nonEmpty line as a list with the description
+            (let*(
+                  (non-empt-ret (next-non-empty (cdr los) 0))
+                  (empty-count (nth 1 non-empt-ret))
+                  (non-empty-str (nth 0 non-empt-ret))
+                  )
+              (progn
+                (with-temp-buffer
+                  ;;    (insert (format "THE END \n non empt %s count %d \n\n\n\n" non-empty-str empty-count ))
+                  ;;    (append-to-buffer "output" nil nil))
+                  (list non-empty-str (append listDesc (list curLine)) (+ 2 empty-count lineCount)))
 
+                )
+              
+              
+              )
             )
-          
-          
+          (list "" listDesc lineCount)
           )
-        )
-    (list "" listDesc lineCount)
+      )
     )
-  ))
+  )
 
 ;; keep adding to list of Desc, when last line is not ///, go until non empty line
 ;; return cons (function description lineCount) 
@@ -718,10 +768,11 @@
         (if (and
              (not
               (nth 0 (file-attributes curFile)))
-             (or (string-match ".cpp" curFile )
-                 (string-match ".c" curFile )
-                 (string-match ".hpp" curFile )
-                 (string-match ".h" curFile )
+             (or (str-suffix= ".cpp" curFile )
+                 (str-suffix= ".c" curFile )
+                 (str-suffix= ".hpp" curFile )
+                 (str-suffix= ".h" curFile )
+                 (str-suffix= ".java" curFile )
                  )
              )
             
