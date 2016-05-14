@@ -1,3 +1,17 @@
+;; temp changes
+
+
+;; visible-bell
+ (defun my-terminal-visible-bell ()
+   "A friendlier visual bell effect."
+   (invert-face 'mode-line)
+   (run-with-timer 0.1 nil 'invert-face 'mode-line))
+ 
+ (setq visible-bell       nil
+       ring-bell-function #'my-terminal-visible-bell)
+
+
+
 ;; gui changes
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -56,24 +70,67 @@
       helm-ff-file-name-history-use-recentf t)
 
 (helm-mode 1)
+
+;; Company Mode
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-idle-delay 0)
+
+ ;; company
+(deftheme molokai-overrides)
+;; Color Tweaks
+;; https://github.com/search?q=deftheme+company-tooltip&type=Code
+(let ((class '((class color) (min-colors 257)))
+      (terminal-class '((class color) (min-colors 89))))
+
+  (custom-theme-set-faces
+   'molokai-overrides
+
+   ;; Additional modes
+   ;; Company tweaks.
+   `(company-tooltip
+     ((t :inherit default
+         :background "#403D3D")))
+		 
+   `(company-scrollbar-bg
+     ((t :background "#232526")))
+	 
+   `(company-scrollbar-fg
+     ((t :background "#E6DB74")))
+
+   `(company-tooltip-selection
+     ((t :inherit font-lock-function-name-face)))
+
+   `(company-tooltip-common
+     ((t :inherit font-lock-constant-face)))
+	 
+ '(font-lock-comment-face ((t (:foreground "#888888" :slant italic))))
+
+))
+
+(provide-theme `molokai-overrides)
+
+	
+
 ;;auto complete
-(require 'auto-complete) ;; auto complete mode
-(require 'auto-complete-config);config file
+;; (require 'auto-complete) ;; auto complete mode
+;; (require 'auto-complete-config);config file
 
 
 
 
 
 
-(add-to-list 'ac-dictionary-directories
-	     (expand-file-name
-	     "~/.emacs.d/elpa/auto-complete-20160107.8/dict"))
-(setq ac-comphist-file
-      (expand-file-name
-       "~/.emacs.d/ac-comphist.dat")) ;; setup for ac cedet
-(ac-config-default);; default
-;; autocomplete
-(global-auto-complete-mode t)
+;; (add-to-list 'ac-dictionary-directories
+;; 	     (expand-file-name
+;; 	     "~/.emacs.d/elpa/auto-complete-20160107.8/dict"))
+;; (setq ac-comphist-file
+;;       (expand-file-name
+;;        "~/.emacs.d/ac-comphist.dat")) ;; setup for ac cedet
+;; (ac-config-default);; default
+;; ;; autocomplete
+;; (global-auto-complete-mode t)
+
+
 
 ;; highligh parens 
 (setq show-paren-delay 0)
