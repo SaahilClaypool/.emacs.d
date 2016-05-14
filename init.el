@@ -56,7 +56,7 @@
       helm-ff-file-name-history-use-recentf t)
 
 (helm-mode 1)
-;; auto complete
+;;auto complete
 (require 'auto-complete) ;; auto complete mode
 (require 'auto-complete-config);config file
 

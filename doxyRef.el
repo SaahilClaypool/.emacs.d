@@ -6,9 +6,7 @@
 
 ;; TODO: 
 ;;       get 100 MATCHING functions (or increase the cap to 1000)
-;;       fix path 
-;;       make it only look at certain files (should be working now)
-;;       Dragonfly box does not get all contsructors ??
+;;      
 
 ;; FIXES:
 ;;      no more macros
@@ -33,6 +31,7 @@
 (setq max-lisp-eval-depth 100000);; overkill for large files
 (setq max-specpdl-size 100000)
 (setq max-functions 1000)
+(setq max-files 500)
 (setq funcSymbol "_func_") ;; any unique symbol works
 (global-hi-lock-mode 1)
 (setq configuration (current-window-configuration))
@@ -124,9 +123,8 @@
                                  (files-in filterProj)
                                  )
                       ) ;; list of classes matching
-         (filterFunction (filter-function function
-                                          (doxyRef-get-all-functions filterClass 0))) ;; list of formatted functions
-         ;; probably: doxyRef-get-all-functions (list of file  filter-class)
+         (filterFunction  (get-matching-functions filterClass 0 function 0)) ;; list of formatted functions
+         ;; probably: get-matching-functions (list of file  filter-class)
          )
     
     
@@ -165,8 +163,11 @@
     )
   )
 
-(defun doxyRef-get-all-functions (lof count)
-  (if (< count max-functions)
+
+
+(defun get-matching-functions (lof numMatches str numFiles)
+  (if (and (< numMatches max-functions )
+           (< numFiles max-files))
       (if lof
           (let*
               (
@@ -175,13 +176,13 @@
             (if (not (or (str-suffix= "." cur)
                          (str-suffix= ".." cur)))
                 (let* (
-                       (functions (read-functions-from-file (concat referenceDir "/" cur)))
+                       (functions (filter-function str (read-functions-from-file (concat referenceDir "/" cur))))
                        (numberFunctions (length functions))
                        )
                    (append functions
-                        (doxyRef-get-all-functions (cdr lof) (+ numberFunctions count)))
+                        (get-matching-functions (cdr lof) (+ numberFunctions numMatches) str (+ 1 numFiles)))
                   )
-              (doxyRef-get-all-functions (cdr lof) count)
+              (get-matching-functions (cdr lof) numMatches str (+ 1 numFiles))
               )
             )
         nil)
