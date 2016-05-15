@@ -73,7 +73,9 @@
 
 ;; Company Mode
 (add-hook 'after-init-hook 'global-company-mode)
-(setq company-idle-delay 0)
+(setq company-idle-delay .05)
+
+
 
  ;; company
 (deftheme molokai-overrides)
@@ -106,8 +108,10 @@
  '(font-lock-comment-face ((t (:foreground "#888888" :slant italic))))
 
 ))
-
+;; look up doc with M-d
 (provide-theme `molokai-overrides)
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-d") #'company-show-doc-buffer))
 
 	
 
