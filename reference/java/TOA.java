@@ -1,0 +1,26 @@
+_func_
+java
+c:/Users/Saahil/OneDrive/Code/EmacsPackage/jdksource//com/sun/corba/se/impl/oa/toa/TOA.java
+    void disconnect( org.omg.CORBA.Object obj ) ;
+
+    /** Disconnect the object from this ORB.
+    */
+_func_
+java
+c:/Users/Saahil/OneDrive/Code/EmacsPackage/jdksource//com/sun/corba/se/impl/oa/toa/TOA.java
+    void connect( org.omg.CORBA.Object servant ) ;
+
+    /** Connect the given servant to the ORB by allocating a transient object key
+     *  and creating an IOR and object reference using the current factory.
+     */
+_func_
+java
+c:/Users/Saahil/OneDrive/Code/EmacsPackage/jdksource//com/sun/corba/se/impl/oa/toa/TOA.java
+public interface TOA extends ObjectAdapter {
+
+/** The Transient Object Adapter is used for standard RMI-IIOP and Java-IDL
+ * (legacy JDK 1.2) object implementations.  Its protocol for managing objects is very
+ * simple: just connect and disconnect.  There is only a single TOA instance per ORB,
+ * and its lifetime is the same as the ORB.  The TOA instance is always ready to receive
+ * messages except when the ORB is shutting down.
+ */

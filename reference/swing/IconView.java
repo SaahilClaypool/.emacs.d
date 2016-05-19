@@ -1,0 +1,110 @@
+_func_
+swing
+c:/Users/Saahil/OneDrive/Code/EmacsPackage/jdksource/javax/swing//text/IconView.java
+    public int viewToModel(float x, float y, Shape a, Position.Bias[] bias) {
+
+    /**
+     * Provides a mapping from the view coordinate space to the logical
+     * coordinate space of the model.
+     *
+     * @param x the X coordinate &gt;= 0
+     * @param y the Y coordinate &gt;= 0
+     * @param a the allocated region to render into
+     * @return the location within the model that best represents the
+     *  given point of view &gt;= 0
+     * @see View#viewToModel
+     */
+_func_
+swing
+c:/Users/Saahil/OneDrive/Code/EmacsPackage/jdksource/javax/swing//text/IconView.java
+    public Shape modelToView(int pos, Shape a, Position.Bias b) throws BadLocationException {
+
+    /**
+     * Provides a mapping from the document model coordinate space
+     * to the coordinate space of the view mapped to it.
+     *
+     * @param pos the position to convert &gt;= 0
+     * @param a the allocated region to render into
+     * @return the bounding box of the given position
+     * @exception BadLocationException  if the given position does not
+     *   represent a valid location in the associated document
+     * @see View#modelToView
+     */
+_func_
+swing
+c:/Users/Saahil/OneDrive/Code/EmacsPackage/jdksource/javax/swing//text/IconView.java
+    public float getAlignment(int axis) {
+
+    /**
+     * Determines the desired alignment for this view along an
+     * axis.  This is implemented to give the alignment to the
+     * bottom of the icon along the y axis, and the default
+     * along the x axis.
+     *
+     * @param axis may be either View.X_AXIS or View.Y_AXIS
+     * @return the desired alignment &gt;= 0.0f &amp;&amp; &lt;= 1.0f.  This should be
+     *   a value between 0.0 and 1.0 where 0 indicates alignment at the
+     *   origin and 1.0 indicates alignment to the full span
+     *   away from the origin.  An alignment of 0.5 would be the
+     *   center of the view.
+     */
+_func_
+swing
+c:/Users/Saahil/OneDrive/Code/EmacsPackage/jdksource/javax/swing//text/IconView.java
+    public float getPreferredSpan(int axis) {
+
+    /**
+     * Determines the preferred span for this view along an
+     * axis.
+     *
+     * @param axis may be either View.X_AXIS or View.Y_AXIS
+     * @return  the span the view would like to be rendered into
+     *           Typically the view is told to render into the span
+     *           that is returned, although there is no guarantee.
+     *           The parent may choose to resize or break the view.
+     * @exception IllegalArgumentException for an invalid axis
+     */
+_func_
+swing
+c:/Users/Saahil/OneDrive/Code/EmacsPackage/jdksource/javax/swing//text/IconView.java
+    public void paint(Graphics g, Shape a) {
+
+    /**
+     * Paints the icon.
+     * The real paint behavior occurs naturally from the association
+     * that the icon has with its parent container (the same
+     * container hosting this view), so this simply allows us to
+     * position the icon properly relative to the view.  Since
+     * the coordinate system for the view is simply the parent
+     * containers, positioning the child icon is easy.
+     *
+     * @param g the rendering surface to use
+     * @param a the allocated region to render into
+     * @see View#paint
+     */
+_func_
+swing
+c:/Users/Saahil/OneDrive/Code/EmacsPackage/jdksource/javax/swing//text/IconView.java
+    public IconView(Element elem) {
+
+    /**
+     * Creates a new icon view that represents an element.
+     *
+     * @param elem the element to create a view for
+     */
+_func_
+swing
+c:/Users/Saahil/OneDrive/Code/EmacsPackage/jdksource/javax/swing//text/IconView.java
+public class IconView extends View  {
+
+/**
+ * Icon decorator that implements the view interface.  The
+ * entire element is used to represent the icon.  This acts
+ * as a gateway from the display-only View implementations to
+ * interactive lightweight icons (that is, it allows icons
+ * to be embedded into the View hierarchy.  The parent of the icon
+ * is the container that is handed out by the associated view
+ * factory.
+ *
+ * @author Timothy Prinzing
+ */

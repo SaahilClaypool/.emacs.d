@@ -19,7 +19,7 @@
 (blink-cursor-mode -1)
 
 (setq referenceDir "~/.emacs.d/reference")
-(load "~/.emacs.d/doxyRef.el")
+(load "~/.emacs.d/doxyref/doxyref.el")
 (global-set-key (kbd "C-c d d") (lambda ()(interactive)(doxyRef-lookup-docs)))
 (global-set-key (kbd "C-c d s") (lambda ()(interactive)(doxyRef-setup-project)))
 
@@ -77,41 +77,41 @@
 
 
 
- ;; company
-(deftheme molokai-overrides)
-;; Color Tweaks
-;; https://github.com/search?q=deftheme+company-tooltip&type=Code
-(let ((class '((class color) (min-colors 257)))
-      (terminal-class '((class color) (min-colors 89))))
+;;  ;; company
+;; (deftheme molokai-overrides)
+;; ;; Color Tweaks
+;; ;; https://github.com/search?q=deftheme+company-tooltip&type=Code
+;; (let ((class '((class color) (min-colors 257)))
+;;       (terminal-class '((class color) (min-colors 89))))
 
-  (custom-theme-set-faces
-   'molokai-overrides
+;;   (custom-theme-set-faces
+;;    'molokai-overrides
 
-   ;; Additional modes
-   ;; Company tweaks.
-   `(company-tooltip
-     ((t :inherit default
-         :background "#403D3D")))
+;;    ;; Additional modes
+;;    ;; Company tweaks.
+;;    `(company-tooltip
+;;      ((t :inherit default
+;;          :background "#403D3D")))
 		 
-   `(company-scrollbar-bg
-     ((t :background "#232526")))
+;;    `(company-scrollbar-bg
+;;      ((t :background "#232526")))
 	 
-   `(company-scrollbar-fg
-     ((t :background "#E6DB74")))
+;;    `(company-scrollbar-fg
+;;      ((t :background "#E6DB74")))
 
-   `(company-tooltip-selection
-     ((t :inherit font-lock-function-name-face)))
+;;    `(company-tooltip-selection
+;;      ((t :inherit font-lock-function-name-face)))
 
-   `(company-tooltip-common
-     ((t :inherit font-lock-constant-face)))
+;;    `(company-tooltip-common
+;;      ((t :inherit font-lock-constant-face)))
 	 
- '(font-lock-comment-face ((t (:foreground "#888888" :slant italic))))
+;;  '(font-lock-comment-face ((t (:foreground "#888888" :slant italic))))
 
-))
-;; look up doc with M-d
-(provide-theme `molokai-overrides)
-(with-eval-after-load 'company
-  (define-key company-active-map (kbd "M-d") #'company-show-doc-buffer))
+;; ))
+;; ;; look up doc with M-d
+;; (provide-theme `molokai-overrides)
+;; (with-eval-after-load 'company
+;;   (define-key company-active-map (kbd "M-d") #'company-show-doc-buffer))
 
 	
 
@@ -279,7 +279,7 @@
 (set-face-attribute 'default (selected-frame) :height 115)
 
 ;; theme
-(load-theme 'molokai t)
+(load-theme 'monokai t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

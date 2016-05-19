@@ -17,3 +17,37 @@ grep py
 cat 
 ls
 cat BB110X/dukes.py 
+cd
+ls
+cd .emacs.d/
+ls
+cd doxyref/
+git
+cd
+ls
+cd
+ls
+git 
+git branch
+git add .
+git commit -m "fixed emacs crashing on large projects"
+git push
+git push -u master origin
+git upstream
+git pull
+git push
+git config
+git config --local
+git config --local username=saahilclaypool
+git push
+git remote -v
+git remote set-url https://saahilclaypool:Choco123/saahilclaypool/doxyref.git
+git remote set-url saahilclaypool https://saahilclaypool:Choco123/saahilclaypool/doxyref.git
+git remote set-url https://github.com/SaahilClaypool/doxyref
+git push
+git remote set-url https://github.com/SaahilClaypool/doxyref --push
+git remote set-url --push doxyref  https://github.com/SaahilClaypool/doxyref 
+git remote set-url --push origin  https://github.com/SaahilClaypool/doxyref 
+git push
+git remote set-url --push origin  https://saahilclaypool:Choco123@github.com/SaahilClaypool/doxyref 
+git push
