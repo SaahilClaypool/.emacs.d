@@ -51,3 +51,10 @@ git remote set-url --push origin  https://github.com/SaahilClaypool/doxyref
 git push
 git remote set-url --push origin  https://saahilclaypool:Choco123@github.com/SaahilClaypool/doxyref 
 git push
+cd reference/
+ls
+cd ..
+cd doxyref/
+ls
+git add doxyref.el 
+git
