@@ -58,3 +58,6 @@ cd doxyref/
 ls
 git add doxyref.el 
 git
+git
+git
+git
