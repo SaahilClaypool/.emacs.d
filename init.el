@@ -23,7 +23,7 @@
 
 ;; turn on line higlihgting 
 (global-hl-line-mode +1)
-
+(volatile-highlights-mode)
 ;; turn off those stupid emacs droppings
 (setq make-backup-files nil)
 
