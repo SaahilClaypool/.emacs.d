@@ -3,6 +3,20 @@
 ;; load files
 (load-file "~/.emacs.d/packages.el")
 (load-file  "~/.emacs.d/keybindings.el")
+;; temp changes
+
+;; temp changes
+(global-set-key (kbd "<escape>") 'god-mode-all)
+(defun my-update-cursor ()
+  (setq cursor-type (if (or god-local-mode buffer-read-only)
+                        'box
+                      'bar)))
+
+(add-hook 'god-mode-enabled-hook 'my-update-cursor)
+(add-hook 'god-mode-disabled-hook 'my-update-cursor)
+(require 'god-mode-isearch)
+(define-key isearch-mode-map (kbd "<escape>") 'god-mode-isearch-activate)
+(define-key god-mode-isearch-map (kbd "<escape>") 'god-mode-isearch-disable)
 
 ;; gui changes
 ;; visible-bell
@@ -40,7 +54,7 @@
 ;; highligh parens 
 (setq show-paren-delay 0)
 (show-paren-mode 1)
-(autopair-global-mode 1)
+;;(autopair-global-mode 1)
 
 ;;Smooth scrolling 
 (setq scroll-conservatively 1000)

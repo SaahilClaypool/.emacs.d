@@ -61,3 +61,5 @@ git
 git
 git
 git
+git fetch
+git reset --hard origin/master
