@@ -63,3 +63,6 @@ git
 git
 git fetch
 git reset --hard origin/master
+git add -A
+git commit -m "GOD MODE"
+git push
