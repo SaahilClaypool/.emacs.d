@@ -66,3 +66,14 @@ git reset --hard origin/master
 git add -A
 git commit -m "GOD MODE"
 git push
+ls
+cd
+cd .emacs.d/
+ls
+git add -A
+cd reference/
+ls
+cd ..
+git add -A
+git commit -m "util java"
+git push

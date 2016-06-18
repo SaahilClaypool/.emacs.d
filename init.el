@@ -1,22 +1,47 @@
 ;; config changes
 
+
 ;; load files
 (load-file "~/.emacs.d/packages.el")
 (load-file  "~/.emacs.d/keybindings.el")
 ;; temp changes
+(ido-mode 1)
+(ido-everywhere 1)
+;; ido everywhere
+(require 'ido-ubiquitous)
+(ido-ubiquitous-mode 1)
 
-;; temp changes
-(global-set-key (kbd "<escape>") 'god-mode-all)
-(defun my-update-cursor ()
-  (setq cursor-type (if (or god-local-mode buffer-read-only)
-                        'box
-                      'bar)))
+;; m-x better
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+;; fuzzy matching
+(require 'flx-ido)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
 
-(add-hook 'god-mode-enabled-hook 'my-update-cursor)
-(add-hook 'god-mode-disabled-hook 'my-update-cursor)
-(require 'god-mode-isearch)
-(define-key isearch-mode-map (kbd "<escape>") 'god-mode-isearch-activate)
-(define-key god-mode-isearch-map (kbd "<escape>") 'god-mode-isearch-disable)
+;; vertical ido 
+(require 'ido-vertical-mode)
+(ido-mode 1)
+(ido-vertical-mode 1)
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+
+;; ;; temp changes
+;; (global-set-key (kbd "<escape>") 'god-mode-all)
+;; (defun my-update-cursor ()
+;;   (setq cursor-type (if (or god-local-mode buffer-read-only)
+;;                         'box
+;;                       'bar)))
+
+;; (add-hook 'god-mode-enabled-hook 'my-update-cursor)
+;; (add-hook 'god-mode-disabled-hook 'my-update-cursor)
+;; (require 'god-mode-isearch)
+;; (define-key isearch-mode-map (kbd "<escape>") 'god-mode-isearch-activate)
+;; (define-key god-mode-isearch-map (kbd "<escape>") 'god-mode-isearch-disable)
 
 ;; gui changes
 ;; visible-bell
@@ -45,7 +70,7 @@
 (recentf-mode 1)
 
 ;; turn on helm mode
-(helm-mode 1)
+;; (helm-mode 1)
 
 ;; Company Mode
 (add-hook 'after-init-hook 'global-company-mode)

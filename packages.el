@@ -18,7 +18,7 @@
 ;; windows
 (require 'ace-window)
 ;; helm
-(require 'helm)
+(require 'helm)                         ;
 (require 'helm-config)
 
 
