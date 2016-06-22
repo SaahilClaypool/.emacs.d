@@ -17,6 +17,7 @@
 
 ;; ----- ido-work-directory-list -----
 (
+ "c:/Users/Saahil/AppData/Roaming/.emacs.d/"
  "c:/Users/Saahil/OneDrive/Code/jsgame/"
  "c:/Users/Saahil/OneDrive/Code/Web/jsGame/"
  "c:/Users/saahil claypool/AppData/Roaming/.emacs.d/"
@@ -24,6 +25,7 @@
 
 ;; ----- ido-work-file-list -----
 (
+ "evil-settings.el"
  "game.html"
  "game.htlm"
  "packages.el"
@@ -33,9 +35,11 @@
 
 ;; ----- ido-dir-file-cache -----
 (
- ("c:/Users/Saahil/OneDrive/Code/jsgame/" (22373 56766 0 0) "game.html" "../" "./")
+ ("c:/Users/Saahil/OneDrive/Code/Web/jsGame/" (22373 55242 0 0) "game.html" "../" "./")
 
- ("c:/Users/Saahil/OneDrive/Code/Web/jsGame/" (22373 54587 0 0) "game.html" "game.htlm" "../" "./")
+ ("c:/Users/Saahil/OneDrive/Code/jsgame/" (22376 35980 0 0) "game.html" "game-SaaRoony.html" "../" "./")
+
+ ("c:/Users/Saahil/AppData/Roaming/.emacs.d/" (22377 62394 0 0) "url/" "tempInit.el" "tempDocRef.el" "smex-items" "reference/" "recentf" "packages.el~" "packages.el" "OTHER.txt" "keybindings.el" "init.el~" "init.el" "ido.last" "eshell/" "elpa/" "doxyRef.el~" "doxyref.el" "doxyref/" "docRef.el" "bookmarks" "auto-save-list/" "Aspell/" "ac-comphist.dat" ".gitignore" ".gitattributes" ".git/" "#init.el#" "../" "./")
 
  ("c:/Users/Saahil/OneDrive/Code/Web/" (22373 54585 0 0) "testGetHTML.html" "test1/" "test.html" "moveCirc.html" "jsGame/" "JS/" "charles.html" "animate.js~" "animate.js" "animate.html~" "animate.html" "#charles.html#" "#animate.js#" "#animate.html#" "../" "./")
 

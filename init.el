@@ -4,11 +4,11 @@
 ;; load files
 (load-file "~/.emacs.d/packages.el")
 (load-file  "~/.emacs.d/keybindings.el")
-(load-file "~/.emacs.d/evil-settings.el");; load optional evil settings
+
 
 (require 'evil)
-(evil-mode 1)
-
+(evil-mode 0)
+(load-file "~/.emacs.d/evil-settings.el");; load optional evil settings
 ;; temp changes
 
 
