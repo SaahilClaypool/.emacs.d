@@ -13,6 +13,36 @@
 (package-initialize) ;; You might already have this line
 
 
+(ido-mode 1)
+(ido-everywhere 1)
+;; ido everywhere
+(require 'ido-ubiquitous)
+(ido-ubiquitous-mode 1)
+
+;; m-x better
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+;; fuzzy matching
+(require 'flx-ido)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
+
+;; vertical ido 
+(require 'ido-vertical-mode)
+(ido-mode 1)
+(ido-vertical-mode 1)
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+
+;;YAS
+(require 'yasnippet)
+(yas-global-mode 1)
+;; Completing point by some yasnippet key
+
 ;; jumping
 (require 'avy)
 ;; windows

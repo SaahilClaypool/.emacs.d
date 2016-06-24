@@ -6,77 +6,9 @@
 (load-file  "~/.emacs.d/keybindings.el")
 
 
-(require 'evil)
-(evil-mode 0)
-(load-file "~/.emacs.d/evil-settings.el");; load optional evil settings
-;; temp changes
 
 
-(defun smarter-move-beginning-of-line (arg)
-  "Move point back to indentation of beginning of line.
 
-Move point to the first non-whitespace character on this line.
-If point is already there, move to the beginning of the line.
-Effectively toggle between the first non-whitespace character and
-the beginning of the line.
-
-If ARG is not nil or 1, move forward ARG - 1 lines first.  If
-point reaches the beginning or end of the buffer, stop there."
-  (interactive "^p")
-  (setq arg (or arg 1))
-
-  ;; Move lines first
-  (when (/= arg 1)
-    (let ((line-move-visual nil))
-      (forward-line (1- arg))))
-
-  (let ((orig-point (point)))
-    (back-to-indentation)
-    (when (= orig-point (point))
-      (move-beginning-of-line 1))))
-
-;; remap C-a to `smarter-move-beginning-of-line'
-(global-set-key [remap move-beginning-of-line]
-                'smarter-move-beginning-of-line)
-
-
-(ido-mode 1)
-(ido-everywhere 1)
-;; ido everywhere
-(require 'ido-ubiquitous)
-(ido-ubiquitous-mode 1)
-
-;; m-x better
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-;; fuzzy matching
-(require 'flx-ido)
-(flx-ido-mode 1)
-;; disable ido faces to see flx highlights.
-(setq ido-enable-flex-matching t)
-(setq ido-use-faces nil)
-
-;; vertical ido 
-(require 'ido-vertical-mode)
-(ido-mode 1)
-(ido-vertical-mode 1)
-(setq ido-vertical-define-keys 'C-n-and-C-p-only)
-
-;; ;; temp changes
-;; (global-set-key (kbd "<escape>") 'god-mode-all)
-;; (defun my-update-cursor ()
-;;   (setq cursor-type (if (or god-local-mode buffer-read-only)
-;;                         'box
-;;                       'bar)))
-
-;; (add-hook 'god-mode-enabled-hook 'my-update-cursor)
-;; (add-hook 'god-mode-disabled-hook 'my-update-cursor)
-;; (require 'god-mode-isearch)
-;; (define-key isearch-mode-map (kbd "<escape>") 'god-mode-isearch-activate)
-;; (define-key god-mode-isearch-map (kbd "<escape>") 'god-mode-isearch-disable)
 
 ;; gui changes
 ;; visible-bell

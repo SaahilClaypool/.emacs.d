@@ -2,10 +2,11 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("c:/WINDOWS/system32/" . "AdvancedInstallers/")
  ("c:/Users/Saahil/OneDrive/Code/Web/" . "jsGame/")
  ("c:/Users/Saahil/OneDrive/Code/" . "jsgame/")
  ("c:/Users/Saahil/OneDrive/" . "Code/")
- ("c:/Users/Saahil/" . "OneDrive/")
+ ("c:/Users/Saahil/" . "Documents/")
  ("c:/Users/saahil claypool/AppData/Roaming/" . ".emacs.d/")
  ("c:/Users/saahil claypool/AppData/" . "Roaming/")
  ("c:/Users/saahil claypool/OneDrive/Code/" . "EmacsPackage/")
@@ -17,37 +18,49 @@
 
 ;; ----- ido-work-directory-list -----
 (
+ "c:/Users/Saahil/Documents/"
  "c:/Users/Saahil/AppData/Roaming/.emacs.d/"
  "c:/Users/Saahil/OneDrive/Code/jsgame/"
+ "c:/Users/"
  "c:/Users/Saahil/OneDrive/Code/Web/jsGame/"
  "c:/Users/saahil claypool/AppData/Roaming/.emacs.d/"
 )
 
 ;; ----- ido-work-file-list -----
 (
- "evil-settings.el"
+ "test.java"
+ "test.txt"
+ "keybindings.el"
  "game.html"
+ "evil-settings.el"
  "game.htlm"
  "packages.el"
- "keybindings.el"
  "init.el"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("c:/Users/Saahil/AppData/Roaming/.emacs.d/" (22380 36845 0 0) "url/" "snippets/" "smex-items" "reference/" "recentf" "packages.el~" "packages.el" "OTHER.txt" "keybindings.el" "init.el~" "init.el" "ido.last" "evil-settings.el" "eshell/" "elpa/" "doxyRef.el~" "doxyref/" "bookmarks" "auto-save-list/" "Aspell/" "ac-comphist.dat" ".gitignore" ".gitattributes" ".git/" "#evil-settings.el#" "../" "./")
+
+ ("c:/Users/Saahil/Documents/" (22380 36868 0 0) "WPI/" "WindowsPowerShell/" "Visual Studio 2015/" "Virtual Machines/" "Unofficial Transcript.pdf" "TI84.rom" "test.txt" "test.py~" "test.py" "src.zip" "Sound recordings/" "raco.rkt" "R/" "Python Scripts/" "Notes/" "My Web Sites/" "My Videos/" "My Pictures/" "My Music/" "My Games/" "MITLL Employee IP Agreement 11.6.15.pdf" "lol-analysis-v2.pdf" "League of Legends/" "jdkurce/" "Initial CBI Application.pdf" "IISExpress/" "GitHub/" "Endless Legend/" "Documents.iml" "desktop.ini" "Default.rdp" "Custom Office Templates/" "Coding/" "Claypool, Saahil offer letter.pdf" "car.txt" "Camtasia Studio/" "AirDroid/" "A-1_Code of Conduct.pdf" ".Rhistory" ".RData" ".#test.txt" "../" "./")
+
+ ("c:/Users/Saahil/OneDrive/Code/jsgame/" (22379 14060 0 0) "game.html" "game-SaaRoony.html" "../" "./")
+
+ ("c:/Users/Saahil/AppData/" (22084 59998 0 0) "Roaming/" "LocalLow/" "Local/" "../" "./")
+
+ ("c:/Users/Saahil/AppData/Roaming/" (22335 2969 0 0) "Xpra/" "Xamarin/" "WizardWars/" "Wabbitemu/" "VMware/" "Trine2/" "text.txt" "test.py~" "test.py" "TechSmith/" "Sun/" "Subversion/" "Sublime Text 3/" "StarNet Communications/" "Stardock/" "Spotify/" "Skype/" "RStudio/" "Riot Games/" "Racket/" "r.csv" "prelude/" "Opera Software/" "Onetastic/" "onecal.xml" "oldEmacs/" "NuGet/" "Notepad++/" "NetBeans/" "myemacs/" "Mozilla/" "Microsoft FxCop/" "Microsoft/" "MathWorks/" "Macromedia/" "LolClient/" "jupyter/" "Juniper Networks/" "JetBrains/" "Jedi/" "Identities/" "GitHub/" "Dropbox/" "dot.xkeymacs" "Continuum/" "conkeror.mozdev.org/" "BrawlhallaAir/" "Battle.net/" "Atom/" "Adobe/" ".recentf" ".python_history" ".matplotlib/" ".ipython/" ".gitconfig" ".emacs~" ".emacs.d/" "#text.txt#" "#test.txt#" "#.emacs#" "#%2Amail%2A#10620yEL#" "../" "./")
+
+ ("c:/WINDOWS/system32/AdvancedInstallers/" (22067 6972 0 0) "cmiv2.dll" "../" "./")
+
+ ("c:/Users/Saahil/OneDrive/" (22376 24850 0 0) "WPI/" "Sticky Notes/" "SignedPDF.pdf" "Screenshots/" "Save/" "Personal/" "Old/" "desktop.ini" "Code/" "allzero.txt" "AHK/" ".849C9593-D756-4E56-8D6E-42412F2A707B" "#desktop.ini#" "../" "./")
+
+ ("c:/Users/Saahil/" (22376 24825 0 0) "Videos/" "UI.class" "Tracing/" "Templates/" "temp.el" "temp.c" "Start Menu/" "smclaypool-1332.txt" "SendTo/" "Searches/" "Saved Games/" "Recent/" "PrintHood/" "Pictures/" "Panel calibration tool/" "OneDrive/" "ntuser.ini" "NTUSER.DAT{5bd9d9cd-8974-11e5-be07-9f1e30e77ec6}.TMContainer00000000000000000002.regtrans-ms" "NTUSER.DAT{5bd9d9cd-8974-11e5-be07-9f1e30e77ec6}.TMContainer00000000000000000001.regtrans-ms" "NTUSER.DAT{5bd9d9cd-8974-11e5-be07-9f1e30e77ec6}.TM.blf" "NTUSER.DAT{5bd9d9cc-8974-11e5-be07-9f1e30e77ec6}.TxR.blf" "NTUSER.DAT{5bd9d9cc-8974-11e5-be07-9f1e30e77ec6}.TxR.2.regtrans-ms" "NTUSER.DAT{5bd9d9cc-8974-11e5-be07-9f1e30e77ec6}.TxR.1.regtrans-ms" "NTUSER.DAT{5bd9d9cc-8974-11e5-be07-9f1e30e77ec6}.TxR.0.regtrans-ms" "ntuser.dat.LOG2" "ntuser.dat.LOG1" "NTUSER.DAT" "NetHood/" "My Documents/" "Music/" "Mason2.0/" "ls" "Local Settings/" "Links/" "lien.bat" "IdeaProjects/" "Favorites/" "emacs-src/" "Dropbox/" "Downloads/" "Documents/" "Desktop/" "Cookies/" "Contacts/" "BrawlhallaReplays/" "battery-report.html" "Application Data/" "AppData/" "Anaconda3/" "3D Objects/" ".viminfo" ".swp" ".swo" ".ssh/" ".spyder2-py3/" ".python_history" ".pylint.d/" ".oracle_jre_usage/" ".nuget/" ".nbi/" ".matplotlib/" ".m2/" ".lein/" ".jsfml/" ".ipython/" ".IntelliJIdea15/" ".IntelliJIdea14/" ".idlerc/" ".gstreamer-0.10/" ".gitconfig" ".emacs~" ".emacs.d/" ".emacs" ".continuum/" ".bash_history" ".atom/" ".astropy/" ".android/" "#smclaypool-1332.txt#" "../" "./")
+
  ("c:/Users/Saahil/OneDrive/Code/Web/jsGame/" (22373 55242 0 0) "game.html" "../" "./")
-
- ("c:/Users/Saahil/OneDrive/Code/jsgame/" (22376 35980 0 0) "game.html" "game-SaaRoony.html" "../" "./")
-
- ("c:/Users/Saahil/AppData/Roaming/.emacs.d/" (22377 62394 0 0) "url/" "tempInit.el" "tempDocRef.el" "smex-items" "reference/" "recentf" "packages.el~" "packages.el" "OTHER.txt" "keybindings.el" "init.el~" "init.el" "ido.last" "eshell/" "elpa/" "doxyRef.el~" "doxyref.el" "doxyref/" "docRef.el" "bookmarks" "auto-save-list/" "Aspell/" "ac-comphist.dat" ".gitignore" ".gitattributes" ".git/" "#init.el#" "../" "./")
 
  ("c:/Users/Saahil/OneDrive/Code/Web/" (22373 54585 0 0) "testGetHTML.html" "test1/" "test.html" "moveCirc.html" "jsGame/" "JS/" "charles.html" "animate.js~" "animate.js" "animate.html~" "animate.html" "#charles.html#" "#animate.js#" "#animate.html#" "../" "./")
 
  ("c:/Users/Saahil/OneDrive/Code/" (22356 45373 0 0) "Web/" "TempTestPackage/" "RIOTAPI/" "Racket/" "misc/" "Libraries/" "jsgame/" "JS/" "Java/" "EmacsPackage/" "clojure/" "../" "./")
-
- ("c:/Users/Saahil/OneDrive/" (22372 39128 0 0) "WPI/" "Sticky Notes/" "SignedPDF.pdf" "Screenshots/" "Save/" "Personal/" "Old/" "desktop.ini" "Code/" "allzero.txt" "AHK/" ".849C9593-D756-4E56-8D6E-42412F2A707B" "#desktop.ini#" "../" "./")
-
- ("c:/Users/Saahil/" (22372 39111 0 0) "Videos/" "UI.class" "Tracing/" "Templates/" "temp.el" "temp.c" "Start Menu/" "smclaypool-1332.txt" "SendTo/" "Searches/" "Saved Games/" "Recent/" "PrintHood/" "Pictures/" "Panel calibration tool/" "OneDrive/" "ntuser.ini" "NTUSER.DAT{5bd9d9cd-8974-11e5-be07-9f1e30e77ec6}.TMContainer00000000000000000002.regtrans-ms" "NTUSER.DAT{5bd9d9cd-8974-11e5-be07-9f1e30e77ec6}.TMContainer00000000000000000001.regtrans-ms" "NTUSER.DAT{5bd9d9cd-8974-11e5-be07-9f1e30e77ec6}.TM.blf" "NTUSER.DAT{5bd9d9cc-8974-11e5-be07-9f1e30e77ec6}.TxR.blf" "NTUSER.DAT{5bd9d9cc-8974-11e5-be07-9f1e30e77ec6}.TxR.2.regtrans-ms" "NTUSER.DAT{5bd9d9cc-8974-11e5-be07-9f1e30e77ec6}.TxR.1.regtrans-ms" "NTUSER.DAT{5bd9d9cc-8974-11e5-be07-9f1e30e77ec6}.TxR.0.regtrans-ms" "ntuser.dat.LOG2" "ntuser.dat.LOG1" "NTUSER.DAT" "NetHood/" "My Documents/" "Music/" "Mason2.0/" "ls" "Local Settings/" "Links/" "lien.bat" "IdeaProjects/" "Favorites/" "emacs-src/" "Dropbox/" "Downloads/" "Documents/" "Desktop/" "Cookies/" "Contacts/" "BrawlhallaReplays/" "battery-report.html" "Application Data/" "AppData/" "Anaconda3/" "3D Objects/" ".viminfo" ".swp" ".swo" ".ssh/" ".spyder2-py3/" ".python_history" ".pylint.d/" ".oracle_jre_usage/" ".nuget/" ".nbi/" ".matplotlib/" ".m2/" ".lein/" ".jsfml/" ".ipython/" ".IntelliJIdea15/" ".IntelliJIdea14/" ".idlerc/" ".gstreamer-0.10/" ".gitconfig" ".emacs~" ".emacs.d/" ".emacs" ".continuum/" ".bash_history" ".atom/" ".astropy/" ".android/" "#smclaypool-1332.txt#" "../" "./")
 
  ("c:/Users/" (22084 60139 0 0) "Saahil/" "Public/" "desktop.ini" "Default.migrated/" "Default User/" "Default/" "All Users/" "../" "./")
 
