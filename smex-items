@@ -1,26 +1,21 @@
 
 ;; ----- smex-history -----
 (
- scroll-bar-mode
- minimap-mode
+ eshell
+ shell
+ magit-status
  package-install
  eval-buffer
- shell
- bookmark-relocate
- browse-url-firefox
+ R
+ S
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 4)
- (shell . 8)
- (evil-mode . 5)
- (bookmark-relocate . 1)
- (browse-url-firefox . 1)
+ (eval-buffer . 6)
+ (shell . 7)
+ (evil-mode . 4)
+ (eshell . 2)
  (package-install . 1)
- (minimap-mode . 1)
- (minimap-kill . 2)
- (minimap-create . 1)
- (minimap-sync-overlays . 1)
- (scroll-bar-mode . 1)
+ (magit-status . 1)
 )

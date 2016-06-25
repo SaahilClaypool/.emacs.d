@@ -77,3 +77,13 @@ cd ..
 git add -A
 git commit -m "util java"
 git push
+git pull
+git fetch
+git reset --hard origin/mater
+git reset --hard origin/master
+git add -A
+git commit -m "light theme and minor changes"
+git push
+git pull
+git fetch
+git reset --hard origin/master

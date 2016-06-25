@@ -60,10 +60,11 @@
 (setq-default line-spacing 4)
 (add-to-list 'default-frame-alist '(font . "Lucida Console"))
 (set-face-attribute 'default t :font "Lucida Console" )
-(set-face-attribute 'default (selected-frame) :height 115)
+(set-face-attribute 'default (selected-frame) :height 105)
 
 ;; theme
-(load-theme 'monokai t)
+;;(load-theme 'monokai t)
+(load-theme 'solarized-light)
 
 
 
