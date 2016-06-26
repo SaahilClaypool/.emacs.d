@@ -87,3 +87,9 @@ git push
 git pull
 git fetch
 git reset --hard origin/master
+git add -A
+git commit -m "no warning"
+git push
+ 15 files changed, 13892 insertions(+), 31 deletions(-)
+mkdir fonts
+ls

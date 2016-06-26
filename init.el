@@ -1,6 +1,5 @@
 ;; config changes
 
-
 ;; load files
 (load-file "~/.emacs.d/packages.el")
 (load-file  "~/.emacs.d/keybindings.el")
@@ -51,6 +50,7 @@
 ;;Smooth scrolling 
 (setq scroll-conservatively 1000)
 
+;; load fonts
 
 ;; font changes
 ;; Turn colors on default
@@ -58,8 +58,10 @@
 (setq-default indent-tabs-mode nil)
 (global-font-lock-mode 1)
 (setq-default line-spacing 4)
-(add-to-list 'default-frame-alist '(font . "Lucida Console"))
-(set-face-attribute 'default t :font "Lucida Console" )
+;;(add-to-list 'default-frame-alist '(font . "Lucida Console"))
+;;(set-face-attribute 'default t :font "Lucida Console" )
+;;(add-to-list 'default-frame-alist '(font . "Driod Sans Mono Regular"))
+;;(set-face-attribute 'default t :font  "Driod Sans Mono Regular")
 (set-face-attribute 'default (selected-frame) :height 105)
 
 ;; theme
@@ -115,12 +117,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(blink-cursor-mode nil)
  '(custom-safe-themes
    (quote
-    ("d737a2131d5ac01c0b2b944e0d2cb0be1c76496bb4ed61be51ff0e5457468974" "2c73700ef9c2c3aacaf4b65a7751b8627b95a1fd8cebed8aa199f2afb089a85f" "b571f92c9bfaf4a28cb64ae4b4cdbda95241cd62cf07d942be44dc8f46c491f4" default))))
+    ("d737a2131d5ac01c0b2b944e0d2cb0be1c76496bb4ed61be51ff0e5457468974" "2c73700ef9c2c3aacaf4b65a7751b8627b95a1fd8cebed8aa199f2afb089a85f" "b571f92c9bfaf4a28cb64ae4b4cdbda95241cd62cf07d942be44dc8f46c491f4" default)))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "Droid Sans Mono" :foundry "outline" :slant normal :weight normal :height 110 :width normal)))))
