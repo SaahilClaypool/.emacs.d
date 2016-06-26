@@ -1,21 +1,22 @@
 
 ;; ----- smex-history -----
 (
+ eval-buffer
+ load-theme
  eshell
  shell
- magit-status
  package-install
- eval-buffer
  R
  S
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 6)
+ (eval-buffer . 8)
  (shell . 7)
  (evil-mode . 4)
  (eshell . 2)
  (package-install . 1)
  (magit-status . 1)
+ (load-theme . 1)
 )
