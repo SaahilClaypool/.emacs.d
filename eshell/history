@@ -88,8 +88,9 @@ git pull
 git fetch
 git reset --hard origin/master
 git add -A
-git commit -m "no warning"
+git commit -m 
+git commit -m "	light theme and such"
 git push
- 15 files changed, 13892 insertions(+), 31 deletions(-)
-mkdir fonts
-ls
+git fetch
+git pull
+git reset --hard origin/master

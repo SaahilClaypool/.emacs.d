@@ -1,34 +1,25 @@
 
 ;; ----- smex-history -----
 (
- menu-bar-mode
- menu-set-font
  eval-buffer
- shell
+ describe-key
+ R
  load-theme
- js2-mode
+ eshell
  package-install
+ package-refresh-contents
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 7)
- (shell . 14)
- (evil-mode . 5)
- (bookmark-relocate . 1)
- (browse-url-firefox . 1)
- (package-install . 3)
- (minimap-mode . 1)
- (minimap-kill . 2)
- (minimap-create . 1)
- (minimap-sync-overlays . 1)
- (scroll-bar-mode . 1)
- (load-theme . 13)
+ (eval-buffer . 11)
+ (shell . 7)
+ (evil-mode . 4)
+ (eshell . 4)
+ (package-install . 2)
+ (magit-status . 1)
+ (load-theme . 8)
  (package-refresh-contents . 1)
- (js2-mode . 1)
- (js2-error-buffer-next . 2)
- (js2-error-buffer-view . 1)
- (js2-display-error-list . 1)
- (menu-set-font . 1)
- (menu-bar-mode . 1)
+ (R . 3)
+ (describe-key . 1)
 )
