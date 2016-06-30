@@ -1,5 +1,5 @@
 (setq referenceDir "~/.emacs.d/reference")
-(load "~/.emacs.d/doxyref/doxyref.el")
+;; (load "~/.emacs.d/doxyref/doxyref.el")
 
 
 ;;packages..

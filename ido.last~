@@ -15,7 +15,6 @@
 
 ;; ----- ido-work-directory-list -----
 (
- #("/home/saahil/.emacs.d/" 13 19 (face flx-highlight-face))
  "c:/Users/saahil claypool/OneDrive/R/misc/"
  "c:/Users/saahil claypool/OneDrive/misc/"
  "c:/Users/saahil claypool/OneDrive/Code/RIOTAPI/"
@@ -25,7 +24,6 @@
 
 ;; ----- ido-work-file-list -----
 (
- "keybindings.el"
  "test.R"
  "testlatex.tex"
  "AllRollsFinal.png"
@@ -35,14 +33,11 @@
  "tempInit.el"
  "evil-settings.el"
  "packages.el"
+ "keybindings.el"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/saahil/.emacs.d/" (22388 26251 131620 397000) "smex-items" "init.el~" "OTHER.txt" "init.el" "#evil-settings.el#" "doxyRef.el~" "evil-settings.el" "./" "packages.el~" "packages.el" "url/" "elpa/" "Aspell/" "bookmarks" "doxyref/" "reference/" "ido.last~" ".gitattributes" ".git/" "recentf" "snippets/" "auto-save-list/" "../" "keybindings.el" "ac-comphist.dat" "eshell/" ".gitignore" "ido.last")
-
- ("/home/saahil/" (22321 19641 795961 926000) ".emacs.d/" "Documents/" "Templates/" "./" ".gnome2/" ".profile" "Downloads/" ".cinnamon/" ".linuxmint/" ".xsession-errors" ".recentf" "Public/" ".dmrc" "#test#" ".dbus/" ".ICEauthority" ".local/" ".bashrc" "OneDrive/" "Pictures/" ".bash_logout" ".config/" ".pki/" "Desktop/" ".gconf/" "Videos/" "#.xsession#" ".cache/" ".gksu.lock" ".adobe/" ".gitconfig" "../" ".python_history" "code/" ".mozilla/" ".Xauthority" ".themes/" ".macromedia/" "Music/" ".gnome2_private/" ".bash_history" ".icons/")
-
  ("c:/Users/saahil claypool/OneDrive/R/misc/" (22387 5576 0 0) "test.R" ".Rhistory" ".RData" "../" "./")
 
  ("c:/Windows/system32/0409/" (22067 12823 0 0) "../" "./")

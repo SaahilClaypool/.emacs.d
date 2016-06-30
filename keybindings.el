@@ -1,8 +1,9 @@
 ;; file with all custom keybindings
 
 ;; doxyref
-(global-set-key (kbd "C-c d d") (lambda ()(interactive)(doxyRef-lookup-docs)))
-(global-set-key (kbd "C-c d s") (lambda ()(interactive)(doxyRef-setup-project)))
+;; (global-set-key (kbd "C-c d d") (lambda ()(interactive)(doxyRef-lookup-docs)))
+;; (global-set-key (kbd "C-c d s") (lambda ()(interactive)(doxyRef-setup-project)
+
 
 
 
@@ -96,7 +97,8 @@ point reaches the beginning or end of the buffer, stop there."
 (global-set-key (kbd "C-c e") 'eval-and-replace)
 ;; avy jump 
 
-(define-key global-map (kbd "M-j") 'avy-goto-word-or-subword-1)
+(define-key global-map (kbd "C-c j") 'avy-goto-word-or-subword-1)
+(define-key global-map (kbd "C-c C-j") 'avy-goto-char)
 
 
 (define-key global-map (kbd "C-x p") 'ace-window)
