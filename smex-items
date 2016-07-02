@@ -1,25 +1,48 @@
 
 ;; ----- smex-history -----
 (
+ next-error
+ flymake-mode
  eval-buffer
+ flycheck-mode
  describe-key
- R
- load-theme
- eshell
  package-install
- package-refresh-contents
+ load-theme
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 14)
+ (eval-buffer . 19)
  (shell . 7)
  (evil-mode . 4)
  (eshell . 4)
- (package-install . 2)
+ (package-install . 4)
  (magit-status . 1)
  (load-theme . 8)
  (package-refresh-contents . 1)
  (R . 3)
- (describe-key . 1)
+ (describe-key . 3)
+ (powerline-vim-theme . 1)
+ (powerline-default-theme . 1)
+ (bookmark-delete . 1)
+ (bookmark-set . 2)
+ (register-to-point . 1)
+ (view-register . 3)
+ (point-to-register . 1)
+ (list-registers . 2)
+ (helm-register . 5)
+ (vc-register . 1)
+ (helm-mode . 3)
+ (ido-mode . 2)
+ (helm-find . 1)
+ (helm-find-files . 2)
+ (helm-elscreen . 1)
+ (flymake-compile . 1)
+ (flycheck-mode . 3)
+ (flymake-goto-next-error . 2)
+ (global-flycheck-mode . 1)
+ (flymake-display-err-menu-for-current-line . 2)
+ (flymake-popup-current-error-menu . 2)
+ (flymake-mode . 9)
+ (next-error . 1)
 )

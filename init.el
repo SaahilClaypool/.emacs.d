@@ -4,8 +4,20 @@
 (load-file "~/.emacs.d/packages.el")
 (load-file  "~/.emacs.d/keybindings.el")
 
+;;(global-flycheck-mode)
 
 
+(setq register-preview-delay nil)
+
+
+;; (require 'flymake)
+;; (add-hook 'java-mode-hook 'flymake-mode-on)
+
+;; (defun my-java-flymake-init ()
+;;   (list "javac" (list (flymake-init-create-temp-buffer-copy
+;;                        'flymake-create-temp-with-folder-structure))))
+
+;; (add-to-list 'flymake-allowed-file-name-masks '("\\.java$" my-java-flymake-init flymake-simple-cleanup))
 
 
 
