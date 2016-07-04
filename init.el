@@ -10,8 +10,8 @@
 (evil-mode 1)
 
 (require 'magit)
-
-
+(require 'projectile)
+(projectile-global-mode 1)
 
 ;; (require 'flymake)
 ;; (add-hook 'java-mode-hook 'flymake-mode-on)
