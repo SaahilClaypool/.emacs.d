@@ -13,9 +13,11 @@
 
 ;;(global-flycheck-mode)
 
-;;(require 'evil)
-;;(evil-mode 1)
-
+(require 'evil)
+(evil-mode 1)
+(require 'expand-region)
+(global-set-key (kbd "C-q") 'er/expand-region)
+(global-set-key (kbd "M-q") 'er/contract-region)
 (require 'magit)
 (require 'projectile)
 (projectile-global-mode 1)
